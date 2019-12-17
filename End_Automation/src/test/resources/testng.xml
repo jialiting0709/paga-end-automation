@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Paga系统测试套件">
+    <listeners>
+        <listener class-name="com.paga.config.ExtentTestNGIReporterListener"/>
+    </listeners>
+    <test name="Paga系统CMS模块正向场景+反向测试用例">
+        <classes>
+            <!--登陆-->
+            <class name="com.paga.cases.LoginTest"/>
+            <class name="com.paga.cases.TaskTypeTest"/> 
+            <class name="com.paga.cases.AllHdrTest"/>              
+        </classes>
+
+    </test>
+
+</suite>
