@@ -1,0 +1,1176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="27" passed="27">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Paga系统测试套件" duration-ms="83644" started-at="2019-12-20T03:03:21Z" finished-at="2019-12-20T03:04:44Z">
+    <groups>
+      <group name="completeSubTask">
+        <method signature="CompleteSubTaskTest.completeSubTask()[pri:0, instance:com.paga.cases.CompleteSubTaskTest@7e7be63f]" name="completeSubTask" class="com.paga.cases.CompleteSubTaskTest"/>
+      </group> <!-- completeSubTask -->
+      <group name="rejectTask">
+        <method signature="RejectSubtaskTest.rejectTask()[pri:0, instance:com.paga.cases.RejectSubtaskTest@618425b5]" name="rejectTask" class="com.paga.cases.RejectSubtaskTest"/>
+      </group> <!-- rejectTask -->
+      <group name="CompleteSubTaskReJ">
+        <method signature="CompleteSubTaskReJTest.completeSubTaskREj()[pri:0, instance:com.paga.cases.CompleteSubTaskReJTest@25fb8912]" name="completeSubTaskREj" class="com.paga.cases.CompleteSubTaskReJTest"/>
+      </group> <!-- CompleteSubTaskReJ -->
+      <group name="NewSubTaskReJUUid">
+        <method signature="NewSubTaskReJUUidTest.newSubTaskuuid()[pri:0, instance:com.paga.cases.NewSubTaskReJUUidTest@543588e6]" name="newSubTaskuuid" class="com.paga.cases.NewSubTaskReJUUidTest"/>
+      </group> <!-- NewSubTaskReJUUid -->
+      <group name="UpdateSubTaskReJ">
+        <method signature="UpdateSubTaskReJTest.test()[pri:0, instance:com.paga.cases.UpdateSubTaskReJTest@4fb3ee4e]" name="test" class="com.paga.cases.UpdateSubTaskReJTest"/>
+      </group> <!-- UpdateSubTaskReJ -->
+      <group name="ruleZip">
+        <method signature="RuleZipTest.ruleZip()[pri:0, instance:com.paga.cases.RuleZipTest@52af26ee]" name="ruleZip" class="com.paga.cases.RuleZipTest"/>
+      </group> <!-- ruleZip -->
+      <group name="addTask">
+        <method signature="AddTaskTest.loginTrue()[pri:0, instance:com.paga.cases.AddTaskTest@169e6180]" name="loginTrue" class="com.paga.cases.AddTaskTest"/>
+      </group> <!-- addTask -->
+      <group name="approveTaskReview">
+        <method signature="ApproveTaskTest.approveSubTask()[pri:0, instance:com.paga.cases.ApproveTaskTest@1b2abca6]" name="approveSubTask" class="com.paga.cases.ApproveTaskTest"/>
+      </group> <!-- approveTaskReview -->
+      <group name="loginTrue">
+        <method signature="LoginTest.loginTrue()[pri:0, instance:com.paga.cases.LoginTest@2b91004a]" name="loginTrue" class="com.paga.cases.LoginTest"/>
+      </group> <!-- loginTrue -->
+      <group name="startTask">
+        <method signature="StartTaskTest.startTask()[pri:0, instance:com.paga.cases.StartTaskTest@7205765b]" name="startTask" class="com.paga.cases.StartTaskTest"/>
+      </group> <!-- startTask -->
+      <group name="newSubTaskuuid">
+        <method signature="NewSubTaskUUidTest.newSubTaskuuid()[pri:0, instance:com.paga.cases.NewSubTaskUUidTest@614ca7df]" name="newSubTaskuuid" class="com.paga.cases.NewSubTaskUUidTest"/>
+      </group> <!-- newSubTaskuuid -->
+      <group name="addLinkingCrit">
+        <method signature="AddLinkingCritTest.addLinkingCrit()[pri:0, instance:com.paga.cases.AddLinkingCritTest@611889f4]" name="addLinkingCrit" class="com.paga.cases.AddLinkingCritTest"/>
+      </group> <!-- addLinkingCrit -->
+      <group name="addComment">
+        <method signature="AddCommentTest.addComment()[pri:0, instance:com.paga.cases.AddCommentTest@66d3eec0]" name="addComment" class="com.paga.cases.AddCommentTest"/>
+      </group> <!-- addComment -->
+      <group name="write">
+        <method signature="WriteTest.test()[pri:0, instance:com.paga.cases.WriteTest@21e360a]" name="test" class="com.paga.cases.WriteTest"/>
+      </group> <!-- write -->
+      <group name="newTaskReviewUUid">
+        <method signature="NewTaskReviewUUidTest.newTaskReviewUUid()[pri:0, instance:com.paga.cases.NewTaskReviewUUidTest@209da20d]" name="newTaskReviewUUid" class="com.paga.cases.NewTaskReviewUUidTest"/>
+      </group> <!-- newTaskReviewUUid -->
+      <group name="newSubTaskDeployedUuid">
+        <method signature="NewSubTaskDeployedUUidTest.newSubTaskDeployedUuid()[pri:0, instance:com.paga.cases.NewSubTaskDeployedUUidTest@741a8937]" name="newSubTaskDeployedUuid" class="com.paga.cases.NewSubTaskDeployedUUidTest"/>
+      </group> <!-- newSubTaskDeployedUuid -->
+      <group name="approveSubTask">
+        <method signature="ApproveSubTaskReviewTest.approveSubTask()[pri:0, instance:com.paga.cases.ApproveSubTaskReviewTest@58d75e99]" name="approveSubTask" class="com.paga.cases.ApproveSubTaskReviewTest"/>
+      </group> <!-- approveSubTask -->
+      <group name="startSubtask">
+        <method signature="StartSubtaskTest.startTask()[pri:0, instance:com.paga.cases.StartSubtaskTest@22ef9844]" name="startTask" class="com.paga.cases.StartSubtaskTest"/>
+      </group> <!-- startSubtask -->
+      <group name="newTaskDoneUUid">
+        <method signature="NewTaskDoneUUidTest.newTaskDoneUUid()[pri:0, instance:com.paga.cases.NewTaskDoneUUidTest@2ed2d9cb]" name="newTaskDoneUUid" class="com.paga.cases.NewTaskDoneUUidTest"/>
+      </group> <!-- newTaskDoneUUid -->
+      <group name="updateSubTask">
+        <method signature="UpdateSubTaskTest.test()[pri:0, instance:com.paga.cases.UpdateSubTaskTest@1a18644]" name="test" class="com.paga.cases.UpdateSubTaskTest"/>
+      </group> <!-- updateSubTask -->
+      <group name="approveTaskDone">
+        <method signature="ApproveTaskDoneTest.approveSubTask()[pri:0, instance:com.paga.cases.ApproveTaskDoneTest@43dac38f]" name="approveSubTask" class="com.paga.cases.ApproveTaskDoneTest"/>
+      </group> <!-- approveTaskDone -->
+      <group name="subtasktkId">
+        <method signature="SubtasktkIdTest.subtasktkId()[pri:0, instance:com.paga.cases.SubtasktkIdTest@3b6ddd1d]" name="subtasktkId" class="com.paga.cases.SubtasktkIdTest"/>
+      </group> <!-- subtasktkId -->
+      <group name="addPath">
+        <method signature="AddPathTest.addPath()[pri:0, instance:com.paga.cases.AddPathTest@2f217633]" name="addPath" class="com.paga.cases.AddPathTest"/>
+      </group> <!-- addPath -->
+      <group name="condition">
+        <method signature="RruleConditionTest.test()[pri:0, instance:com.paga.cases.RruleConditionTest@1da2cb77]" name="test" class="com.paga.cases.RruleConditionTest"/>
+      </group> <!-- condition -->
+      <group name="commentsId">
+        <method signature="CommentsTest.test()[pri:0, instance:com.paga.cases.CommentsTest@1af2d44a]" name="test" class="com.paga.cases.CommentsTest"/>
+      </group> <!-- commentsId -->
+      <group name="approveSubTaskDone">
+        <method signature="ApproveSubTaskDoneTest.approveSubTask()[pri:0, instance:com.paga.cases.ApproveSubTaskDoneTest@4f2b503c]" name="approveSubTask" class="com.paga.cases.ApproveSubTaskDoneTest"/>
+      </group> <!-- approveSubTaskDone -->
+      <group name="NewSubTaskReJComUUid">
+        <method signature="NewSubTaskReJComUUidTest.newSubTaskReJComUUid()[pri:0, instance:com.paga.cases.NewSubTaskReJComUUidTest@2c35e847]" name="newSubTaskReJComUUid" class="com.paga.cases.NewSubTaskReJComUUidTest"/>
+      </group> <!-- NewSubTaskReJComUUid -->
+    </groups>
+    <test name="Paga系统CMS模块正向场景+反向测试用例" duration-ms="83644" started-at="2019-12-20T03:03:21Z" finished-at="2019-12-20T03:04:44Z">
+      <class name="com.paga.cases.ApproveSubTaskDoneTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.ApproveSubTaskDoneTest@4f2b503c]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:29Z" finished-at="2019-12-20T11:04:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.ApproveSubTaskDoneTest@4f2b503c]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="12" started-at="2019-12-20T11:04:29Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.ApproveSubTaskDoneTest@4f2b503c]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:29Z" finished-at="2019-12-20T11:04:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.ApproveSubTaskDoneTest.approveSubTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="approveSubTask()[pri:0, instance:com.paga.cases.ApproveSubTaskDoneTest@4f2b503c]" name="approveSubTask" duration-ms="3074" depends-on-groups="ruleZip" started-at="2019-12-20T11:04:29Z" description="approve subTask done" finished-at="2019-12-20T11:04:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- approveSubTask -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.ApproveSubTaskDoneTest@4f2b503c]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="2" started-at="2019-12-20T11:04:32Z" finished-at="2019-12-20T11:04:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.ApproveSubTaskDoneTest.approveSubTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.ApproveSubTaskDoneTest@4f2b503c]" name="springTestContextAfterTestClass" is-config="true" duration-ms="2" started-at="2019-12-20T11:04:32Z" finished-at="2019-12-20T11:04:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.ApproveSubTaskDoneTest -->
+      <class name="com.paga.cases.SubtasktkIdTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.SubtasktkIdTest@3b6ddd1d]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:42Z" finished-at="2019-12-20T11:03:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.SubtasktkIdTest@3b6ddd1d]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="11" started-at="2019-12-20T11:03:42Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="subtasktkId()[pri:0, instance:com.paga.cases.SubtasktkIdTest@3b6ddd1d]" name="subtasktkId" duration-ms="3010" depends-on-groups="startSubtask" started-at="2019-12-20T11:03:42Z" description="subtask tkId" finished-at="2019-12-20T11:03:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- subtasktkId -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.SubtasktkIdTest@3b6ddd1d]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:42Z" finished-at="2019-12-20T11:03:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.SubtasktkIdTest.subtasktkId() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.SubtasktkIdTest@3b6ddd1d]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:45Z" finished-at="2019-12-20T11:03:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.SubtasktkIdTest.subtasktkId() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.SubtasktkIdTest@3b6ddd1d]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:45Z" finished-at="2019-12-20T11:03:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.SubtasktkIdTest -->
+      <class name="com.paga.cases.CompleteSubTaskReJTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.CompleteSubTaskReJTest@25fb8912]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:10Z" finished-at="2019-12-20T11:04:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.CompleteSubTaskReJTest@25fb8912]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="5" started-at="2019-12-20T11:04:10Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.CompleteSubTaskReJTest@25fb8912]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:10Z" finished-at="2019-12-20T11:04:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.CompleteSubTaskReJTest.completeSubTaskREj() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="completeSubTaskREj()[pri:0, instance:com.paga.cases.CompleteSubTaskReJTest@25fb8912]" name="completeSubTaskREj" duration-ms="3050" depends-on-groups="UpdateSubTaskReJ" started-at="2019-12-20T11:04:10Z" description="Complete a SubTaskrej" finished-at="2019-12-20T11:04:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- completeSubTaskREj -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.CompleteSubTaskReJTest@25fb8912]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:13Z" finished-at="2019-12-20T11:04:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.CompleteSubTaskReJTest.completeSubTaskREj() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.CompleteSubTaskReJTest@25fb8912]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:13Z" finished-at="2019-12-20T11:04:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.CompleteSubTaskReJTest -->
+      <class name="com.paga.cases.AddTaskTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.AddTaskTest@169e6180]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:30Z" finished-at="2019-12-20T11:03:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.AddTaskTest@169e6180]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="8" started-at="2019-12-20T11:03:30Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.AddTaskTest@169e6180]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:30Z" finished-at="2019-12-20T11:03:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.AddTaskTest.loginTrue() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="loginTrue()[pri:0, instance:com.paga.cases.AddTaskTest@169e6180]" name="loginTrue" duration-ms="123" depends-on-groups="loginTrue" started-at="2019-12-20T11:03:30Z" description="add a Task" finished-at="2019-12-20T11:03:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTrue -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.AddTaskTest@169e6180]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:31Z" finished-at="2019-12-20T11:03:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.AddTaskTest.loginTrue() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.AddTaskTest@169e6180]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:31Z" finished-at="2019-12-20T11:03:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.AddTaskTest -->
+      <class name="com.paga.cases.NewSubTaskReJComUUidTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.NewSubTaskReJComUUidTest@2c35e847]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:13Z" finished-at="2019-12-20T11:04:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.NewSubTaskReJComUUidTest@2c35e847]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="12" started-at="2019-12-20T11:04:13Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewSubTaskReJComUUidTest@2c35e847]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:13Z" finished-at="2019-12-20T11:04:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewSubTaskReJComUUidTest.newSubTaskReJComUUid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="newSubTaskReJComUUid()[pri:0, instance:com.paga.cases.NewSubTaskReJComUUidTest@2c35e847]" name="newSubTaskReJComUUid" duration-ms="3061" depends-on-groups="CompleteSubTaskReJ" started-at="2019-12-20T11:04:13Z" description="new SubTaskReJCom uuid" finished-at="2019-12-20T11:04:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newSubTaskReJComUUid -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewSubTaskReJComUUidTest@2c35e847]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:17Z" finished-at="2019-12-20T11:04:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewSubTaskReJComUUidTest.newSubTaskReJComUUid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.NewSubTaskReJComUUidTest@2c35e847]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:17Z" finished-at="2019-12-20T11:04:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.NewSubTaskReJComUUidTest -->
+      <class name="com.paga.cases.NewTaskReviewUUidTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.NewTaskReviewUUidTest@209da20d]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:32Z" finished-at="2019-12-20T11:04:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.NewTaskReviewUUidTest@209da20d]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="12" started-at="2019-12-20T11:04:32Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="newTaskReviewUUid()[pri:0, instance:com.paga.cases.NewTaskReviewUUidTest@209da20d]" name="newTaskReviewUUid" duration-ms="3122" depends-on-groups="approveSubTaskDone" started-at="2019-12-20T11:04:32Z" description="new Task uuid" finished-at="2019-12-20T11:04:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newTaskReviewUUid -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewTaskReviewUUidTest@209da20d]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:32Z" finished-at="2019-12-20T11:04:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewTaskReviewUUidTest.newTaskReviewUUid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewTaskReviewUUidTest@209da20d]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:35Z" finished-at="2019-12-20T11:04:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewTaskReviewUUidTest.newTaskReviewUUid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.NewTaskReviewUUidTest@209da20d]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:35Z" finished-at="2019-12-20T11:04:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.NewTaskReviewUUidTest -->
+      <class name="com.paga.cases.NewSubTaskDeployedUUidTest">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.NewSubTaskDeployedUUidTest@741a8937]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="28" started-at="2019-12-20T11:04:23Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.NewSubTaskDeployedUUidTest@741a8937]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:23Z" finished-at="2019-12-20T11:04:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="newSubTaskDeployedUuid()[pri:0, instance:com.paga.cases.NewSubTaskDeployedUUidTest@741a8937]" name="newSubTaskDeployedUuid" duration-ms="3141" depends-on-groups="approveSubTask" started-at="2019-12-20T11:04:23Z" description="new SubTask uuid" finished-at="2019-12-20T11:04:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newSubTaskDeployedUuid -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewSubTaskDeployedUUidTest@741a8937]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:23Z" finished-at="2019-12-20T11:04:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewSubTaskDeployedUUidTest.newSubTaskDeployedUuid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewSubTaskDeployedUUidTest@741a8937]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:26Z" finished-at="2019-12-20T11:04:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewSubTaskDeployedUUidTest.newSubTaskDeployedUuid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.NewSubTaskDeployedUUidTest@741a8937]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:26Z" finished-at="2019-12-20T11:04:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.NewSubTaskDeployedUUidTest -->
+      <class name="com.paga.cases.AddPathTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.AddPathTest@2f217633]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:48Z" finished-at="2019-12-20T11:03:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.AddPathTest@2f217633]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="11" started-at="2019-12-20T11:03:48Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.AddPathTest@2f217633]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:48Z" finished-at="2019-12-20T11:03:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.AddPathTest.addPath() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="addPath()[pri:0, instance:com.paga.cases.AddPathTest@2f217633]" name="addPath" duration-ms="3030" depends-on-groups="condition" started-at="2019-12-20T11:03:48Z" description="add Path" finished-at="2019-12-20T11:03:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addPath -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.AddPathTest@2f217633]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:51Z" finished-at="2019-12-20T11:03:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.AddPathTest.addPath() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.AddPathTest@2f217633]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:51Z" finished-at="2019-12-20T11:03:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.AddPathTest -->
+      <class name="com.paga.cases.NewSubTaskReJUUidTest">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.NewSubTaskReJUUidTest@543588e6]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="3" started-at="2019-12-20T11:04:05Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.NewSubTaskReJUUidTest@543588e6]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:05Z" finished-at="2019-12-20T11:04:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="newSubTaskuuid()[pri:0, instance:com.paga.cases.NewSubTaskReJUUidTest@543588e6]" name="newSubTaskuuid" duration-ms="3084" depends-on-groups="rejectTask" started-at="2019-12-20T11:04:05Z" description="new SubTaskReJ uuid" finished-at="2019-12-20T11:04:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newSubTaskuuid -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewSubTaskReJUUidTest@543588e6]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:05Z" finished-at="2019-12-20T11:04:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewSubTaskReJUUidTest.newSubTaskuuid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewSubTaskReJUUidTest@543588e6]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:08Z" finished-at="2019-12-20T11:04:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewSubTaskReJUUidTest.newSubTaskuuid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.NewSubTaskReJUUidTest@543588e6]" name="springTestContextAfterTestClass" is-config="true" duration-ms="2" started-at="2019-12-20T11:04:08Z" finished-at="2019-12-20T11:04:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.NewSubTaskReJUUidTest -->
+      <class name="com.paga.cases.StartSubtaskTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.StartSubtaskTest@22ef9844]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:36Z" finished-at="2019-12-20T11:03:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.StartSubtaskTest@22ef9844]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="13" started-at="2019-12-20T11:03:36Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.StartSubtaskTest@22ef9844]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:36Z" finished-at="2019-12-20T11:03:36Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.StartSubtaskTest.startTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="startTask()[pri:0, instance:com.paga.cases.StartSubtaskTest@22ef9844]" name="startTask" duration-ms="6036" depends-on-groups="startTask" started-at="2019-12-20T11:03:36Z" description="Assign the user to a subTask" finished-at="2019-12-20T11:03:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTask -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.StartSubtaskTest@22ef9844]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:42Z" finished-at="2019-12-20T11:03:42Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.StartSubtaskTest.startTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.StartSubtaskTest@22ef9844]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:42Z" finished-at="2019-12-20T11:03:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.StartSubtaskTest -->
+      <class name="com.paga.cases.ApproveSubTaskReviewTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.ApproveSubTaskReviewTest@58d75e99]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:20Z" finished-at="2019-12-20T11:04:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.ApproveSubTaskReviewTest@58d75e99]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="11" started-at="2019-12-20T11:04:20Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.ApproveSubTaskReviewTest@58d75e99]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:20Z" finished-at="2019-12-20T11:04:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.ApproveSubTaskReviewTest.approveSubTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="approveSubTask()[pri:0, instance:com.paga.cases.ApproveSubTaskReviewTest@58d75e99]" name="approveSubTask" duration-ms="3057" depends-on-groups="write" started-at="2019-12-20T11:04:20Z" description="approve subTask" finished-at="2019-12-20T11:04:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- approveSubTask -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.ApproveSubTaskReviewTest@58d75e99]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:23Z" finished-at="2019-12-20T11:04:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.ApproveSubTaskReviewTest@58d75e99]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:23Z" finished-at="2019-12-20T11:04:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.ApproveSubTaskReviewTest.approveSubTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+      </class> <!-- com.paga.cases.ApproveSubTaskReviewTest -->
+      <class name="com.paga.cases.LoginTest">
+        <test-method status="PASS" signature="beforeTest()[pri:0, instance:com.paga.cases.LoginTest@2b91004a]" name="beforeTest" is-config="true" duration-ms="485" started-at="2019-12-20T11:03:21Z" description="测试准备工作,获取HttpClient对象" finished-at="2019-12-20T11:03:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.LoginTest@2b91004a]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="7" started-at="2019-12-20T11:03:21Z" finished-at="2019-12-20T11:03:21Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.LoginTest@2b91004a]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="8991" started-at="2019-12-20T11:03:21Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.LoginTest@2b91004a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="2" started-at="2019-12-20T11:03:30Z" finished-at="2019-12-20T11:03:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.LoginTest.loginTrue() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="loginTrue()[pri:0, instance:com.paga.cases.LoginTest@2b91004a]" name="loginTrue" duration-ms="139" started-at="2019-12-20T11:03:30Z" description="login" finished-at="2019-12-20T11:03:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginTrue -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.LoginTest@2b91004a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:30Z" finished-at="2019-12-20T11:03:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.LoginTest.loginTrue() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.LoginTest@2b91004a]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:30Z" finished-at="2019-12-20T11:03:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.LoginTest -->
+      <class name="com.paga.cases.UpdateSubTaskTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.UpdateSubTaskTest@1a18644]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:51Z" finished-at="2019-12-20T11:03:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.UpdateSubTaskTest@1a18644]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="12" started-at="2019-12-20T11:03:51Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:51Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="test()[pri:0, instance:com.paga.cases.UpdateSubTaskTest@1a18644]" name="test" duration-ms="2015" depends-on-groups="addPath" started-at="2019-12-20T11:03:51Z" description="update SubTask" finished-at="2019-12-20T11:03:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.UpdateSubTaskTest@1a18644]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:51Z" finished-at="2019-12-20T11:03:51Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.UpdateSubTaskTest.test() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.UpdateSubTaskTest@1a18644]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:53Z" finished-at="2019-12-20T11:03:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.UpdateSubTaskTest.test() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.UpdateSubTaskTest@1a18644]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:53Z" finished-at="2019-12-20T11:03:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.UpdateSubTaskTest -->
+      <class name="com.paga.cases.ApproveTaskDoneTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.ApproveTaskDoneTest@43dac38f]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:41Z" finished-at="2019-12-20T11:04:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.ApproveTaskDoneTest@43dac38f]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="10" started-at="2019-12-20T11:04:41Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="approveSubTask()[pri:0, instance:com.paga.cases.ApproveTaskDoneTest@43dac38f]" name="approveSubTask" duration-ms="3067" depends-on-groups="newTaskDoneUUid" started-at="2019-12-20T11:04:41Z" description=" approve task done" finished-at="2019-12-20T11:04:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- approveSubTask -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.ApproveTaskDoneTest@43dac38f]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:41Z" finished-at="2019-12-20T11:04:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.ApproveTaskDoneTest.approveSubTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.ApproveTaskDoneTest@43dac38f]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:44Z" finished-at="2019-12-20T11:04:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.ApproveTaskDoneTest.approveSubTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.ApproveTaskDoneTest@43dac38f]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:44Z" finished-at="2019-12-20T11:04:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.ApproveTaskDoneTest -->
+      <class name="com.paga.cases.StartTaskTest">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.StartTaskTest@7205765b]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="6" started-at="2019-12-20T11:03:31Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.StartTaskTest@7205765b]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:31Z" finished-at="2019-12-20T11:03:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.StartTaskTest@7205765b]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:31Z" finished-at="2019-12-20T11:03:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.StartTaskTest.startTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="startTask()[pri:0, instance:com.paga.cases.StartTaskTest@7205765b]" name="startTask" duration-ms="5052" depends-on-groups="addTask" started-at="2019-12-20T11:03:31Z" description="start a new task in workbench" finished-at="2019-12-20T11:03:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTask -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.StartTaskTest@7205765b]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:36Z" finished-at="2019-12-20T11:03:36Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.StartTaskTest.startTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.StartTaskTest@7205765b]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:36Z" finished-at="2019-12-20T11:03:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.StartTaskTest -->
+      <class name="com.paga.cases.CompleteSubTaskTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.CompleteSubTaskTest@7e7be63f]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="2" started-at="2019-12-20T11:03:53Z" finished-at="2019-12-20T11:03:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.CompleteSubTaskTest@7e7be63f]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="12" started-at="2019-12-20T11:03:53Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.CompleteSubTaskTest@7e7be63f]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:53Z" finished-at="2019-12-20T11:03:53Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.CompleteSubTaskTest.completeSubTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="completeSubTask()[pri:0, instance:com.paga.cases.CompleteSubTaskTest@7e7be63f]" name="completeSubTask" duration-ms="3034" depends-on-groups="updateSubTask" started-at="2019-12-20T11:03:53Z" description="Complete a SubTask" finished-at="2019-12-20T11:03:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- completeSubTask -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.CompleteSubTaskTest@7e7be63f]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="6" started-at="2019-12-20T11:03:56Z" finished-at="2019-12-20T11:03:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.CompleteSubTaskTest.completeSubTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.CompleteSubTaskTest@7e7be63f]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:56Z" finished-at="2019-12-20T11:03:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.CompleteSubTaskTest -->
+      <class name="com.paga.cases.AddLinkingCritTest">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.AddLinkingCritTest@611889f4]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="12" started-at="2019-12-20T11:03:45Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.AddLinkingCritTest@611889f4]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:45Z" finished-at="2019-12-20T11:03:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.AddLinkingCritTest@611889f4]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:45Z" finished-at="2019-12-20T11:03:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.AddLinkingCritTest.addLinkingCrit() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="addLinkingCrit()[pri:0, instance:com.paga.cases.AddLinkingCritTest@611889f4]" name="addLinkingCrit" duration-ms="29" depends-on-groups="startSubtask" started-at="2019-12-20T11:03:45Z" description="add a Linking Crit" finished-at="2019-12-20T11:03:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addLinkingCrit -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.AddLinkingCritTest@611889f4]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:45Z" finished-at="2019-12-20T11:03:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.AddLinkingCritTest.addLinkingCrit() throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.AddLinkingCritTest@611889f4]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:45Z" finished-at="2019-12-20T11:03:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.AddLinkingCritTest -->
+      <class name="com.paga.cases.NewTaskDoneUUidTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.NewTaskDoneUUidTest@2ed2d9cb]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:38Z" finished-at="2019-12-20T11:04:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.NewTaskDoneUUidTest@2ed2d9cb]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="11" started-at="2019-12-20T11:04:38Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewTaskDoneUUidTest@2ed2d9cb]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:38Z" finished-at="2019-12-20T11:04:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewTaskDoneUUidTest.newTaskDoneUUid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="newTaskDoneUUid()[pri:0, instance:com.paga.cases.NewTaskDoneUUidTest@2ed2d9cb]" name="newTaskDoneUUid" duration-ms="3077" depends-on-groups="approveTaskReview" started-at="2019-12-20T11:04:38Z" description="task Done new uuid" finished-at="2019-12-20T11:04:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newTaskDoneUUid -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewTaskDoneUUidTest@2ed2d9cb]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:41Z" finished-at="2019-12-20T11:04:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewTaskDoneUUidTest.newTaskDoneUUid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.NewTaskDoneUUidTest@2ed2d9cb]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:41Z" finished-at="2019-12-20T11:04:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.NewTaskDoneUUidTest -->
+      <class name="com.paga.cases.CommentsTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.CommentsTest@1af2d44a]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:02Z" finished-at="2019-12-20T11:04:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.CommentsTest@1af2d44a]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="11" started-at="2019-12-20T11:04:02Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.CommentsTest@1af2d44a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:02Z" finished-at="2019-12-20T11:04:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.CommentsTest.test() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="test()[pri:0, instance:com.paga.cases.CommentsTest@1af2d44a]" name="test" duration-ms="3027" depends-on-groups="addComment" started-at="2019-12-20T11:04:02Z" description="query comments id" finished-at="2019-12-20T11:04:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.CommentsTest@1af2d44a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="5" started-at="2019-12-20T11:04:05Z" finished-at="2019-12-20T11:04:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.CommentsTest.test() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.CommentsTest@1af2d44a]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:05Z" finished-at="2019-12-20T11:04:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.CommentsTest -->
+      <class name="com.paga.cases.AddCommentTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.AddCommentTest@66d3eec0]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:59Z" finished-at="2019-12-20T11:03:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.AddCommentTest@66d3eec0]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="11" started-at="2019-12-20T11:03:59Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="addComment()[pri:0, instance:com.paga.cases.AddCommentTest@66d3eec0]" name="addComment" duration-ms="3014" depends-on-groups="newSubTaskuuid" started-at="2019-12-20T11:03:59Z" description="add comment" finished-at="2019-12-20T11:04:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addComment -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.AddCommentTest@66d3eec0]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:59Z" finished-at="2019-12-20T11:03:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.AddCommentTest.addComment() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.AddCommentTest@66d3eec0]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:02Z" finished-at="2019-12-20T11:04:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.AddCommentTest.addComment() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.AddCommentTest@66d3eec0]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:02Z" finished-at="2019-12-20T11:04:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.AddCommentTest -->
+      <class name="com.paga.cases.RruleConditionTest">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.RruleConditionTest@1da2cb77]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="7" started-at="2019-12-20T11:03:45Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.RruleConditionTest@1da2cb77]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:45Z" finished-at="2019-12-20T11:03:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="test()[pri:0, instance:com.paga.cases.RruleConditionTest@1da2cb77]" name="test" duration-ms="3028" depends-on-groups="addLinkingCrit" started-at="2019-12-20T11:03:45Z" description="condition" finished-at="2019-12-20T11:03:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.RruleConditionTest@1da2cb77]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:45Z" finished-at="2019-12-20T11:03:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.RruleConditionTest.test() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.RruleConditionTest@1da2cb77]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:03:48Z" finished-at="2019-12-20T11:03:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.RruleConditionTest.test() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.RruleConditionTest@1da2cb77]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:48Z" finished-at="2019-12-20T11:03:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.RruleConditionTest -->
+      <class name="com.paga.cases.RejectSubtaskTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.RejectSubtaskTest@618425b5]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:05Z" finished-at="2019-12-20T11:04:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.RejectSubtaskTest@618425b5]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="9" started-at="2019-12-20T11:04:05Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.RejectSubtaskTest@618425b5]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:05Z" finished-at="2019-12-20T11:04:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.RejectSubtaskTest.rejectTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="rejectTask()[pri:0, instance:com.paga.cases.RejectSubtaskTest@618425b5]" name="rejectTask" duration-ms="68" depends-on-groups="commentsId" started-at="2019-12-20T11:04:05Z" description="reject a subtask" finished-at="2019-12-20T11:04:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rejectTask -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.RejectSubtaskTest@618425b5]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:05Z" finished-at="2019-12-20T11:04:05Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.RejectSubtaskTest.rejectTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.RejectSubtaskTest@618425b5]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:05Z" finished-at="2019-12-20T11:04:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.RejectSubtaskTest -->
+      <class name="com.paga.cases.UpdateSubTaskReJTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.UpdateSubTaskReJTest@4fb3ee4e]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="2" started-at="2019-12-20T11:04:08Z" finished-at="2019-12-20T11:04:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.UpdateSubTaskReJTest@4fb3ee4e]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="12" started-at="2019-12-20T11:04:08Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.UpdateSubTaskReJTest@4fb3ee4e]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:08Z" finished-at="2019-12-20T11:04:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.UpdateSubTaskReJTest.test() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="test()[pri:0, instance:com.paga.cases.UpdateSubTaskReJTest@4fb3ee4e]" name="test" duration-ms="2019" depends-on-groups="NewSubTaskReJUUid" started-at="2019-12-20T11:04:08Z" description="update SubTaskRej" finished-at="2019-12-20T11:04:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.UpdateSubTaskReJTest@4fb3ee4e]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:10Z" finished-at="2019-12-20T11:04:10Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.UpdateSubTaskReJTest.test() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.UpdateSubTaskReJTest@4fb3ee4e]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:10Z" finished-at="2019-12-20T11:04:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.UpdateSubTaskReJTest -->
+      <class name="com.paga.cases.RuleZipTest">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.RuleZipTest@52af26ee]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="16" started-at="2019-12-20T11:04:26Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.RuleZipTest@52af26ee]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:26Z" finished-at="2019-12-20T11:04:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.RuleZipTest@52af26ee]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:26Z" finished-at="2019-12-20T11:04:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.RuleZipTest.ruleZip() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="ruleZip()[pri:0, instance:com.paga.cases.RuleZipTest@52af26ee]" name="ruleZip" duration-ms="3036" depends-on-groups="newSubTaskDeployedUuid" started-at="2019-12-20T11:04:26Z" description="rule zip" finished-at="2019-12-20T11:04:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ruleZip -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.RuleZipTest@52af26ee]" name="springTestContextAfterTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:29Z" finished-at="2019-12-20T11:04:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.RuleZipTest@52af26ee]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:29Z" finished-at="2019-12-20T11:04:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.RuleZipTest.ruleZip() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+      </class> <!-- com.paga.cases.RuleZipTest -->
+      <class name="com.paga.cases.NewSubTaskUUidTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.NewSubTaskUUidTest@614ca7df]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:56Z" finished-at="2019-12-20T11:03:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.NewSubTaskUUidTest@614ca7df]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="11" started-at="2019-12-20T11:03:56Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:03:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewSubTaskUUidTest@614ca7df]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:56Z" finished-at="2019-12-20T11:03:56Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewSubTaskUUidTest.newSubTaskuuid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="newSubTaskuuid()[pri:0, instance:com.paga.cases.NewSubTaskUUidTest@614ca7df]" name="newSubTaskuuid" duration-ms="3155" depends-on-groups="completeSubTask" started-at="2019-12-20T11:03:56Z" description="new SubTask uuid" finished-at="2019-12-20T11:03:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- newSubTaskuuid -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.NewSubTaskUUidTest@614ca7df]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:03:59Z" finished-at="2019-12-20T11:03:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.NewSubTaskUUidTest.newSubTaskuuid() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.NewSubTaskUUidTest@614ca7df]" name="springTestContextAfterTestClass" is-config="true" duration-ms="2" started-at="2019-12-20T11:03:59Z" finished-at="2019-12-20T11:03:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.NewSubTaskUUidTest -->
+      <class name="com.paga.cases.WriteTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.WriteTest@21e360a]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="3" started-at="2019-12-20T11:04:17Z" finished-at="2019-12-20T11:04:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.WriteTest@21e360a]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="11" started-at="2019-12-20T11:04:17Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.WriteTest@21e360a]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:17Z" finished-at="2019-12-20T11:04:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.WriteTest.test() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="test()[pri:0, instance:com.paga.cases.WriteTest@21e360a]" name="test" duration-ms="3025" depends-on-groups="NewSubTaskReJComUUid" started-at="2019-12-20T11:04:17Z" description="write test" finished-at="2019-12-20T11:04:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.WriteTest@21e360a]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:20Z" finished-at="2019-12-20T11:04:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[private void com.paga.cases.WriteTest.test() throws java.io.IOException,java.lang.InterruptedException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.WriteTest@21e360a]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:20Z" finished-at="2019-12-20T11:04:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.WriteTest -->
+      <class name="com.paga.cases.ApproveTaskTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.paga.cases.ApproveTaskTest@1b2abca6]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:35Z" finished-at="2019-12-20T11:04:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.paga.cases.ApproveTaskTest@1b2abca6]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="10" started-at="2019-12-20T11:04:35Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2019-12-20T11:04:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.ApproveTaskTest@1b2abca6]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:35Z" finished-at="2019-12-20T11:04:35Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.ApproveTaskTest.approveSubTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="approveSubTask()[pri:0, instance:com.paga.cases.ApproveTaskTest@1b2abca6]" name="approveSubTask" duration-ms="3039" depends-on-groups="newTaskReviewUUid" started-at="2019-12-20T11:04:35Z" description=" approve task review" finished-at="2019-12-20T11:04:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- approveSubTask -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.paga.cases.ApproveTaskTest@1b2abca6]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="1" started-at="2019-12-20T11:04:38Z" finished-at="2019-12-20T11:04:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.paga.cases.ApproveTaskTest.approveSubTask() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.paga.cases.ApproveTaskTest@1b2abca6]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2019-12-20T11:04:38Z" finished-at="2019-12-20T11:04:38Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.paga.cases.ApproveTaskTest -->
+    </test> <!-- Paga系统CMS模块正向场景+反向测试用例 -->
+  </suite> <!-- Paga系统测试套件 -->
+</testng-results>
