@@ -16,6 +16,8 @@ public class CaseRelevanceData {
 	public static String subtaskRejuuid;
 	
 	public static String subtaskRejcomuuid;
+	
+	public static String addPathId;
 		  
 }
 	

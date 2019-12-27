@@ -20,11 +20,11 @@ public class ManagementPage extends BasePage{
 	private WebElement Task_menu;
 	
 	//定位Task Management
-	@FindBy(linkText="Task Management")
+	@FindBy(xpath="//*[contains(text(),'Task Management')]")
 	private WebElement Task_Management;
 	
 	//定位Task Management
-	@FindBy(linkText="My Workbench")
+	@FindBy(xpath="//body/div[2]/div[2]/div/div/div/button")
 	private WebElement My_Workbench;
 	
 	
@@ -52,7 +52,7 @@ public class ManagementPage extends BasePage{
 	}
 		
 	//定位添加按钮
-	@FindBy(xpath="//mat-toolbar/mat-icon[1]")
+	@FindBy(xpath="//mat-toolbar/button[2]/span/mat-icon")
 	private WebElement Task_add_button;
 	
 	

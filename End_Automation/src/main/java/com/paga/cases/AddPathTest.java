@@ -56,7 +56,9 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("pathseqnum", 1);	
 		jsonObj.put("subTaskPathVo",jsonSubTaskPathVo);
 		System.out.println(jsonObj.toString());
-		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddPathss(), jsonObj);	
+		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddPathss(), jsonObj);
+		CaseRelevanceData.addPathId = returnStr;
+		System.out.println("addPathId"+CaseRelevanceData.addPathId);
 		return returnStr;
 		  
 	}

@@ -30,8 +30,18 @@ public class ConfigBeanPropUrl {
     private String approveTask;
     private String comments;
     private String addComments;
+    private String preview;
 
     
+    
+	public String getPreview() {
+		return preview;
+	}
+
+	public void setPreview(String preview) {
+		this.preview = preview;
+	}
+
 	public String getAddComments() {
 		return addComments;
 	}

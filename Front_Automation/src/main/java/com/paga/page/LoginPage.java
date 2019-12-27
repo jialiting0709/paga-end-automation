@@ -20,7 +20,7 @@ public class LoginPage extends BasePage{
 	private WebElement userPassword;
 	
 	//定位登陆按钮
-	@FindBy(xpath="//app-root/app-login/div/div/div/button/span")
+	@FindBy(xpath="//app-login/div/div/div/div/button")
 	private WebElement Log_in;
 	
 	//点击Log_in按钮

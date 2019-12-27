@@ -12,7 +12,7 @@ public class SubTasksPage extends BasePage{
 	}
 	
 	//定位子任务操作按钮
-	@FindBy(xpath="//app-sub-tasks/table/tbody/tr[1]/td[10]/button/span/mat-icon")
+	@FindBy(xpath="//tbody/tr/td[9]/button/span/mat-icon")
 	private  WebElement sub_mat_icon;
 	
 	//定位子任务编辑按钮
@@ -32,8 +32,44 @@ public class SubTasksPage extends BasePage{
 	private  WebElement td_text;
 	
 	//定位assign to me按钮
-	@FindBy(xpath="/html/body/div/div[2]/div[1]/div[1]/div[1]/button[1]")
+	@FindBy(xpath="//*[contains(text(),'Assign to me')]")
 	private  WebElement assign_to_me;
+	
+	//定位操作按钮
+	@FindBy(xpath="//app-sub-tasks/table/thead/tr/th[9]/button")
+	private  WebElement caozuo;
+	
+	//定位Assign to
+	@FindBy(xpath="//body/div[2]/div[2]/div/div/div/button")
+	private  WebElement Assign_to;
+	
+	//定位Assign to输入框
+	@FindBy(xpath="//input[@placeholder='Assign to']")
+	private  WebElement Assign_to_input;
+	
+	//定位Assign按钮
+	@FindBy(xpath="//app-assign-to-detail/div[2]/button[2]")
+	private  WebElement Assign_button;
+	
+	//点击Assign
+	public void click_Assign_button(){
+		this.click(Assign_button);
+	}
+	
+	//输入Assign to
+	public void input_Assign_to(String s){
+		this.sendkeys(Assign_to_input, s);
+	}
+	
+	//点击Assign to
+	public void click_Assign_to(){
+		this.click(Assign_to);
+	}
+	
+	//点击操作按钮
+	public void click_caozuo(){
+		this.click(caozuo);
+	}
 	
 	//点击assign to me按钮
 	public void click_assign_to_me(){

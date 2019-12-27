@@ -40,11 +40,11 @@
             
             <class name="com.paga.cases.NewSubTaskReJComUUidTest"/>
                       
-                                                   
+                                                 
             <class name="com.paga.cases.WriteTest"/>
             <class name="com.paga.cases.ApproveSubTaskReviewTest"/>        
             <class name="com.paga.cases.NewSubTaskDeployedUUidTest"/> 
-                                                        
+                                                       
           	<class name="com.paga.cases.RuleZipTest"/>
           	<class name="com.paga.cases.ApproveSubTaskDoneTest"/>
       		 
@@ -53,7 +53,7 @@
           	
           	<class name="com.paga.cases.NewTaskDoneUUidTest"/>
           	<class name="com.paga.cases.ApproveTaskDoneTest"/>
-          	<!---->
+          	<!-- -->
           	
      
         </classes>

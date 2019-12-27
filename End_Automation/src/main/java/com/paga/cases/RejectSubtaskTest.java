@@ -25,6 +25,7 @@ public class RejectSubtaskTest extends AbstractTestNGSpringContextTests {
     String result = getResult();
         JSONObject res = new JSONObject(result);
         Assert.assertNotNull(res);
+        Thread.sleep(3000);
     }
     private String getResult() throws IOException {
         JSONObject jsonObject = new JSONObject();
