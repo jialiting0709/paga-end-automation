@@ -23,9 +23,9 @@ public class TaskTypeTest extends AbstractTestNGSpringContextTests{
     public void taskType()throws Exception {
     	//发送请求,获取结果
     	System.out.println("TaskType查询查询接口url："+configBeanPropUrl.getTaskType());
-        CaseRelevanceData.taskTypeName = PostGetUtil.getGetMethod(configBeanPropUrl.getTaskType(), "name");
+        String name= PostGetUtil.getGetMethod(configBeanPropUrl.getTaskType(), "name");
         //验证状态码
-        Assert.assertNotEquals(CaseRelevanceData.taskTypeName.size(), 0);
+        Assert.assertEquals(name, "Create");
     }   
 	
 }

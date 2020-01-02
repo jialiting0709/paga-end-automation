@@ -6,9 +6,12 @@
 
 	<test name="regression_test1">
 		<classes>
-			<!-- -->
-			<class name="com.paga.cases.CreateTaskTest.java"/>
-				
+			<class name="com.paga.cases.CreateTaskTest"/>
+			<class name="com.paga.cases.CompleteSubtasksTest"/>
+			<class name="com.paga.cases.ApproveSubTaskReviewTest"/>	
+			<class name="com.paga.cases.ApproveSubTaskDeployedTest"/>
+			<class name="com.paga.cases.ApproveTaskReviewTest"/>
+			<class name="com.paga.cases.ApproveTaskDeployedTest"/>		
 		</classes>
 		
 	</test>

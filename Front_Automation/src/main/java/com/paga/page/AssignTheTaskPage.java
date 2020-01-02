@@ -16,8 +16,8 @@ public class AssignTheTaskPage extends BasePage{
 	@FindBy(xpath="//*[@ng-reflect-name='design']")
 	private WebElement Design;
 	
-	//定位Design列表第一项
-	@FindBy(xpath="/html/body/div[1]/div/div/div/mat-option[1]/span")
+	//定位Design列表第一项   //*[contains(text(),' wang ')]
+	@FindBy(xpath="//body/div[2]/div/div/div/mat-option/span")
 	private WebElement Design_list;	
 		
 	//定位NEXT
@@ -35,8 +35,8 @@ public class AssignTheTaskPage extends BasePage{
 	}	
 	
 	//点击Design输入框
-	public void click_Design(){
-		this.click(Design);
+	public void input_Design(String s){
+		this.sendkeys(Design, s);
 	}
 	
 }

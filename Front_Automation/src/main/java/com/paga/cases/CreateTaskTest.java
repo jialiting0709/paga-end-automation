@@ -1,5 +1,6 @@
 package com.paga.cases;
- 
+
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -14,6 +15,7 @@ import com.paga.page.SubTasksPage;
 import com.paga.page.TaskDetailPage;
 import com.paga.util.BaseTest;
 import com.paga.util.Config;
+import com.paga.util.PublicFunction;
 
 public class CreateTaskTest extends BaseTest{
 	
@@ -22,9 +24,8 @@ public class CreateTaskTest extends BaseTest{
 	private ManagementPage managementPage;
 	
 	
-	@Test(description = "登陆")
+	@Test(description = "login")
 	public void login(){
-		//访问paga
 		Config config = new Config("config.properties");
 		String url = config.getConfig("url");
 		driver.get(url);
@@ -48,34 +49,53 @@ public class CreateTaskTest extends BaseTest{
 		managementPage = PageFactory.initElements(driver,ManagementPage.class);
 		//点击menu菜单
 		managementPage.click_Task_menu();
+		Thread.sleep(1000);
 		//点击Task Management
 		managementPage.clic_Task_Management();
+		Thread.sleep(1000);
 		//点击添加task
-		managementPage.click_Task_add_button();				
-		AddTaskPage addTaskPage = PageFactory.initElements(driver, AddTaskPage.class);		
+		managementPage.click_Task_add_button();	
+		Thread.sleep(1000);
+		AddTaskPage addTaskPage = PageFactory.initElements(driver, AddTaskPage.class);
 		//点击创建或更新下拉列表
 		addTaskPage.click_create_update_select();
 		//点击create
 		addTaskPage.click_select_create();
 		//输入任务过期时间
-		addTaskPage.input_mat("11/11/2039");
+		String dueDate = PublicFunction.getStringDate(432000000L);
+    	String effective = PublicFunction.getStringDate(864000000L);
+		addTaskPage.input_mat("10");
+		//点击requested by下拉框
+		addTaskPage.click_requested_by();
+		//点击NA
+		addTaskPage.click_NA();
+//		//输入sales Force Case Number内容
+//		addTaskPage.input_sales_Force_Case_Number("123456");
+		
+		//输入Requested Email内容
+		addTaskPage.input_Requested_Email("123@qq.com");
+		//输入task Due
+		addTaskPage.input_task_Due(dueDate);
 		//输入task Description内容
-		addTaskPage.input_task_Description("test an task_jia");
-		//输入sales Force Case Number内容
-		addTaskPage.input_sales_Force_Case_Number("123456");
+		addTaskPage.input_task_Description("test a task_jia");
 		//点击Next
 		addTaskPage.click_next_button();
 		//点击HQ header搜索按钮
 		AddTheClientDetailsPage addTheClientDetailsPage = PageFactory.initElements(driver, AddTheClientDetailsPage.class);	
 		addTheClientDetailsPage.click_HQ_header();
+		//输入M
+		addTheClientDetailsPage.input_HQ_header("M");
 		//选择第一项
-		addTheClientDetailsPage.click_mat_option_header();
-		//点击HQ code搜索按钮
+		addTheClientDetailsPage.clisk_MDT();
+		
+		//点击HQ code搜索框
 		addTheClientDetailsPage.click_HQ_code();
 		//选择第一项
 		addTheClientDetailsPage.click_mat_option_code();
-		//输入Client Name
-		addTheClientDetailsPage.input_client_name("joey");
+		
+		Actions actions = new Actions(driver);
+	    actions.moveByOffset(0, 0).click().build().perform();
+	    
 		//点击Guideline Set下拉列表
 		addTheClientDetailsPage.click_Guideline_Set();
 		//选择第一项
@@ -85,19 +105,19 @@ public class CreateTaskTest extends BaseTest{
 		//选择第一项
 		addTheClientDetailsPage.click_Guideline_Code_mat_option();
 		//输入number Of Guidelines
-		addTheClientDetailsPage.send_number_Of_Guidelines("2");
+		addTheClientDetailsPage.send_number_Of_Guidelines("1");
 		//输入effectiveDate
-		addTheClientDetailsPage.send_effective_Date("11/11/2019");
+		addTheClientDetailsPage.send_effective_Date(effective);
 		//点击NEXT
 		addTaskPage.click_next_button();
-		//点击Design搜索
+		//Design输入wang
 		AssignTheTaskPage assignTheTaskPage = PageFactory.initElements(driver, AssignTheTaskPage.class);	
-		assignTheTaskPage.click_Design();
-		//点击Design列表第一项
+		assignTheTaskPage.input_Design("wang");
+		Thread.sleep(2000);
+		//点击Design列表第一项		
 		assignTheTaskPage.click_Design_list();	
 		//点击下一个
 		assignTheTaskPage.click_Design_next();
-		Thread.sleep(4000);			
 		//获取任务详情页文本
 		taskDetailPage = PageFactory.initElements(driver, TaskDetailPage.class);
 		taskDetailPage.getMat_card_title();
@@ -120,7 +140,7 @@ public class CreateTaskTest extends BaseTest{
 		
 	}
 	
-	@Test(dependsOnMethods = {"editTask"},description = "编辑子任务")
+	//@Test(dependsOnMethods = {"editTask"},description = "编辑子任务")
 	public void editSubTasks() throws InterruptedException{
 		//下拉滚动条
 		subTasksPage = PageFactory.initElements(driver, SubTasksPage.class);		
@@ -142,7 +162,7 @@ public class CreateTaskTest extends BaseTest{
 		Assert.assertEquals(sub_name, "321");		
 	}
 		
-	@Test(dependsOnMethods = {"editSubTasks"},description = "提交任务")
+	@Test(dependsOnMethods = {"editTask"},description = "提交任务")
 	public void submitTask() throws InterruptedException{
 		//滚动条滚动到Submit
 		taskDetailPage.scrollSubmit();
@@ -150,23 +170,36 @@ public class CreateTaskTest extends BaseTest{
 		taskDetailPage.click_Submit_button();	
 	}
 	
-	@Test(dependsOnMethods = {"submitTask"},description = "认领子流程")
-	public void assign_to_me() throws InterruptedException{		
+	@Test(dependsOnMethods = {"submitTask"},description = "分配子流程")
+	public void assign_to() throws InterruptedException{	
+		subTasksPage = PageFactory.initElements(driver, SubTasksPage.class);
 		//点击操作按钮
-		subTasksPage.click_sub_mat_icon();
+//		subTasksPage.click_sub_mat_icon();		
 		//点击assign to me按钮
-		subTasksPage.click_assign_to_me();
-		//点击返回按钮
-		taskDetailPage.click_arrow_back();		
-		//点击menu菜单
-		managementPage.click_Task_menu();
-		//点击My Workbench
-		managementPage.click_My_Workbench();
-		//点击subtasks in Process
-		MyWorkbenchPage myWorkbenchPage = PageFactory.initElements(driver, MyWorkbenchPage.class);
-		myWorkbenchPage.click_SubTasks_in_Process();
-		String result = myWorkbenchPage.subtask_names("321");
-		Assert.assertEquals(result, "1");
+//		subTasksPage.click_assign_to_me();
+		
+		//点击操作按钮
+		subTasksPage.click_caozuo();
+		//点击Assign to
+		subTasksPage.click_Assign_to();
+		Thread.sleep(1000);
+		//输入Assign to
+		subTasksPage.input_Assign_to("wang");
+		Thread.sleep(1000);
+		//点击Assign
+		subTasksPage.click_Assign_button();	
+//		Thread.sleep(1000);
+//		//点击返回按钮
+//		taskDetailPage.click_arrow_back();		
+//		//点击menu菜单
+//		managementPage.click_Task_menu();
+//		//点击My Workbench
+//		managementPage.click_My_Workbench();
+//		//点击subtasks in Process
+//		MyWorkbenchPage myWorkbenchPage = PageFactory.initElements(driver, MyWorkbenchPage.class);
+//		myWorkbenchPage.click_SubTasks_in_Process();
+//		String result = myWorkbenchPage.subtask_names("321");
+//		Assert.assertEquals(result, "1");
 	}
 	
 }

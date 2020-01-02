@@ -12,11 +12,11 @@ public class AddTheClientDetailsPage extends BasePage{
 	}
 	
 	//定位HQ header搜索框
-	@FindBy(xpath="//form/p[1]/mat-form-field[1]/div/div[1]/div[4]")
+	@FindBy(xpath="//form/p[1]/mat-form-field[1]/div/div[1]/div[3]/input")
 	private WebElement HQ_header;
 	
-	//定位HQ header搜索框第一项
-	@FindBy(xpath="//mat-option")
+	//定位HQ code搜索框第一项
+	@FindBy(xpath="//mat-pseudo-checkbox")
 	private WebElement HQ_header_mat_option;
 	
 	//定位HQ Code下拉按钮
@@ -26,25 +26,22 @@ public class AddTheClientDetailsPage extends BasePage{
 	//定位HQ code搜索框第一项
 	@FindBy(xpath="//mat-option")
 	private WebElement HQ_code_mat_option;
-	
-	//定位Client Name
-	@FindBy(xpath="//*[@ng-reflect-name='clientName']")
-	private WebElement client_name;
+
 	
 	//定位Guideline Set下拉按钮
-	@FindBy(xpath="//form/p[3]/mat-form-field[1]/div/div[1]/div[3]/mat-select/div/div[2]")
+	@FindBy(xpath="//form/p[3]/mat-form-field/div/div/div[3]/mat-select/div/div[2]")
 	private WebElement Guideline_Set;
 	
 	//定位Guideline Set第一项
-	@FindBy(xpath="//mat-option")
+	@FindBy(xpath="/html/body/div[2]/div[2]/div/div/div/mat-option")
 	private WebElement Guideline_Set_mat_option;
 	
 	//定位Guideline Code下拉按钮
-	@FindBy(xpath="//form/p[3]/mat-form-field[2]/div/div[1]/div[3]/mat-select/div/div[2]")
+	@FindBy(xpath="//form/p[3]/mat-form-field[2]/div/div/div[3]/mat-select/div/div[2]")
 	private WebElement Guideline_Code;
 	
 	//定位Guideline Set第一项
-	@FindBy(xpath="//mat-option")
+	@FindBy(xpath="//body/div[2]/div[2]/div/div/div/mat-option/span")
 	private WebElement Guideline_Code_mat_option;
 	
 	//定位number Of Guidelines输入框
@@ -54,6 +51,15 @@ public class AddTheClientDetailsPage extends BasePage{
 	//定位effectiveDate输入框
 	@FindBy(xpath="//*[@ng-reflect-name='effectiveDate']")
 	private WebElement effective_Date;
+	
+	//定位HQ Header第一项
+	@FindBy(xpath="//body/div[2]/div/div/div/mat-option")
+	private WebElement MDT;
+	
+	//点选MDT
+	public void clisk_MDT(){
+		this.click(MDT);
+	}
 	
 	//输入effectiveDate
 	public void send_effective_Date(String s){
@@ -86,12 +92,8 @@ public class AddTheClientDetailsPage extends BasePage{
 		this.click(Guideline_Set);
 	}
 		
-	//输入Client Name
-	public void input_client_name(String s){
-		this.sendkeys(client_name, s);
-	}
 
-	//点击HQ header搜索框第一项
+	//点击HQ code搜索框第一项
 	public void click_mat_option_code(){
 		this.click(HQ_header_mat_option);
 	}
@@ -101,14 +103,14 @@ public class AddTheClientDetailsPage extends BasePage{
 		this.click(HQ_code);
 	}
 	
-	//点击HQ header搜索框第一项
-	public void click_mat_option_header(){
-		this.click(HQ_header_mat_option);
-	}
-	
 	//点击HQ header搜索框
 	public void click_HQ_header(){
 		this.click(HQ_header);
 	}
+	//点击HQ header输入M
+	public void input_HQ_header(String s){
+		this.sendkeys(HQ_header, s);
+	}
+	
 
 }
