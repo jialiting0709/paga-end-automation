@@ -27,7 +27,7 @@ public class PostGetUtil {
 	    	HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	    	
 	    	String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-	    	System.out.println("接口的响应结果："+jsonStr);
+	    	System.out.println("Interface response results："+jsonStr);
 	    	JSONArray jsonArray = new JSONArray(jsonStr);
 	    	String name = jsonArray.getJSONObject(0).getString(key);
 	    	return name;
@@ -48,7 +48,7 @@ public class PostGetUtil {
 	      post.setEntity(entity);
 	      HttpResponse response = TestConfig.defaultHttpClient.execute(post);
 	      String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-	      System.out.println("接口的响应结果："+jsonStr);
+	      System.out.println("Interface response results："+jsonStr);
 		  return jsonStr;
 		 
 	  }    

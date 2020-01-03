@@ -43,8 +43,8 @@ public class AddTaskTest extends AbstractTestNGSpringContextTests{
     	  	
     	JSONObject jsonTask = new JSONObject();
     	jsonTask.put("clientName", "Manulife Financial");
-    	jsonTask.put("dueDate", dueDate);//5 days later
-    	jsonTask.put("effective",effective);//10 days later
+    	jsonTask.put("dueDate", dueDate);
+    	jsonTask.put("effective",effective);
     	jsonTask.put("entered", "");
     	jsonTask.put("enteredBy","");
     	jsonTask.put("glCode","HPH");

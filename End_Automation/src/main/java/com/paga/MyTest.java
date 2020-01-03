@@ -9,9 +9,8 @@ public class MyTest {
     public static void main(String[] args) {
         TestNG tng = new TestNG();
         List<String> suites = Lists.newArrayList();
-        //获取工程根路径
+        //Get project root path
         String root = System.getProperty("user.dir");
-        //添加要执行的testng.xml
         suites.add(root+"/config/testng.xml");
         tng.setTestSuites(suites);
         tng.run();

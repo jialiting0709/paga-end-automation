@@ -29,10 +29,7 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
     @Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 
-//    @Autowired
-//    private H2LoginCaseRepository h2LoginCaseRepository;
-
-    @BeforeTest(groups = "loginTrue",description = "测试准备工作,获取HttpClient对象",alwaysRun=true)
+    @BeforeTest(groups = "loginTrue",description = "Test preparation, get httpclient object",alwaysRun=true)
     public void beforeTest(){
         TestConfig.defaultHttpClient = HttpClients.createDefault();
 
@@ -40,15 +37,12 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
 
     @Test(groups = "loginTrue",description = "login")
     public void loginTrue() throws Exception {
-//        Optional<LoginCase>  loginCaseOp = h2LoginCaseRepository.findById(1);
-//        LoginCase loginCase = loginCaseOp.get();
-        //发送请求,获取结果
         String actual = getResult();
         Assert.assertNotNull(actual);
     }
 
     private String getResult() throws IOException {
-        //接口url
+
         System.out.println("login url："+configBeanPropUrl.getLogin());
         HttpPost post = new HttpPost(configBeanPropUrl.getLogin());
         StringEntity entity = new StringEntity("username=wang&password=1111@ssword-7&grant_type=password", ContentType.APPLICATION_JSON);
@@ -56,7 +50,7 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
         post.setEntity(entity);
         HttpResponse response = TestConfig.defaultHttpClient.execute(post);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-        System.out.println("接口的响应结果："+jsonStr);
+        System.out.println("Interface response results："+jsonStr);
         JSONObject jsonObject = new JSONObject(jsonStr);
         String username = jsonObject.getString("username");  
         if(username != null || username.length()!= 0){

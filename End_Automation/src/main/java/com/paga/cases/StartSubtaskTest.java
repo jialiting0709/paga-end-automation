@@ -64,7 +64,7 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 		System.out.println(post.toString());
 		HttpResponse response = TestConfig.defaultHttpClient.execute(post);
 		String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-	    System.out.println("接口的响应结果："+jsonStr);
+	    System.out.println("Interface response results："+jsonStr);
 	    JSONArray REsA = new JSONArray(jsonStr);	    
 	    JSONObject jsonRest= REsA.getJSONObject(0);
 	    CaseRelevanceData.subtaskuuid = jsonRest.getString("uuid");

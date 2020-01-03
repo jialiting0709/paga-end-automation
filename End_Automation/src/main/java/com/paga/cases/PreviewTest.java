@@ -43,7 +43,7 @@ public class PreviewTest extends AbstractTestNGSpringContextTests{
 
 	        HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-	        System.out.println("接口的结果："+jsonStr);
+	        System.out.println("Interface response results："+jsonStr);
 	        JSONArray ar = new JSONArray(jsonStr);
 	        String rest1 = ar.getString(3);
 	        String rest2 = ar.getString(4);

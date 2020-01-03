@@ -11,97 +11,76 @@ public class SubTasksPage extends BasePage{
 		// TODO Auto-generated constructor stub
 	}
 	
-	//定位子任务操作按钮
 	@FindBy(xpath="//tbody/tr/td[9]/button/span/mat-icon")
 	private  WebElement sub_mat_icon;
 	
-	//定位子任务编辑按钮
 	@FindBy(xpath="/html/body/div/div[2]/div[1]/div[1]/div[1]/button[2]")
 	private  WebElement sub_edit;
 	
-	//定位编辑的input
 	@FindBy(xpath="//mat-form-field/div/div[1]/div[1]/input")
 	private  WebElement sub_input;
 	
-	//定位子任务保存按钮
 	@FindBy(xpath="/html/body/div/div[2]/div[1]/div[1]/div[1]/button[3]")
 	private  WebElement sub_save;
 	
-	//定位编辑后的input
 	@FindBy(xpath="//app-sub-tasks/table/tbody/tr[1]/td[2]")
 	private  WebElement td_text;
 	
-	//定位assign to me按钮
 	@FindBy(xpath="//*[contains(text(),'Assign to me')]")
 	private  WebElement assign_to_me;
 	
-	//定位操作按钮
 	@FindBy(xpath="//app-sub-tasks/table/thead/tr/th[9]/button")
 	private  WebElement caozuo;
 	
-	//定位Assign to
 	@FindBy(xpath="//body/div[2]/div[2]/div/div/div/button")
 	private  WebElement Assign_to;
 	
-	//定位Assign to输入框
 	@FindBy(xpath="//input[@placeholder='Assign to']")
 	private  WebElement Assign_to_input;
 	
-	//定位Assign按钮
 	@FindBy(xpath="//app-assign-to-detail/div[2]/button[2]")
 	private  WebElement Assign_button;
 	
-	//点击Assign
 	public void click_Assign_button(){
 		this.click(Assign_button);
 	}
 	
-	//输入Assign to
 	public void input_Assign_to(String s){
 		this.sendkeys(Assign_to_input, s);
 	}
 	
-	//点击Assign to
 	public void click_Assign_to(){
 		this.click(Assign_to);
 	}
 	
-	//点击操作按钮
 	public void click_caozuo(){
 		this.click(caozuo);
 	}
 	
-	//点击assign to me按钮
 	public void click_assign_to_me(){
 		this.click(assign_to_me);
 	}
 	
-	//点击子任务保存按钮
 	public void click_sub_save(){
 		this.click(sub_save);
 	}
 	
-	//获取编辑的input的text
 	public String get_sub_name(){
 		return td_text.getText();
 	}		
 	
-	//输入编辑的input
 	public void input_sub_name(String s){
 		this.sendkeys(sub_input, s);
 	}
 		
-	//点击子任务编辑按钮
 	public void click_sub_edit(){
 		this.click(sub_edit);
 	}
 	
-	//下拉滚动条到指定操作按钮
 	public void scroll(){
 		this.elementScroll(sub_mat_icon);
 	}
 	
-	//点击操作按钮
 	public void click_sub_mat_icon(){
 		this.click(sub_mat_icon);
 	}

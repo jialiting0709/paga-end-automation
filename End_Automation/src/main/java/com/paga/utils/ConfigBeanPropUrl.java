@@ -32,9 +32,11 @@ public class ConfigBeanPropUrl {
     private String addComments;
     private String preview;
     private String rulePath;
+    
+    
 
     
-    
+
 	public String getRulePath() {
 		return rulePath;
 	}

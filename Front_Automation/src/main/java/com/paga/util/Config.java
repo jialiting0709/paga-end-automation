@@ -1,10 +1,4 @@
 package com.paga.util;
-/**
- * 读取properties配置文件
- * @author jialiting
- *
- */
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;

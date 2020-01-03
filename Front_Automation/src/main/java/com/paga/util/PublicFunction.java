@@ -6,9 +6,6 @@ import java.util.Date;
 
 
 
-/*
- * 封装了公共的方法
- */
 public class PublicFunction {
 	private final static String xls = "xls";  
 	private final static String xlsx = "xlsx"; 
@@ -17,7 +14,7 @@ public class PublicFunction {
 	private static String fileName;
 
 	/*
-	 * 获取当前时间；格式为yyyy-MM-dd HH:mm:ss
+	 * Get current time；yyyy-MM-dd HH:mm:ss
 	 */
 	public static String getNowDate() {
 		Date d = new Date();

@@ -22,18 +22,18 @@ public class ApproveTaskDeployedTest extends BaseTest{
 	
 	@Test(dependsOnMethods = "login",description = "task done")
 	public void approveTaskDeployed() throws InterruptedException{
-		//点击列表中第一条
+		//click list one
 		myWorkbenchPage = PageFactory.initElements(driver,MyWorkbenchPage.class);
 		myWorkbenchPage.click_Tasks_for_Deployed_list_one();
-		//点击comment
+		//click comment
 		TaskPushPage taskPushPage = PageFactory.initElements(driver,TaskPushPage.class);
 		taskPushPage.click_comment();
-		//输入comment
+		//input comment
 		taskPushPage.input_comment("task push comment");
-		//点击Complete
+		//click Complete
 		taskPushPage.click_comment_button();
 		Thread.sleep(2000);
-		//获取My_Workbench文本
+		//get My_Workbench text
 		String My_Workbench = myWorkbenchPage.getMy_Workbench();
 		Assert.assertEquals(My_Workbench, "My Workbench");	
 

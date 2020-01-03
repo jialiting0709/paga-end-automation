@@ -30,84 +30,80 @@ public class CreateTaskTest extends BaseTest{
 		PublicTest.login(driver,"wang","1111","My Workbench");		
 	}
 		
-	@Test(dependsOnMethods = {"login"},description = "创建任务")
+	@Test(dependsOnMethods = {"login"},description = "Create tasks")
 	public void createTask() throws InterruptedException{		
-		//初始化页面
 		managementPage = PageFactory.initElements(driver,ManagementPage.class);
-		//点击menu菜单
+		//click menu
 		managementPage.click_Task_menu();
 		Thread.sleep(1000);
-		//点击Task Management
+		//click Task Management
 		managementPage.clic_Task_Management();
 		Thread.sleep(1000);
-		//点击添加task
+		//Click add task
 		managementPage.click_Task_add_button();	
 		Thread.sleep(1000);
 		AddTaskPage addTaskPage = PageFactory.initElements(driver, AddTaskPage.class);
-		//点击创建或更新下拉列表
+		//Click create or update drop-down list
 		addTaskPage.click_create_update_select();
-		//点击create
+		//click create
 		addTaskPage.click_select_create();
-		//输入任务过期时间
+		//Enter task expiration time
 		String dueDate = PublicFunction.getStringDate(432000000L);
     	String effective = PublicFunction.getStringDate(864000000L);
 		addTaskPage.input_mat("10");
-		//点击requested by下拉框
+		//Click requested by drop-down box
 		addTaskPage.click_requested_by();
-		//点击NA
+		//click NA
 		addTaskPage.click_NA();
-//		//输入sales Force Case Number内容
+//		//input sales Force Case Number内容
 //		addTaskPage.input_sales_Force_Case_Number("123456");
 		
-		//输入Requested Email内容
+		//input Requested Email
 		addTaskPage.input_Requested_Email("123@qq.com");
-		//输入task Due
+		//inputtask Due
 		addTaskPage.input_task_Due(dueDate);
-		//输入task Description内容
+		//inputtask Description内容
 		addTaskPage.input_task_Description("test a task_jia");
-		//点击Next
+		//click Next
 		addTaskPage.click_next_button();
-		//点击HQ header搜索按钮
+		//click HQ header搜索按钮
 		AddTheClientDetailsPage addTheClientDetailsPage = PageFactory.initElements(driver, AddTheClientDetailsPage.class);	
 		addTheClientDetailsPage.click_HQ_header();
-		//输入
+		//input
 		addTheClientDetailsPage.input_HQ_header("H");
-		//选择第一项
+		//Select first
 		addTheClientDetailsPage.clisk_MDT();
 		
-		//点击HQ code搜索框
+		//Click the HQ code search box
 		addTheClientDetailsPage.click_HQ_code();
-		//选择第一项
+		//Select first
 		addTheClientDetailsPage.click_mat_option_code();
 		
 		Actions actions = new Actions(driver);
 	    actions.moveByOffset(0, 0).click().build().perform();
 	    Thread.sleep(2000);
 	    
-		//点击Guideline Set下拉列表
+		//Click guide set drop-down list
 		addTheClientDetailsPage.click_Guideline_Set();
 		Thread.sleep(1000);
-		//选择第一项
+		//Select first
 		addTheClientDetailsPage.click_Guideline_Set_mat_option();
-		//点击Guideline Code下拉列表
+		//Click guideline code drop-down list
 		addTheClientDetailsPage.click_Guideline_Code();
-		//选择第一项
+		//Select first
 		addTheClientDetailsPage.click_Guideline_Code_mat_option();
-		//输入number Of Guidelines
+		//input number Of Guidelines
 		addTheClientDetailsPage.send_number_Of_Guidelines("1");
-		//输入effectiveDate
+		//input effectiveDate
 		addTheClientDetailsPage.send_effective_Date(effective);
-		//点击NEXT
+		//click NEXT
 		addTaskPage.click_next_button();
 		//Design输入wang
 		AssignTheTaskPage assignTheTaskPage = PageFactory.initElements(driver, AssignTheTaskPage.class);	
 		assignTheTaskPage.input_Design("wang");
 		Thread.sleep(2000);
-		//点击Design列表第一项		
-//		assignTheTaskPage.click_Design_list();	
-		//点击下一个
+		//Click Next
 		assignTheTaskPage.click_Design_next();
-		//获取任务详情页文本
 		taskDetailPage = PageFactory.initElements(driver, TaskDetailPage.class);
 		taskDetailPage.getMat_card_title();
 		String text = taskDetailPage.getMat_card_title();
@@ -115,76 +111,70 @@ public class CreateTaskTest extends BaseTest{
 
 	}
 	
-	@Test(dependsOnMethods = {"createTask"},description = "编辑任务")
+	@Test(dependsOnMethods = {"createTask"},description = "Editing task")
 	public void editTask() throws InterruptedException{
-		//点击Edit
+		//click Edit
 		taskDetailPage.click_detail_edit_button();
-		//输入taskDescription更改内容
+		//input taskDescription
 		taskDetailPage.input_taskDescription("222");
-		//点击保存
+		//Click save
 		taskDetailPage.click_detail_save_button();
-		//断言taskDescription是否更改
 		String taskDetailPageText = taskDetailPage.getTaskDescription_span();
 		Assert.assertEquals(taskDetailPageText, "222");			
 		
 	}
 	
-	//@Test(dependsOnMethods = {"editTask"},description = "编辑子任务")
+	//@Test(dependsOnMethods = {"editTask"},description = "Edit subtask")
 	public void editSubTasks() throws InterruptedException{
-		//下拉滚动条
+		//Pull down scroll bar
 		subTasksPage = PageFactory.initElements(driver, SubTasksPage.class);		
 		subTasksPage.scroll();
-		//点击操作按钮
+		//Click the operation button
 		subTasksPage.click_sub_mat_icon();
-		//点击编辑
+		//Click Edit
 		subTasksPage.click_sub_edit();
-		//输入编辑的input
+		//Input for editing
 		subTasksPage.input_sub_name("321");
-		//点击操作按钮
+		//Click the operation button
 		subTasksPage.click_sub_mat_icon();
-		//点击保存
+		//Click save
 		subTasksPage.click_sub_save();
 		Thread.sleep(2000);
-		//获取编辑后的input
+		//Get the edited input
 		String sub_name = subTasksPage.get_sub_name();
-		//断言编辑是否成功
 		Assert.assertEquals(sub_name, "321");		
 	}
 		
-	@Test(dependsOnMethods = {"editTask"},description = "提交任务")
+	@Test(dependsOnMethods = {"editTask"},description = "Submit subtasks")
 	public void submitTask() throws InterruptedException{
-		//滚动条滚动到Submit
+		//Scroll bar to submit
 		taskDetailPage.scrollSubmit();
-		//点击Submit
+		//click Submit
 		taskDetailPage.click_Submit_button();	
 	}
 	
-	@Test(dependsOnMethods = {"submitTask"},description = "分配子流程")
+	@Test(dependsOnMethods = {"submitTask"},description = "Distribution sub process")
 	public void assign_to() throws InterruptedException{	
 		subTasksPage = PageFactory.initElements(driver, SubTasksPage.class);
-		//点击操作按钮
-//		subTasksPage.click_sub_mat_icon();		
-		//点击assign to me按钮
-//		subTasksPage.click_assign_to_me();
 		
-		//点击操作按钮
+		//Click the operation button
 		subTasksPage.click_caozuo();
-		//点击Assign to
+		//click Assign to
 		subTasksPage.click_Assign_to();
 		Thread.sleep(1000);
-		//输入Assign to
+		//input Assign to
 		subTasksPage.input_Assign_to("wang");
 		Thread.sleep(1000);
-		//点击Assign
+		//click Assign
 		subTasksPage.click_Assign_button();	
 //		Thread.sleep(1000);
-//		//点击返回按钮
+//		//Click the back button
 //		taskDetailPage.click_arrow_back();		
-//		//点击menu菜单
+//		//Click menu menu
 //		managementPage.click_Task_menu();
-//		//点击My Workbench
+//		//click My Workbench
 //		managementPage.click_My_Workbench();
-//		//点击subtasks in Process
+//		//click subtasks in Process
 //		MyWorkbenchPage myWorkbenchPage = PageFactory.initElements(driver, MyWorkbenchPage.class);
 //		myWorkbenchPage.click_SubTasks_in_Process();
 //		String result = myWorkbenchPage.subtask_names("321");

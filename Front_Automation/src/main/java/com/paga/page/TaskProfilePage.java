@@ -11,11 +11,9 @@ public class TaskProfilePage extends BasePage{
 		// TODO Auto-generated constructor stub
 	}
 	
-	//定位AddPath按钮
 	@FindBy(xpath="//mat-tab-header/div[2]/div/div/div[2]/div")
 	private WebElement AddPath;
 	
-	//点击AddPath按钮
 	public void click_AddPath(){
 		this.click(AddPath);
 	}

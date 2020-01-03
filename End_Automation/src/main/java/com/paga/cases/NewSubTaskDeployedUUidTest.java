@@ -38,7 +38,7 @@ public class NewSubTaskDeployedUUidTest extends AbstractTestNGSpringContextTests
 		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
-	     System.out.println("接口的结果："+jsonStr);
+	     System.out.println("Interface response results："+jsonStr);
 	     System.out.println("subtaskid==========="+CaseRelevanceData.subtaskid);
 	     JSONObject resObj = new JSONObject(jsonStr);
 	     String newSubTaskDeployedUuid = null;
@@ -52,7 +52,7 @@ public class NewSubTaskDeployedUUidTest extends AbstractTestNGSpringContextTests
 	    	 }
 	     }
 	     CaseRelevanceData.newSubTaskDeployedUuid = newSubTaskDeployedUuid;
-	     System.out.println("subtaskuuid的值为："+newSubTaskDeployedUuid);	     
+	     System.out.println("subtaskuuid："+newSubTaskDeployedUuid);	     
 	     return newSubTaskDeployedUuid;
 
 	 }

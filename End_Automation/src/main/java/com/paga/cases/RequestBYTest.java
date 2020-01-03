@@ -16,12 +16,10 @@ public class RequestBYTest extends AbstractTestNGSpringContextTests{
     @Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
     
-    @Test(dependsOnGroups="taskType",groups="allHdr",description ="查询HQ Header")
+    @Test(dependsOnGroups="taskType",groups="allHdr",description ="query HQ Header")
     public void allHdr() throws Exception {
-    	//发送请求,获取结果
-    	System.out.println("HQ Header查询接口url："+configBeanPropUrl.getAllHdr());
+    	System.out.println("HQ Header url："+configBeanPropUrl.getAllHdr());
         String name = PostGetUtil.getGetMethod(configBeanPropUrl.getAllHdr(),"name");
-        //验证状态码
         Assert.assertEquals(name, "N/A");
     }
     

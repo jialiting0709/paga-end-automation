@@ -39,7 +39,7 @@ public class NewTaskDoneUUidTest extends AbstractTestNGSpringContextTests{
 		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
-	     System.out.println("接口的结果："+jsonStr);
+	     System.out.println("Interface response results："+jsonStr);
 	     JSONObject resObj = new JSONObject(jsonStr);
 	     String newDonetaskuuid = null;
 	     JSONArray arr = resObj.getJSONArray("TaskDone");	     
@@ -52,7 +52,7 @@ public class NewTaskDoneUUidTest extends AbstractTestNGSpringContextTests{
 	    	 }
 	     }
 	     CaseRelevanceData.newDonetaskuuid = newDonetaskuuid;
-	     System.out.println("newReviewtaskuuid的值为："+newDonetaskuuid);	     
+	     System.out.println("newReviewtaskuuid："+newDonetaskuuid);	     
 	     return newDonetaskuuid;
 
 	 }

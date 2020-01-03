@@ -43,7 +43,7 @@ public class RruleConditionTest extends AbstractTestNGSpringContextTests{
 
         HttpResponse response = TestConfig.defaultHttpClient.execute(get);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-        System.out.println("接口的响应结果："+jsonStr);
+        System.out.println("Interface response results："+jsonStr);
         JSONArray resJA = new JSONArray(jsonStr);
         int criteriaCode = resJA.getJSONObject(0).getInt("criteriaCode");
         CaseRelevanceData.criteriaCode = criteriaCode;       

@@ -5,7 +5,7 @@ import com.paga.util.ReadExcel;
 
 public class TestDataFactory {
     /*
-     * 参数化测试数据类
+     * Parameterized test data class
      */
     @DataProvider(name="TestData")
     public static Object[][] getTestData(){

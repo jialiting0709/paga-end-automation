@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeClass;
 
 
 /**
- * @Description: 每个测试用例都要用的方法
+ * @Description: Methods to be used for each test case
  */
 public class BaseTest{
 	
@@ -22,10 +22,10 @@ public class BaseTest{
 	@BeforeClass
 	public static WebDriver initDriver() {
 		Config config = new Config("config.properties");
-		//设置系统属性，通过配置获取浏览器类型
+		//Set system properties and obtain browser type through configuration
 		System.setProperty("integritytech.test.browser",config.getConfig("integritytech.test.browser"));
 		driver = DriverUtil.getDriver();
-		//窗口最大化
+		//window maximizing
 		DriverUtil.windowMax();
 		DriverUtil.waitTime(10);
 		
@@ -33,14 +33,14 @@ public class BaseTest{
 		
 	}
 	/**
-	 * 关闭浏览器
+	 * Close browser
 	 */
 	@AfterClass
 	public static void clossDriver() {
 		driver.quit();
 	}
 	/**
-	 * 执行完suite(测试套件)关闭service
+	 * Close service after executing Suite
 	 */
 	@AfterSuite
 	public static void clossService() {

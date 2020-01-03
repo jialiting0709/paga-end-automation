@@ -46,7 +46,7 @@ public class SubtasktkIdTest extends AbstractTestNGSpringContextTests{
 
 	        HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-	        System.out.println("接口响应结果："+jsonStr);
+	        System.out.println("Interface response results："+jsonStr);
 	        JSONObject jsonRest= new JSONObject(jsonStr);
 	        int subTaskId = jsonRest.getJSONObject("subTask").getInt("id");
 	        CaseRelevanceData.subtaskid = subTaskId;

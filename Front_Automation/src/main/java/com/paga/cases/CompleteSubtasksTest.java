@@ -26,89 +26,83 @@ public class CompleteSubtasksTest extends BaseTest{
 		
 	@Test(dependsOnMethods = "login",description = "添加linkCriteria")
 	public void linkCriteria() throws InterruptedException{  	
-	    //点击subtasks in Process
+	    //click subtasks in Process
 		Thread.sleep(2000);
 	    myWorkbenchPage = PageFactory.initElements(driver, MyWorkbenchPage.class);
-//	    myWorkbenchPage.click_SubTasks_in_Process();
-		//点击SubTasks in Process列表第一个
+		//click SubTasks in Process list one
 	    SubTasksInProcessPage subTasksInProcessPage = PageFactory.initElements(driver, SubTasksInProcessPage.class);
 	    subTasksInProcessPage.click_SubTasks_in_Process_list_one();	    
-	    //点击ADD DRUG  
+	    //click ADD DRUG  
 	    LinkCriteriaPage linkCriteriaPage = PageFactory.initElements(driver, LinkCriteriaPage.class);
 	    linkCriteriaPage.click_Add_DRUG();
-	    //输入HICL编号
+	    //input HICLcode
 	    linkCriteriaPage.input_HICL("18");
 	    Thread.sleep(1000);
-	    //选择第一项
+	    //Select first
 	    linkCriteriaPage.click_HICL_list();
-	    //点击回车
+	    //Click enter
 	    linkCriteriaPage.enter_HICL();
-	    //断言
 	    Assert.assertEquals(linkCriteriaPage.get_HICL_list_Delete_text(),"Delete");	    
   		
 	}
 	
 	@Test(dependsOnMethods = "linkCriteria",description = "添加addPath")
 	public void addPath() throws InterruptedException{	    
-	    //点击Add Path table
+	    //click Add Path table
 		TaskProfilePage taskProfilePage = PageFactory.initElements(driver, TaskProfilePage.class);
 		taskProfilePage.click_AddPath();
-		//点击Add Path
+		//click Add Path
 		AddPathPage addPathPage = PageFactory.initElements(driver, AddPathPage.class);
 		addPathPage.click_Add_Path();
 		Thread.sleep(2000);
-		//输入PathName
+		//input PathName
 		addPathPage.input_PathName("pathName");
-		//点击status
+		//click status
 		addPathPage.click_status_select();
-		//点选status第一项
+		//Click the first item of status
 		addPathPage.click_status_select_list();
-		//点击Initial/Renewal
+		//click Initial/Renewal
 		addPathPage.click_Initial_Renewal_select();
-		//点选Initial/Renewal第一项
+		//Click the first item of initial / Renewal
 		addPathPage.click_nitial_Renewal_select_list();
-		//输入summary
+		//input summary
 		addPathPage.input_Summary("Summary");
-		//输入Instructions
+		//input Instructions
 		addPathPage.input_Instructions("Instructions");
-		//输入Approval Text
+		//input Approval Text
 		addPathPage.input_Approval_Text("Approval_Text");
-		//点击Add按钮
+		//click Addbutton
 		addPathPage.click_Add_button();
-		//点击OK
+		//click OK
 		addPathPage.click_OK_button();
-		//定位Criteria下拉框
+		//Locate the criteria drop-down box
 		addPathPage.click_Criteria_select();
-		//点选Criteria第一项
+		//Click on the first item of criteria
 		addPathPage.click_Criteria_select_list();
-		//点击Condition下拉框
+		//Click the condition drop-down box
 		addPathPage.click_Condition_select();
-		//点选Condition第一项
+		//Click condition first
 		addPathPage.click_Condition_select_list();
-		//输入Value
+		//input Value
 		addPathPage.input_Value("Value");
-		//点击Save
+		//click Save
 		addPathPage.click_Save_button();
-		//获取添加后的pathName text
-//		String patnNameText = addPathPage.getPatnNameText();
-//		Assert.assertEquals(patnNameText, "pathName");
-		//输入Guideline Name
+		//input Guideline Name
 		addPathPage.input_Guideline_Name("22");
-		//点击Guideline Type
+		//click Guideline Type
 		addPathPage.click_Guideline_Type_sele();
 		Thread.sleep(1000);
-		//点击下拉项第一项
+		//Click the first item of the dropdown
 		addPathPage.click_Guideline_Type_sele_one();
-		//点击Complete按钮
+		//Click the complete button
 		addPathPage.click_Complete_button();
 		Thread.sleep(1000);
-		//输入Assigon to
+		//input Assigon to
 		addPathPage.input_Assigon_to("wang");
 		Thread.sleep(3000);
-		//点击Assigon按钮
+		//click Assigonbutton
 		addPathPage.click_Assigon_button();
 		Thread.sleep(3000);
-		//获取My_Workbench文本
 		String My_Workbench = myWorkbenchPage.getMy_Workbench();
 		Assert.assertEquals(My_Workbench, "My Workbench");
 		

@@ -38,7 +38,7 @@ public class NewSubTaskReJUUidTest extends AbstractTestNGSpringContextTests{
 		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
-	     System.out.println("接口的结果："+jsonStr);
+	     System.out.println("Interface response results："+jsonStr);
 	     System.out.println("subtaskid==========="+CaseRelevanceData.subtaskid);
 	     JSONObject resObj = new JSONObject(jsonStr);
 	     String subtaskRejuuid = null;
@@ -52,7 +52,7 @@ public class NewSubTaskReJUUidTest extends AbstractTestNGSpringContextTests{
 	    	 }
 	     }
 	     CaseRelevanceData.subtaskRejuuid = subtaskRejuuid;
-	     System.out.println("subtaskRejuuid的值为："+subtaskRejuuid);	     
+	     System.out.println("subtaskRejuuid："+subtaskRejuuid);	     
 	     return subtaskRejuuid;
 
 	 }
