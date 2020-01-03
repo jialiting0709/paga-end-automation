@@ -15,7 +15,7 @@ import com.paga.config.CaseRelevanceData;
 
 import com.paga.utils.ConfigBeanPropUrl;
 
-import com.paga.utils.PublicCase;
+import com.paga.utils.CasePublic;
 
 
 @SpringBootTest
@@ -30,7 +30,7 @@ public class CompleteSubTaskTest extends AbstractTestNGSpringContextTests{
 		System.out.println("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("subtaskuuid",CaseRelevanceData.subtaskuuid);
-		String result = PublicCase.completeSubTask(url, map);		
+		String result = CasePublic.completeSubTask(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
 	}

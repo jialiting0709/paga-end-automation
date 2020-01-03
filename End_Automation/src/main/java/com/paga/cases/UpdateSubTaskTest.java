@@ -4,7 +4,7 @@ package com.paga.cases;
 import com.paga.config.CaseRelevanceData;
 import com.paga.utils.ConfigBeanPropUrl;
 
-import com.paga.utils.PublicCase;
+import com.paga.utils.CasePublic;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -28,7 +28,7 @@ public class UpdateSubTaskTest extends AbstractTestNGSpringContextTests {
     	HashMap<String,Object> map=new HashMap<String,Object>();
     	map.put("subtaskuuid", CaseRelevanceData.subtaskuuid);
     	map.put("status", 3);
-    	String res = PublicCase.updateSubTask(url,map);
+    	String res = CasePublic.updateSubTask(url,map);
         Assert.assertNotNull(res);
         Thread.sleep(2000);
 
