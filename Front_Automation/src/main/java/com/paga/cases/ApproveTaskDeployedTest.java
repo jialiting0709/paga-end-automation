@@ -17,7 +17,7 @@ public class ApproveTaskDeployedTest extends BaseTest{
 	
 	@Test(description = "login")
 	public void login(){
-		PublicTest.login(driver,"wang","1111");			
+		PublicTest.login(driver,"wang","1111","My Workbench");			
 	}
 	
 	@Test(dependsOnMethods = "login",description = "task done")

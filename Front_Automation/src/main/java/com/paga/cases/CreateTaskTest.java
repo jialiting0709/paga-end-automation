@@ -27,7 +27,7 @@ public class CreateTaskTest extends BaseTest{
 	
 	@Test(description = "login")
 	public void login(){
-		PublicTest.login(driver,"wang","1111");		
+		PublicTest.login(driver,"wang","1111","My Workbench");		
 	}
 		
 	@Test(dependsOnMethods = {"login"},description = "创建任务")
@@ -82,6 +82,7 @@ public class CreateTaskTest extends BaseTest{
 		
 		Actions actions = new Actions(driver);
 	    actions.moveByOffset(0, 0).click().build().perform();
+	    Thread.sleep(2000);
 	    
 		//点击Guideline Set下拉列表
 		addTheClientDetailsPage.click_Guideline_Set();

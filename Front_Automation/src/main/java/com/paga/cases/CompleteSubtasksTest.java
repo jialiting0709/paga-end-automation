@@ -21,7 +21,7 @@ public class CompleteSubtasksTest extends BaseTest{
 	
 	@Test(description = "login")
 	public void login(){
-		PublicTest.login(driver,"wang","1111");		
+		PublicTest.login(driver,"wang","1111","My Workbench");		
 	}
 		
 	@Test(dependsOnMethods = "login",description = "添加linkCriteria")
@@ -56,6 +56,7 @@ public class CompleteSubtasksTest extends BaseTest{
 		//点击Add Path
 		AddPathPage addPathPage = PageFactory.initElements(driver, AddPathPage.class);
 		addPathPage.click_Add_Path();
+		Thread.sleep(2000);
 		//输入PathName
 		addPathPage.input_PathName("pathName");
 		//点击status
@@ -91,6 +92,13 @@ public class CompleteSubtasksTest extends BaseTest{
 		//获取添加后的pathName text
 //		String patnNameText = addPathPage.getPatnNameText();
 //		Assert.assertEquals(patnNameText, "pathName");
+		//输入Guideline Name
+		addPathPage.input_Guideline_Name("22");
+		//点击Guideline Type
+		addPathPage.click_Guideline_Type_sele();
+		Thread.sleep(1000);
+		//点击下拉项第一项
+		addPathPage.click_Guideline_Type_sele_one();
 		//点击Complete按钮
 		addPathPage.click_Complete_button();
 		Thread.sleep(1000);

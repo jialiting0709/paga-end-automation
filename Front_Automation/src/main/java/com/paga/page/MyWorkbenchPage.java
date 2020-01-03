@@ -54,6 +54,16 @@ public class MyWorkbenchPage extends BasePage{
 	@FindBy(xpath="//app-my-task-home/div/mat-accordion/mat-expansion-panel[3]/div/div/app-my-task-list/div/table/tbody/tr/td")
 	private WebElement  Tasks_for_Deployed_list_one;
 	
+	//定位  SubTasks in Process列表中第一条
+	@FindBy(xpath="//app-my-task-home/div/mat-accordion/mat-expansion-panel[4]/div/div/app-my-sub-task-list/div/table/tbody/tr/td")
+	private WebElement  SubTasks_in_Process_list_one;
+	
+	//点击SubTasks in Process列表中第一条
+	public void click_SubTasks_in_Process_list_one(){
+		this.click(SubTasks_in_Process_list_one);
+	}	
+	
+	
 	//点击Tasks for Deployed列表中第一条
 	public void click_Tasks_for_Deployed_list_one(){
 		this.click(Tasks_for_Deployed_list_one);

@@ -95,6 +95,35 @@ public class AddPathPage extends BasePage{
 	@FindBy(xpath="//app-assign-to-detail/div[2]/button[2]")
 	private WebElement Assigon_button;
 	
+	//定位Guideline Name
+	@FindBy(xpath="//input[@autocomplete='off']")
+	private WebElement Guideline_Name;
+	
+	//定位Guideline Type下拉按钮
+	@FindBy(xpath="//mat-select/div/div[2]")
+	private WebElement Guideline_Type_sele;
+		
+	//定位下拉第一项
+	@FindBy(xpath="//body/div[2]/div[2]/div/div/div/mat-option/span")
+	private WebElement Guideline_Type_sele_one;
+	
+	//点击下拉第一项
+	public void click_Guideline_Type_sele_one(){
+		this.click(Guideline_Type_sele_one);
+	}
+	
+	//点击Guideline Type下拉按钮
+	public void click_Guideline_Type_sele(){
+		this.click(Guideline_Type_sele);
+	}
+	
+	
+	//输入Guideline Name
+	public void input_Guideline_Name(String s){
+		this.sendkeys(Guideline_Name, s);
+	}
+	
+	
 	//点击Assigon按钮
 	public void click_Assigon_button(){
 		this.click(Assigon_button);
