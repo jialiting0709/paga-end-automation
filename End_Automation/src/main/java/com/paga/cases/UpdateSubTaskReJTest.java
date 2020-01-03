@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import com.paga.config.CaseRelevanceData;
 import com.paga.utils.ConfigBeanPropUrl;
-import com.paga.utils.PublicTest;
+import com.paga.utils.PublicCase;
 
 @SpringBootTest
 public class UpdateSubTaskReJTest extends AbstractTestNGSpringContextTests{
@@ -25,7 +25,7 @@ public class UpdateSubTaskReJTest extends AbstractTestNGSpringContextTests{
 		HashMap<String,Object> map = new HashMap<String,Object>();
 	    map.put("subtaskuuid",CaseRelevanceData.subtaskRejuuid);
 	    map.put("status", 1);
-	    String res = PublicTest.updateSubTask(url,map);
+	    String res = PublicCase.updateSubTask(url,map);
 	    Assert.assertNotNull(res);
 	    Thread.sleep(2000);
 
