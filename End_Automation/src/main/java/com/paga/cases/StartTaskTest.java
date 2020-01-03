@@ -2,7 +2,6 @@ package com.paga.cases;
 
 import java.io.IOException;
 
-import org.apache.http.client.methods.HttpPost;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,7 +37,7 @@ public class StartTaskTest extends AbstractTestNGSpringContextTests{
 		 JSONObject selfPropsObj = new JSONObject();
 		 JSONArray jsonArr = new JSONArray();
 		 selfPropsObj.put("comments", jsonArr);
-		 selfPropsObj.put("deadLine",PublicFunction.getStringDate(864000000L));//到期时间
+		 selfPropsObj.put("deadLine",PublicFunction.getStringDate(864000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ"));//到期时间
 		 selfPropsObj.put("owner", "wang");
 		 selfPropsObj.put("pkType", "guidlineTask");
 		 selfPropsObj.put("pkValue", CaseRelevanceData.pkValue);//taskId	

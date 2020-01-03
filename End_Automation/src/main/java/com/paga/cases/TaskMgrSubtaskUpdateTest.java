@@ -39,8 +39,8 @@ public class TaskMgrSubtaskUpdateTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("tkId", CaseRelevanceData.pkValue);
 		jsonObj.put("uniqueKeyInFlow",CaseRelevanceData.taskuuid);
 		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getCompleteSubTask(),jsonObj);
-		JSONObject jsonRest= new JSONObject(returnStr);
-		return null;
+//		JSONObject jsonRest= new JSONObject(returnStr);
+		return returnStr;
 	 }
 	
 }

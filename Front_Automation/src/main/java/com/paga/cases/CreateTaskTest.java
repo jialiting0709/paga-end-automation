@@ -8,14 +8,15 @@ import org.testng.annotations.Test;
 import com.paga.page.AddTaskPage;
 import com.paga.page.AddTheClientDetailsPage;
 import com.paga.page.AssignTheTaskPage;
-import com.paga.page.LoginPage;
+
 import com.paga.page.ManagementPage;
-import com.paga.page.MyWorkbenchPage;
+
 import com.paga.page.SubTasksPage;
 import com.paga.page.TaskDetailPage;
 import com.paga.util.BaseTest;
-import com.paga.util.Config;
+
 import com.paga.util.PublicFunction;
+import com.paga.util.PublicTest;
 
 public class CreateTaskTest extends BaseTest{
 	
@@ -26,21 +27,7 @@ public class CreateTaskTest extends BaseTest{
 	
 	@Test(description = "login")
 	public void login(){
-		Config config = new Config("config.properties");
-		String url = config.getConfig("url");
-		driver.get(url);
-		//输入User Name
-		LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
-		loginPage.input_userName("wang");
-		//输入userPassword
-		loginPage.input_userPassword("1111");
-		//点击登陆
-		loginPage.click_Log_in();
-		//断言登陆成功
-		MyWorkbenchPage myWorkbenchPage = PageFactory.initElements(driver,MyWorkbenchPage.class);
-		String My_Workbench = myWorkbenchPage.getMy_Workbench_h1();
-		Assert.assertEquals(My_Workbench, "My Workbench");
-		
+		PublicTest.login(driver,"wang","1111");		
 	}
 		
 	@Test(dependsOnMethods = {"login"},description = "创建任务")
@@ -83,8 +70,8 @@ public class CreateTaskTest extends BaseTest{
 		//点击HQ header搜索按钮
 		AddTheClientDetailsPage addTheClientDetailsPage = PageFactory.initElements(driver, AddTheClientDetailsPage.class);	
 		addTheClientDetailsPage.click_HQ_header();
-		//输入M
-		addTheClientDetailsPage.input_HQ_header("M");
+		//输入
+		addTheClientDetailsPage.input_HQ_header("H");
 		//选择第一项
 		addTheClientDetailsPage.clisk_MDT();
 		
@@ -98,6 +85,7 @@ public class CreateTaskTest extends BaseTest{
 	    
 		//点击Guideline Set下拉列表
 		addTheClientDetailsPage.click_Guideline_Set();
+		Thread.sleep(1000);
 		//选择第一项
 		addTheClientDetailsPage.click_Guideline_Set_mat_option();
 		//点击Guideline Code下拉列表
@@ -115,7 +103,7 @@ public class CreateTaskTest extends BaseTest{
 		assignTheTaskPage.input_Design("wang");
 		Thread.sleep(2000);
 		//点击Design列表第一项		
-		assignTheTaskPage.click_Design_list();	
+//		assignTheTaskPage.click_Design_list();	
 		//点击下一个
 		assignTheTaskPage.click_Design_next();
 		//获取任务详情页文本

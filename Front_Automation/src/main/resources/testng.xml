@@ -10,7 +10,8 @@
 			<class name="com.paga.cases.CompleteSubtasksTest"/>
 			<class name="com.paga.cases.ApproveSubTaskReviewTest"/>	
 			<class name="com.paga.cases.ApproveSubTaskDeployedTest"/>
-			<class name="com.paga.cases.ApproveTaskReviewTest"/>
+			<class name="com.paga.cases."/>			
+			<class name="com.paga.cases.ApproveTaskReviewTest"/>						
 			<class name="com.paga.cases.ApproveTaskDeployedTest"/>		
 		</classes>
 		

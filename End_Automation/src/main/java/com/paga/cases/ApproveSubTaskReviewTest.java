@@ -20,7 +20,7 @@ public class ApproveSubTaskReviewTest extends AbstractTestNGSpringContextTests{
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
-	@Test(dependsOnGroups="write", groups="approveSubTask",description = "approve subTask")
+	@Test(dependsOnGroups="NewSubTaskReJComUUid", groups="approveSubTask",description = "approve subTask")
 	public void approveSubTask() throws Exception { 
 		System.out.println("approve subTask url："+configBeanPropUrl.getApproveSubTask());
 		String result = getResult();

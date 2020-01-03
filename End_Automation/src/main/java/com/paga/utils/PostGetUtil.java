@@ -1,9 +1,7 @@
 package com.paga.utils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;

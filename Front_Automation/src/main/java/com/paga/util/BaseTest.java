@@ -28,6 +28,7 @@ public class BaseTest{
 		//窗口最大化
 		DriverUtil.windowMax();
 		DriverUtil.waitTime(10);
+		
 		return driver;
 		
 	}

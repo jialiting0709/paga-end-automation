@@ -19,7 +19,7 @@ public class ApproveSubTaskDoneTest extends AbstractTestNGSpringContextTests{
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
-	@Test(dependsOnGroups="ruleZip", groups="approveSubTaskDone",description = "approve subTask done")
+	@Test(dependsOnGroups="RulePath", groups="approveSubTaskDone",description = "approve subTask done")
 	public void approveSubTask() throws Exception { 
 		System.out.println("approve subTask done url："+configBeanPropUrl.getApproveSubTask());
 		String result = getResult();
@@ -40,6 +40,7 @@ public class ApproveSubTaskDoneTest extends AbstractTestNGSpringContextTests{
 		JSONObject selfPropsJson = new JSONObject();
 		selfPropsJson.put("pkType", "guidlineSubTask");
 		selfPropsJson.put("pkValue", CaseRelevanceData.pkValue);
+		jsonObj.put("assignee", "");
 		jsonObj.put("comments", commentsArr);
 		jsonObj.put("defineKey", "SubtaskDone");
 		jsonObj.put("selfProps", selfPropsJson);

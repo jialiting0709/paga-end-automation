@@ -1,10 +1,8 @@
 package com.paga.util;
 
+
 import java.text.SimpleDateFormat;
-
 import java.util.Date;
-
-import org.sqlite.date.DateFormatUtils;
 
 
 
@@ -32,15 +30,15 @@ public class PublicFunction {
 		long totalMilliSeconds = System.currentTimeMillis()+Millisecond;
         Date date = new Date();
         date.setTime(totalMilliSeconds);
-        String format = DateFormatUtils.format(date, "yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-		return format;
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        String str = df.format(date);
+		return str;
 	}
 
 	public static void main(String[] args) {
-//		getStringDate(432000000L);
-//		getStringDate(864000000L);
-		
-
+		getStringDate(432000000L);
+		System.out.println(getStringDate(432000000L));		
+		System.out.println(getNowDate());	
 	}
    		
 }

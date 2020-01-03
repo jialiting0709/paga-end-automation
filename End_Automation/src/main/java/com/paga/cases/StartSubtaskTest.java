@@ -17,7 +17,6 @@ import org.testng.annotations.Test;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 import com.paga.utils.ConfigBeanPropUrl;
-import com.paga.utils.PostGetUtil;
 import com.paga.utils.PublicFunction;
 
 @SpringBootTest
@@ -50,7 +49,7 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 		JSONArray jsA  = new JSONArray();		
 		JSONObject jsonObj = new JSONObject();
 		jsonObj.put("assignee", "wang");
-		jsonObj.put("dueDate", PublicFunction.getStringDate(432000000L));
+		jsonObj.put("dueDate", PublicFunction.getStringDate(432000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ"));
 		
 		JSONObject jsonSelfProps= new JSONObject();
 		JSONArray jsAComments  = new JSONArray();

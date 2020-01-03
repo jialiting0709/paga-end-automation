@@ -38,23 +38,23 @@ public class AddTaskTest extends AbstractTestNGSpringContextTests{
     private String getResult() throws IOException{
     	
     	JSONObject jsonObj = new JSONObject();    	
-    	String dueDate = PublicFunction.getStringDate(432000000L);
-    	String effective = PublicFunction.getStringDate(864000000L);
+    	String dueDate = PublicFunction.getStringDate(432000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+    	String effective = PublicFunction.getStringDate(864000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     	  	
     	JSONObject jsonTask = new JSONObject();
-    	jsonTask.put("clientName", "American Intl. Group");
+    	jsonTask.put("clientName", "Manulife Financial");
     	jsonTask.put("dueDate", dueDate);//5 days later
     	jsonTask.put("effective",effective);//10 days later
     	jsonTask.put("entered", "");
     	jsonTask.put("enteredBy","");
-    	jsonTask.put("glCode",1);
+    	jsonTask.put("glCode","HPH");
     	jsonTask.put("glName","");
-    	jsonTask.put("glSet", "1");
+    	jsonTask.put("glSet", "HPH-COMM");
     	jsonTask.put("guidelineNum",1);
-    	jsonTask.put("headerCode","MDT");
-    	jsonTask.put("headerId",33000000120L);
-    	jsonTask.put("hqCodes","UOE03");
-    	jsonTask.put("requestBy",1);
+    	jsonTask.put("headerCode","HPH");
+    	jsonTask.put("headerId",33000000100L);
+    	jsonTask.put("hqCodes","MDT01");
+    	jsonTask.put("requestBy",0);
     	jsonTask.put("requestDate","");
     	jsonTask.put("requestEmail","123@qq.com");
     	jsonTask.put("requestType","");

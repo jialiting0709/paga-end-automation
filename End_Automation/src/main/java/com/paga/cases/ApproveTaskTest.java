@@ -36,7 +36,7 @@ public class ApproveTaskTest extends AbstractTestNGSpringContextTests{
 		JSONObject commentsJson = new JSONObject();
 		commentsJson.put("id", "");
 		commentsJson.put("tkUuid",CaseRelevanceData.newReviewtaskuuid);
-		commentsJson.put("message", "1111");
+		commentsJson.put("message", "321");
 		commentsArr.put(commentsJson);
 		
 		JSONObject selfPropsJson = new JSONObject();

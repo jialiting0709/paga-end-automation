@@ -31,9 +31,18 @@ public class ConfigBeanPropUrl {
     private String comments;
     private String addComments;
     private String preview;
+    private String rulePath;
 
     
     
+	public String getRulePath() {
+		return rulePath;
+	}
+
+	public void setRulePath(String rulePath) {
+		this.rulePath = rulePath;
+	}
+
 	public String getPreview() {
 		return preview;
 	}

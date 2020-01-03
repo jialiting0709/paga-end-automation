@@ -20,8 +20,8 @@ public class SubTaskReviewPage extends BasePage {
 	private WebElement more_vert;
 	
 	//定位Preview
-	@FindBy(xpath="//*[contains(text(),'Preview')]")
-	private WebElement Preview;
+	@FindBy(xpath="//*[contains(text(),'View')]")
+	private WebElement View;
 	
 	//定位mode_edit按钮
 	@FindBy(xpath="//app-comments/div/mat-form-field/div/div/div[2]")
@@ -70,7 +70,7 @@ public class SubTaskReviewPage extends BasePage {
 	
 	//点击Preview
 	public void click_Preview(){
-		this.click(Preview);
+		this.click(View);
 	}
 	
 	//点击Path List操作按钮

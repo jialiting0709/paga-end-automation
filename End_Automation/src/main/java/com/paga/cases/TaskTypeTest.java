@@ -7,7 +7,6 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.paga.config.CaseRelevanceData;
 
 import com.paga.utils.ConfigBeanPropUrl;
 import com.paga.utils.PostGetUtil;

@@ -45,7 +45,7 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("criteriaGroups", criteriaGroupsArr);
 		
 		JSONObject jsonSubTaskPathVo = new JSONObject();
-		jsonSubTaskPathVo.put("paglsubtaskid", CaseRelevanceData.subtaskid);
+		jsonSubTaskPathVo.put("paglsubtaskid", CaseRelevanceData.subtaskid+"");
 		jsonSubTaskPathVo.put("pathapprovaltext", "approvaltext");
 		jsonSubTaskPathVo.put("pathinitrenewal", 1);
 		jsonSubTaskPathVo.put("pathinstruction", "instructions");
