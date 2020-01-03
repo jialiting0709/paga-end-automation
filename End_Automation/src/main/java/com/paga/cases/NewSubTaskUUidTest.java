@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import com.paga.config.CaseRelevanceData;
 
 import com.paga.utils.ConfigBeanPropUrl;
-import com.paga.utils.CasePublic;
+import com.paga.utils.PublicTest;
 
 
 @SpringBootTest
@@ -33,7 +33,7 @@ public class NewSubTaskUUidTest extends AbstractTestNGSpringContextTests{
 		map.put("subtaskid", CaseRelevanceData.subtaskid);
 		map.put("df", "df");
 		map.put("uuid", "uuid");
-		String result = CasePublic.getNewSubandTaskuuid(url, map);		
+		String result = PublicTest.getNewSubandTaskuuid(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
 	}
