@@ -14,7 +14,7 @@ rule/**
 # Log file
 *.log
 .idea/
-paga-cfgmgr-svc.iml
+paga-automation.iml
 
 # BlueJ files
 *.ctxt

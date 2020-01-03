@@ -1,8 +1,0 @@
-*.settings
-/logs
-/src
-/target
-/test-output
-/test-outputEXT
-*.classpath
-*.project
