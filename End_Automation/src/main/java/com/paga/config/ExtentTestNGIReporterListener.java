@@ -1,9 +1,6 @@
 package com.paga.config;
 
-/**
- * 解决测试报告样式加载不出来问题
- * 查看index.html文件
- */
+
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.ResourceCDN;
@@ -19,7 +16,7 @@ import java.io.File;
 import java.util.*;
 
 public class ExtentTestNGIReporterListener implements IReporter {
-    //生成的路径以及文件名
+    //Generated path and filename
     private static final String OUTPUT_FOLDER = "test-output/";
     private static final String FILE_NAME = "index.html";
 
@@ -34,16 +31,13 @@ public class ExtentTestNGIReporterListener implements IReporter {
         }
         for (ISuite suite : suites) {
             Map<String, ISuiteResult> result = suite.getResults();
-            //如果suite里面没有任何用例，直接跳过，不在报告里生成
             if(result.size()==0){
                 continue;
             }
-            //统计suite下的成功、失败、跳过的总用例数
             int suiteFailSize=0;
             int suitePassSize=0;
             int suiteSkipSize=0;
             ExtentTest suiteTest=null;
-            //存在多个suite的情况下，在报告中将同一个一个suite的测试结果归为一类，创建一级节点。
             if(createSuiteNode){
                 suiteTest = extent.createTest(suite.getName()).assignCategory(suite.getName());
             }
@@ -55,7 +49,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
                 ExtentTest resultNode;
                 ITestContext context = r.getTestContext();
                 if(createSuiteResultNode){
-                    //没有创建suite的情况下，将在SuiteResult的创建为一级节点，否则创建为suite的一个子节点。
                     if( null == suiteTest){
                         resultNode = extent.createTest(r.getTestContext().getName());
                     }else{
@@ -73,7 +66,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
                     }
                     resultNode.getModel().setStartTime(r.getTestContext().getStartDate());
                     resultNode.getModel().setEndTime(r.getTestContext().getEndDate());
-                    //统计SuiteResult下的数据
                     int passSize = r.getTestContext().getPassedTests().size();
                     int failSize = r.getTestContext().getFailedTests().size();
                     int skipSize = r.getTestContext().getSkippedTests().size();
@@ -105,18 +97,16 @@ public class ExtentTestNGIReporterListener implements IReporter {
     }
 
     private void init() {
-        //文件夹不存在的话进行创建
+
         File reportDir= new File(OUTPUT_FOLDER);
         if(!reportDir.exists()&& !reportDir .isDirectory()){
             reportDir.mkdir();
         }
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(OUTPUT_FOLDER + FILE_NAME);
-        // 设置静态文件的DNS
-        //怎么样解决cdn.rawgit.com访问不了的情况
         htmlReporter.config().setResourceCDN(ResourceCDN.EXTENTREPORTS);
 
-        htmlReporter.config().setDocumentTitle("Wconcept-Api自动化测试报告");
-        htmlReporter.config().setReportName("Wconcept-Api自动化测试报告");
+        htmlReporter.config().setDocumentTitle("Wconcept-Api Automated test report");
+        htmlReporter.config().setReportName("Wconcept-Api Automated test report");
         htmlReporter.config().setChartVisibilityOnOpen(true);
         htmlReporter.config().setTestViewChartLocation(ChartLocation.TOP);
         htmlReporter.config().setTheme(Theme.STANDARD);
@@ -127,7 +117,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
     }
 
     private void buildTestNodes(ExtentTest extenttest, IResultMap tests, Status status) {
-        //存在父节点时，获取父节点的标签
         String[] categories=new String[0];
         if(extenttest != null ){
             List<TestAttribute> categoryList = extenttest.getModel().getCategoryContext().getAll();
@@ -140,7 +129,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
         ExtentTest test;
 
         if (tests.size() > 0) {
-            //调整用例排序，按时间排序
             Set<ITestResult> treeSet = new TreeSet<ITestResult>(new Comparator<ITestResult>() {
                 @Override
                 public int compare(ITestResult o1, ITestResult o2) {
@@ -151,7 +139,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
             for (ITestResult result : treeSet) {
 
                 String name="";
-                //如果有参数，则使用参数的toString组合代替报告中的name
                 /*Object[] parameters = result.getParameters();
                 for(Object param:parameters){
                     name+=param.toString();
@@ -166,7 +153,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
                 if(extenttest==null){
                     test = extent.createTest(name);
                 }else{
-                    //作为子节点进行创建时，设置同父节点的标签一致，便于报告检索。
                     test = extenttest.createNode(name).assignCategory(categories);
                 }
                 //test.getModel().setDescription(description.toString());
@@ -176,7 +162,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
 
                 List<String> outputList = Reporter.getOutput(result);
                 for(String output:outputList){
-                    //将用例的log输出报告中
                     test.debug(output);
                 }
                 if (result.getThrowable() != null) {

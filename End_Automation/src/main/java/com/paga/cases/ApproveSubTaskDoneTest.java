@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -16,12 +18,14 @@ import com.paga.utils.PostGetUtil;
 
 @SpringBootTest
 public class ApproveSubTaskDoneTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(ApproveSubTaskDoneTest.class);
+	
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
 	@Test(dependsOnGroups="RulePath", groups="approveSubTaskDone",description = "approve subTask done")
 	public void approveSubTask() throws Exception { 
-		System.out.println("approve subTask done url："+configBeanPropUrl.getApproveSubTask());
+		logger.info("approve subTask done url："+configBeanPropUrl.getApproveSubTask());
 		String result = getResult();
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -45,7 +49,7 @@ public class ApproveSubTaskDoneTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("defineKey", "SubtaskDone");
 		jsonObj.put("selfProps", selfPropsJson);
 		jsonObj.put("uuid",CaseRelevanceData.newSubTaskDeployedUuid);
-		System.out.println(jsonObj.toString());
+		logger.info(jsonObj.toString());
 		
 		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getApproveSubTask(),jsonObj);	
 		return returnStr;

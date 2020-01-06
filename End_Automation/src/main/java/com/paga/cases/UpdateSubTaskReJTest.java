@@ -11,21 +11,24 @@ import org.testng.annotations.Test;
 
 import com.paga.config.CaseRelevanceData;
 import com.paga.utils.ConfigBeanPropUrl;
-import com.paga.utils.PublicTest;
-
+import com.paga.utils.MultiplexingCase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 @SpringBootTest
 public class UpdateSubTaskReJTest extends AbstractTestNGSpringContextTests{
+	 private static final Logger logger = LoggerFactory.getLogger(UpdateSubTaskReJTest.class);
+	
 	 @Autowired
 	 ConfigBeanPropUrl configBeanPropUrl;
 	 @Test(dependsOnGroups="NewSubTaskReJUUid", groups="UpdateSubTaskReJ",description = "update SubTaskRej")
 
 	 private void test() throws IOException, InterruptedException {
 		String url = configBeanPropUrl.getUpdateSub();
-		System.out.println("update SubTask url:"+url);
+		logger.info("update SubTask url:"+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
 	    map.put("subtaskuuid",CaseRelevanceData.subtaskRejuuid);
 	    map.put("status", 1);
-	    String res = PublicTest.updateSubTask(url,map);
+	    String res = MultiplexingCase.updateSubTask(url,map);
 	    Assert.assertNotNull(res);
 	    Thread.sleep(2000);
 

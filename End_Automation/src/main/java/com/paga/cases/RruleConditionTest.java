@@ -1,6 +1,8 @@
 package com.paga.cases;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -18,12 +20,14 @@ import com.paga.utils.ConfigBeanPropUrl;
 
 @SpringBootTest
 public class RruleConditionTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(RruleConditionTest.class);
+	
     @Autowired
     ConfigBeanPropUrl configBeanPropUrl;
     
     @Test(dependsOnGroups = "addLinkingCrit", groups = "condition",description = "condition")
     private void test() throws IOException, InterruptedException {
-    	System.out.println("condition url："+configBeanPropUrl.getCondition());
+    	logger.info("condition url："+configBeanPropUrl.getCondition());
         String res = run();
         Assert.assertNotNull(res);
         Thread.sleep(3000);
@@ -43,7 +47,7 @@ public class RruleConditionTest extends AbstractTestNGSpringContextTests{
 
         HttpResponse response = TestConfig.defaultHttpClient.execute(get);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-        System.out.println("Interface response results："+jsonStr);
+        logger.info("Interface response results："+jsonStr);
         JSONArray resJA = new JSONArray(jsonStr);
         int criteriaCode = resJA.getJSONObject(0).getInt("criteriaCode");
         CaseRelevanceData.criteriaCode = criteriaCode;       

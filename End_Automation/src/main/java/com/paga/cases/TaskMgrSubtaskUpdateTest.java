@@ -1,6 +1,8 @@
 package com.paga.cases;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +17,14 @@ import com.paga.utils.PostGetUtil;
 
 @SpringBootTest
 public class TaskMgrSubtaskUpdateTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(TaskMgrSubtaskUpdateTest.class);
 	
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
 	@Test(dependsOnGroups="", groups="taskMgrSubtaskUpdate",description = "TaskMgr Subtask Update")
 	public void taskMgrSubtaskUpdate() throws Exception {
-		System.out.println("TaskMgr Subtask Update url："+configBeanPropUrl.getUpdateSub());
+		logger.info("TaskMgr Subtask Update url："+configBeanPropUrl.getUpdateSub());
 		String result = getResult();		
 		Assert.assertNotNull(result);
 				

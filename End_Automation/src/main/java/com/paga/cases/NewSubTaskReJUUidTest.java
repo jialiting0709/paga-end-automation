@@ -1,6 +1,8 @@
 package com.paga.cases;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -19,13 +21,15 @@ import com.paga.utils.ConfigBeanPropUrl;
 
 @SpringBootTest
 public class NewSubTaskReJUUidTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(NewSubTaskReJUUidTest.class);
+	
 
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
 	@Test(dependsOnGroups="rejectTask", groups="NewSubTaskReJUUid",description = "new SubTaskReJ uuid")	
 	public void newSubTaskuuid() throws Exception { 	
-		System.out.println("taskFlow task url："+configBeanPropUrl.getNewSubTaskuuid());
+		logger.info("taskFlow task url："+configBeanPropUrl.getNewSubTaskuuid());
 		String result = getResult();		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -38,8 +42,7 @@ public class NewSubTaskReJUUidTest extends AbstractTestNGSpringContextTests{
 		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
-	     System.out.println("Interface response results："+jsonStr);
-	     System.out.println("subtaskid==========="+CaseRelevanceData.subtaskid);
+	     logger.info("Interface response results："+jsonStr);
 	     JSONObject resObj = new JSONObject(jsonStr);
 	     String subtaskRejuuid = null;
 	     JSONArray arr = resObj.getJSONArray("SubtaskHarvesting");	     
@@ -51,8 +54,7 @@ public class NewSubTaskReJUUidTest extends AbstractTestNGSpringContextTests{
 	    		 continue;
 	    	 }
 	     }
-	     CaseRelevanceData.subtaskRejuuid = subtaskRejuuid;
-	     System.out.println("subtaskRejuuid："+subtaskRejuuid);	     
+	     CaseRelevanceData.subtaskRejuuid = subtaskRejuuid;   
 	     return subtaskRejuuid;
 
 	 }

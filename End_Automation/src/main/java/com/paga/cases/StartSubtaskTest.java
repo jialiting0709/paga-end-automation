@@ -2,6 +2,9 @@ package com.paga.cases;
 
 import java.io.IOException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
@@ -17,17 +20,18 @@ import org.testng.annotations.Test;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 import com.paga.utils.ConfigBeanPropUrl;
-import com.paga.utils.PublicFunction;
+import com.paga.utils.GetDateUtil;
 
 @SpringBootTest
 public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(StartSubtaskTest.class);
 	
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
 	@Test(dependsOnGroups="startTask", groups="startSubtask",description = "Assign the user to a subTask")
 	public void startTask() throws Exception { 
-		System.out.println("start subtask url："+configBeanPropUrl.getStartSubtask());
+		logger.info("start subtask url："+configBeanPropUrl.getStartSubtask());
 		String result = getResult();
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -38,7 +42,6 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 		Thread.sleep(3000);
 		HttpPost post = new HttpPost(configBeanPropUrl.getStartSubtask());
 		post.addHeader("username",TestConfig.username);
-		System.out.println("TestConfig.username:"+TestConfig.username);
 //	    post.addHeader("access_token",TestConfig.access_token);
 //	    post.addHeader("refresh_token",TestConfig.refresh_token);
 //	    post.addHeader("token_type",TestConfig.token_type);
@@ -49,7 +52,7 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 		JSONArray jsA  = new JSONArray();		
 		JSONObject jsonObj = new JSONObject();
 		jsonObj.put("assignee", "wang");
-		jsonObj.put("dueDate", PublicFunction.getStringDate(432000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ"));
+		jsonObj.put("dueDate", GetDateUtil.getStringDate(432000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ"));
 		
 		JSONObject jsonSelfProps= new JSONObject();
 		JSONArray jsAComments  = new JSONArray();
@@ -61,16 +64,13 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 		
 		StringEntity entity = new StringEntity(jsA.toString(),"utf-8");
 		post.setEntity(entity);
-		System.out.println(post.toString());
 		HttpResponse response = TestConfig.defaultHttpClient.execute(post);
 		String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-	    System.out.println("Interface response results："+jsonStr);
+		logger.info("Interface response results："+jsonStr);
 	    JSONArray REsA = new JSONArray(jsonStr);	    
 	    JSONObject jsonRest= REsA.getJSONObject(0);
 	    CaseRelevanceData.subtaskuuid = jsonRest.getString("uuid");
-	    return jsonRest.getString("defineKey");
-	    
-	
+	    return jsonRest.getString("defineKey");	
 		
 	}
 }

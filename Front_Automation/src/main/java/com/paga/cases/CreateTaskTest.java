@@ -55,18 +55,19 @@ public class CreateTaskTest extends BaseTest{
 		addTaskPage.click_requested_by();
 		//click NA
 		addTaskPage.click_NA();
-//		//input sales Force Case Number内容
+//		//input sales Force Case Number
 //		addTaskPage.input_sales_Force_Case_Number("123456");
 		
 		//input Requested Email
 		addTaskPage.input_Requested_Email("123@qq.com");
 		//inputtask Due
 		addTaskPage.input_task_Due(dueDate);
-		//inputtask Description内容
+		//click 
+		//inputtask Description
 		addTaskPage.input_task_Description("test a task_jia");
 		//click Next
 		addTaskPage.click_next_button();
-		//click HQ header搜索按钮
+		//click HQ header
 		AddTheClientDetailsPage addTheClientDetailsPage = PageFactory.initElements(driver, AddTheClientDetailsPage.class);	
 		addTheClientDetailsPage.click_HQ_header();
 		//input

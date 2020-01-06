@@ -1,6 +1,8 @@
 package com.paga.cases;
 
 import com.paga.config.CaseRelevanceData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.paga.utils.ConfigBeanPropUrl;
 import com.paga.utils.PostGetUtil;
 import org.json.JSONArray;
@@ -15,14 +17,16 @@ import java.io.IOException;
 
 @SpringBootTest
 public class RejectSubtaskTest extends AbstractTestNGSpringContextTests {
+	private static final Logger logger = LoggerFactory.getLogger(RejectSubtaskTest.class);
+	
     @Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 
     @Test(dependsOnGroups = "commentsId",groups = "rejectTask",description = "reject a subtask")
    
     public void rejectTask() throws Exception{
-    System.out.println("reject a subtask url:"+configBeanPropUrl.getRejectSubTask());   	
-    String result = getResult();
+    	logger.info("reject a subtask url:"+configBeanPropUrl.getRejectSubTask());   	
+    	String result = getResult();
         JSONObject res = new JSONObject(result);
         Assert.assertNotNull(res);
         Thread.sleep(3000);

@@ -1,6 +1,8 @@
 package com.paga.utils;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.util.HashMap;
 
 import org.apache.http.HttpResponse;
@@ -13,7 +15,9 @@ import org.json.JSONObject;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 
-public class PublicTest {	
+public class MultiplexingCase {
+	private static final Logger logger = LoggerFactory.getLogger(MultiplexingCase.class);
+	
 	public static String updateSubTask(String url,HashMap<String,Object> map) throws InterruptedException, IOException{
 		 JSONObject jsonObject = new JSONObject();
 	        jsonObject.put("enteredBy","wang");
@@ -25,7 +29,7 @@ public class PublicTest {
 	        jsonObject.put("status",Integer.parseInt(map.get("status").toString()));
 	        jsonObject.put("tkId",CaseRelevanceData.pkValue);
 	        jsonObject.put("uniqueKeyInFlow",String.valueOf(map.get("subtaskuuid")));
-	        System.out.println(jsonObject.toString());
+	        logger.info(jsonObject.toString());
 	        String result = PostGetUtil.getPosttMethod(url,jsonObject);
 		    return result;
 
@@ -40,7 +44,7 @@ public class PublicTest {
 		 jsonObj.put("dueDate", "");
 		 jsonObj.put("selfProps", selfPropsObj);		 
 		 jsonObj.put("uuid",String.valueOf(map.get("subtaskuuid")));
-		 System.out.println(jsonObj.toString());
+		 logger.info(jsonObj.toString());
 		 String returnStr = PostGetUtil.getPosttMethod(url,jsonObj);
 		 JSONObject jsonRest= new JSONObject(returnStr);
 		 String uuid = jsonRest.getString("uuid");	 
@@ -54,8 +58,7 @@ public class PublicTest {
 		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
-	     System.out.println("Interface response results："+jsonStr);
-	     System.out.println("subtaskid==========="+CaseRelevanceData.subtaskid);
+	     logger.info("Interface response results："+jsonStr);
 	     JSONObject resObj = new JSONObject(jsonStr);
 	     String subtaskuuid = null;
 	     JSONArray arr = resObj.getJSONArray(String.valueOf(map.get("key")));	     
@@ -67,20 +70,19 @@ public class PublicTest {
 	    		 continue;
 	    	 }
 	     }
-	     CaseRelevanceData.newReviewSubTaskuuid = subtaskuuid;
-	     System.out.println("subtaskuuid："+subtaskuuid);	     
+	     CaseRelevanceData.newReviewSubTaskuuid = subtaskuuid;    
 	     return subtaskuuid;
 
 	 }
 	
 	public static void main(String[] args) {
-		HashMap<String,Object> map = new HashMap<String,Object>();
-	    map.put("subtaskuuid","2323324");
-	    map.put("status", 1);
-		int i =Integer.parseInt(map.get("status").toString());
-		String j = String.valueOf(map.get("subtaskuuid"));
-		System.out.println(i);
-		System.out.println(j);
+//		HashMap<String,Object> map = new HashMap<String,Object>();
+//	    map.put("subtaskuuid","2323324");
+//	    map.put("status", 1);
+//		int i =Integer.parseInt(map.get("status").toString());
+//		String j = String.valueOf(map.get("subtaskuuid"));
+//		System.out.println(i);
+//		System.out.println(j);
 	}
 	
 	

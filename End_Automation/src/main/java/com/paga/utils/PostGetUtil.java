@@ -10,10 +10,14 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.paga.cases.AddCommentTest;
 import com.paga.config.TestConfig;
 
 public class PostGetUtil {
+	private static final Logger logger = LoggerFactory.getLogger(PostGetUtil.class);
 	
 	  public static String getGetMethod(String url,String key) throws IOException {	    	
 	    	HttpGet get = new HttpGet(url);
@@ -27,7 +31,7 @@ public class PostGetUtil {
 	    	HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	    	
 	    	String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-	    	System.out.println("Interface response results："+jsonStr);
+	    	logger.info("Interface response results："+jsonStr);
 	    	JSONArray jsonArray = new JSONArray(jsonStr);
 	    	String name = jsonArray.getJSONObject(0).getString(key);
 	    	return name;
@@ -37,7 +41,6 @@ public class PostGetUtil {
 	  public static String getPosttMethod(String url,JSONObject param) throws IOException {
 		  HttpPost post = new HttpPost(url);
 		  post.addHeader("username",TestConfig.username);
-		  System.out.println("TestConfig.username："+TestConfig.username);
 //	      post.addHeader("access_token",TestConfig.access_token);
 //	      post.addHeader("refresh_token",TestConfig.refresh_token);
 //	      post.addHeader("token_type",TestConfig.token_type);
@@ -48,7 +51,7 @@ public class PostGetUtil {
 	      post.setEntity(entity);
 	      HttpResponse response = TestConfig.defaultHttpClient.execute(post);
 	      String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-	      System.out.println("Interface response results："+jsonStr);
+	      logger.info("Interface response results："+jsonStr);
 		  return jsonStr;
 		 
 	  }    

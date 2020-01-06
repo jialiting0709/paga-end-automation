@@ -1,53 +1,66 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<suite name="MIDAS系统测试套件">
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Paga suite">
     <listeners>
-        <listener class-name="com.demo.config.ExtentTestNGIReporterListener"/>
+        <listener class-name="com.paga.config.ExtentTestNGIReporterListener"/>
     </listeners>
-    <test name="MIDAS系统CMS模块正向场景+反向测试用例">
+    <test name="Paga test">
         <classes>
-            <!--登陆-->
-            <class name="com.demo.cases.LoginTest"/>
-            <!--上传-->
-            <class name="com.demo.cases.UploadClaimIdTest"/>
-            <!--创建-->
-            <class name="com.demo.cases.AuditPutTest"/>
-            <!--分页查询-->
-            <class name="com.demo.cases.AuditPageTest"/>
-            <!--验证许可-->
-            <class name="com.demo.cases.VerifyPermissionTest"/>
-            <!--指派-->
-            <class name="com.demo.cases.AuditAssignAuditorTest"/>
-            <!--切换阶段-->
-            <class name="com.demo.cases.AuditTarPhsTest"/>
-            <!--添加日期-->
-            <class name="com.demo.cases.DueDateTest"/>
-            <!--查询Claims页面的内容-->
-            <class name="com.demo.cases.TargTest"/>
-            <!--导出Claims页面的内容-->
-            <class name="com.demo.cases.TarExpTest"/>
-            <!--保存某一单据审核结果-->
-            <class name="com.demo.cases.SaveSingleTest"/>
-            <!--cancle掉task下面的某一个target-->
-            <class name="com.demo.cases.CancelInvtargetTest"/>
-            <!--cancle掉整个的task-->
-            <class name="com.demo.cases.CmscanceltaskTest"/>
+            <class name="com.paga.cases.LoginTest"/>
+            <!--
+            <class name="com.paga.cases.TaskTypeTest"/> 
+            <class name="com.paga.cases.RequestBYTest"/> 
+            -->
+            <class name="com.paga.cases.AddTaskTest"/>          
+            <class name="com.paga.cases.StartTaskTest"/>
+            <class name="com.paga.cases.StartSubtaskTest"/>   
+            <class name="com.paga.cases.SubtasktkIdTest"/> 
+            
+            <class name="com.paga.cases.AddLinkingCritTest"/>
+            
+            <class name="com.paga.cases.RruleConditionTest"/>                       
+            <class name="com.paga.cases.AddPathTest"/>
+          	
+            <class name="com.paga.cases.UpdateSubTaskTest"/>
+            
+            <class name="com.paga.cases.CompleteSubTaskTest"/>
+            
+            <class name="com.paga.cases.NewSubTaskUUidTest"/>
+            
+            <class name="com.paga.cases.AddCommentTest"/> 
+            
+            <class name="com.paga.cases.CommentsTest"/> 
+            
+            <class name="com.paga.cases.RejectSubtaskTest"/>
+                       
+            <class name="com.paga.cases.NewSubTaskReJUUidTest"/>
+            
+            <class name="com.paga.cases.UpdateSubTaskReJTest"/>
+            
+            <class name="com.paga.cases.CompleteSubTaskReJTest"/>
+            
+            <class name="com.paga.cases.NewSubTaskReJComUUidTest"/>
+            <!--                                                         
+            <class name="com.paga.cases.WriteTest"/>
+            -->
+             
+            <class name="com.paga.cases.ApproveSubTaskReviewTest"/>        
+            <class name="com.paga.cases.NewSubTaskDeployedUUidTest"/> 
+            <!--                                          
+          	<class name="com.paga.cases.RuleZipTest"/>
+          	-->
+          	
+          	<class name="com.paga.cases.RulePathTest"/>
+          	<class name="com.paga.cases.ApproveSubTaskDoneTest"/>
+      		
+          	<class name="com.paga.cases.NewTaskReviewUUidTest"/> 
+          	<class name="com.paga.cases.ApproveTaskTest"/>
+          	
+          	<class name="com.paga.cases.NewTaskDoneUUidTest"/>
+          	<class name="com.paga.cases.ApproveTaskDoneTest"/>
+          	<!-- -->    
         </classes>
 
-    </test>
-
-    <test name="MIDAS系统CMS模块正向场景二+反向测试用例">
-        <groups>
-            <run>
-                <include name = "LoginTrue" />
-                <include name = "uploadClaimId" />
-                <include name = "targetGet" />
-            </run>
-        </groups>
-        <classes>
-            <class name="com.demo.cases.LoginTest"/>
-            <class name="com.demo.cases.UploadClaimIdTest"/>
-            <class name="com.demo.cases.TargetGetTest"/>
-        </classes>
     </test>
 
 </suite>

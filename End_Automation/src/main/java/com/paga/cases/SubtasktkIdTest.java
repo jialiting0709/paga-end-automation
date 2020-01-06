@@ -1,6 +1,8 @@
 package com.paga.cases;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -19,6 +21,7 @@ import com.paga.utils.ConfigBeanPropUrl;
 
 @SpringBootTest
 public class SubtasktkIdTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(SubtasktkIdTest.class);
 	
     @Autowired
     ConfigBeanPropUrl configBeanPropUrl;
@@ -34,9 +37,8 @@ public class SubtasktkIdTest extends AbstractTestNGSpringContextTests{
 	        
 	        String url = configBeanPropUrl.getSubtasktkId()+"/"+CaseRelevanceData.pkValue;
 	        HttpGet get = new HttpGet(url);	        
-	        System.out.println("subtask tkId url: "+url);
+	        logger.info("subtask tkId url: "+url);
 	        get.addHeader("username", TestConfig.username);
-	        System.out.println("username====="+TestConfig.username);
 	        
 //	        get.addHeader("access_token",TestConfig.access_token);
 //	        get.addHeader("refresh_token",TestConfig.refresh_token);
@@ -46,11 +48,10 @@ public class SubtasktkIdTest extends AbstractTestNGSpringContextTests{
 
 	        HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-	        System.out.println("Interface response results："+jsonStr);
+	        logger.info("Interface response results："+jsonStr);
 	        JSONObject jsonRest= new JSONObject(jsonStr);
 	        int subTaskId = jsonRest.getJSONObject("subTask").getInt("id");
 	        CaseRelevanceData.subtaskid = subTaskId;
-	        System.out.println("subtaskid====="+CaseRelevanceData.subtaskid);
 	        return subTaskId;
 
 	    }	

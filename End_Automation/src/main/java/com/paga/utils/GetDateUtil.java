@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class PublicFunction {
+public class GetDateUtil {
 	/**
 	 * "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 	 * "yyyyMMdd"

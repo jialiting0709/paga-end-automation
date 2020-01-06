@@ -2,6 +2,8 @@ package com.paga.cases;
 
 
 import java.util.HashMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,20 +14,22 @@ import org.testng.annotations.Test;
 
 import com.paga.config.CaseRelevanceData;
 import com.paga.utils.ConfigBeanPropUrl;
-import com.paga.utils.PublicTest;
+import com.paga.utils.MultiplexingCase;
 
 @SpringBootTest
 public class CompleteSubTaskReJTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(CompleteSubTaskReJTest.class);
+	
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
 	@Test(dependsOnGroups="UpdateSubTaskReJ", groups="CompleteSubTaskReJ",description = "Complete a SubTaskrej")
 	public void completeSubTaskREj() throws Exception { 	
 		String url = configBeanPropUrl.getCompleteSubTask();
-		System.out.println("complete subTask url："+url);
+		logger.info("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("subtaskuuid",CaseRelevanceData.subtaskRejuuid);
-		String result = PublicTest.completeSubTask(url, map);		
+		String result = MultiplexingCase.completeSubTask(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
 	}

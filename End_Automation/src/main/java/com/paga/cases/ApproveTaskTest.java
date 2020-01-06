@@ -1,6 +1,8 @@
 package com.paga.cases;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,13 +18,14 @@ import com.paga.utils.PostGetUtil;
 
 @SpringBootTest
 public class ApproveTaskTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(ApproveTaskTest.class);
 	
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
 	@Test(dependsOnGroups="newTaskReviewUUid", groups="approveTaskReview",description = " approve task review")
 	public void approveSubTask() throws Exception { 
-		System.out.println("approve Task review url："+configBeanPropUrl.getApproveTask());
+		logger.info("approve Task review url："+configBeanPropUrl.getApproveTask());
 		String result = getResult();
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -50,7 +53,7 @@ public class ApproveTaskTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("dueDate",JSONObject.NULL);
 		jsonObj.put("selfProps", selfPropsJson);
 		jsonObj.put("uuid",CaseRelevanceData.newReviewtaskuuid);
-		System.out.println(jsonObj.toString());
+		logger.info(jsonObj.toString());
 		
 		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getApproveTask(),jsonObj);	
 		return returnStr;

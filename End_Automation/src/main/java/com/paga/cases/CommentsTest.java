@@ -1,6 +1,8 @@
 package com.paga.cases;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -18,6 +20,7 @@ import com.paga.utils.ConfigBeanPropUrl;
 
 @SpringBootTest
 public class CommentsTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(CommentsTest.class);
 	
     @Autowired
     ConfigBeanPropUrl configBeanPropUrl;
@@ -35,7 +38,7 @@ public class CommentsTest extends AbstractTestNGSpringContextTests{
         sb.append("/");
         sb.append(CaseRelevanceData.subtaskid);
         HttpGet get = new HttpGet(sb.toString());
-        System.out.println("query comments id: "+sb.toString());
+        logger.info("query comments id: "+sb.toString());
         get.addHeader("username", TestConfig.username);
 //        get.addHeader("access_token",TestConfig.access_token);
 //        get.addHeader("refresh_token",TestConfig.refresh_token);
@@ -45,7 +48,7 @@ public class CommentsTest extends AbstractTestNGSpringContextTests{
 
         HttpResponse response = TestConfig.defaultHttpClient.execute(get);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-        System.out.println("接口的结果："+jsonStr);
+        logger.info("Results of the interface："+jsonStr);
         JSONObject resJson = new JSONObject(jsonStr);
         String commentId = null;
         int i = resJson.getJSONArray("SubtaskReview").length();
@@ -54,7 +57,6 @@ public class CommentsTest extends AbstractTestNGSpringContextTests{
             commentId = obj.getString("id");
         }
         CaseRelevanceData.commentId = commentId; 
-        System.out.println(CaseRelevanceData.commentId);
         
         return commentId;
 

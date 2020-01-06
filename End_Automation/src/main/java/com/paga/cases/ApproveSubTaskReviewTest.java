@@ -13,16 +13,19 @@ import org.testng.annotations.Test;
 import com.paga.config.CaseRelevanceData;
 import com.paga.utils.ConfigBeanPropUrl;
 import com.paga.utils.PostGetUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @SpringBootTest
 public class ApproveSubTaskReviewTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(ApproveSubTaskReviewTest.class);
 	
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
 	@Test(dependsOnGroups="NewSubTaskReJComUUid", groups="approveSubTask",description = "approve subTask")
 	public void approveSubTask() throws Exception { 
-		System.out.println("approve subTask url："+configBeanPropUrl.getApproveSubTask());
+		logger.info("approve subTask url："+configBeanPropUrl.getApproveSubTask());
 		String result = getResult();
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);

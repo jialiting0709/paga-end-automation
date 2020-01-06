@@ -2,9 +2,11 @@ package com.paga.cases;
 
 
 import com.paga.config.CaseRelevanceData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import com.paga.utils.ConfigBeanPropUrl;
 
-import com.paga.utils.PublicTest;
+import com.paga.utils.MultiplexingCase;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +19,7 @@ import java.util.HashMap;
 
 @SpringBootTest
 public class UpdateSubTaskTest extends AbstractTestNGSpringContextTests {
+	private static final Logger logger = LoggerFactory.getLogger(UpdateSubTaskTest.class);
 	
     @Autowired
     ConfigBeanPropUrl configBeanPropUrl;
@@ -24,11 +27,11 @@ public class UpdateSubTaskTest extends AbstractTestNGSpringContextTests {
 
     private void updateSubTask() throws IOException, InterruptedException {
     	String url = configBeanPropUrl.getUpdateSub();
-    	System.out.println("update SubTask url:"+url);
+    	logger.info("update SubTask url:"+url);
     	HashMap<String,Object> map=new HashMap<String,Object>();
     	map.put("subtaskuuid", CaseRelevanceData.subtaskuuid);
     	map.put("status", 3);
-    	String res = PublicTest.updateSubTask(url,map);
+    	String res = MultiplexingCase.updateSubTask(url,map);
         Assert.assertNotNull(res);
         Thread.sleep(2000);
 

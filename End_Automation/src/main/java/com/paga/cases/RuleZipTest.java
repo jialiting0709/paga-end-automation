@@ -1,6 +1,8 @@
 package com.paga.cases;
 
 import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -17,6 +19,8 @@ import com.paga.utils.ConfigBeanPropUrl;
 
 @SpringBootTest
 public class RuleZipTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(RuleZipTest.class);
+	
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
@@ -34,7 +38,7 @@ public class RuleZipTest extends AbstractTestNGSpringContextTests{
 	        sb.append("/");
 	        sb.append(CaseRelevanceData.subtaskid);
 	        HttpGet get = new HttpGet(sb.toString());
-	        System.out.println("rule zip url: "+sb.toString());
+	        logger.info("rule zip url: "+sb.toString());
 	        get.addHeader("username", TestConfig.username);
 //	        get.addHeader("access_token",TestConfig.access_token);
 //	        get.addHeader("refresh_token",TestConfig.refresh_token);
@@ -44,7 +48,7 @@ public class RuleZipTest extends AbstractTestNGSpringContextTests{
 
 	        HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-	        System.out.println(jsonStr);
+	        logger.info(jsonStr);
 	        return jsonStr;
 
 	    }	
