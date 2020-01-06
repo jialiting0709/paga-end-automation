@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -16,6 +18,8 @@ import com.paga.utils.PostGetUtil;
 
 @SpringBootTest
 public class AddPathTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(AddPathTest.class);
+	
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
@@ -55,10 +59,9 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 		jsonSubTaskPathVo.put("statuscode", 1);	
 		jsonObj.put("pathseqnum", 1);	
 		jsonObj.put("subTaskPathVo",jsonSubTaskPathVo);
-		System.out.println(jsonObj.toString());
+		logger.info(jsonObj.toString());
 		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddPathss(), jsonObj);
 		CaseRelevanceData.addPathId = returnStr;
-		System.out.println("addPathId"+CaseRelevanceData.addPathId);
 		return returnStr;
 		  
 	}

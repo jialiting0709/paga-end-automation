@@ -9,6 +9,8 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -19,12 +21,14 @@ import java.io.IOException;
 
 @SpringBootTest
 public class AddLinkingCritTest extends AbstractTestNGSpringContextTests {
+	private static final Logger logger = LoggerFactory.getLogger(AddLinkingCritTest.class);
+	
     @Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 
     @Test(dependsOnGroups="startSubtask", groups="addLinkingCrit",description = "add a Linking Crit")
     private void addLinkingCrit() throws IOException {
-    	System.out.println(configBeanPropUrl.getAddclink());
+    	logger.info(configBeanPropUrl.getAddclink());
         String  uuid = test();
         Assert.assertNotNull(uuid);
     }
@@ -67,10 +71,9 @@ public class AddLinkingCritTest extends AbstractTestNGSpringContextTests {
         array.put(obj2);
         StringEntity entity = new StringEntity(array.toString(),"utf-8");
         post.setEntity(entity);
-        System.out.println(array);
         HttpResponse response = TestConfig.defaultHttpClient.execute(post);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-        System.out.println("Interface response results："+jsonStr);
+        logger.info("Interface response results："+jsonStr);
         JSONArray REsA = new JSONArray(jsonStr);
         JSONObject jsonRest= REsA.getJSONObject(0);
         return jsonRest.getString("brand");

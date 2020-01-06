@@ -41,6 +41,9 @@ public class AddTaskPage extends BasePage{
 	@FindBy(xpath="//form/p[3]/mat-form-field/div/div/div[3]/input")
 	private WebElement task_Due;
 	
+	@FindBy(xpath="")
+	private WebElement sales_Force_Case_Number;
+	
 	public void input_task_Due(String input){
 		this.sendkeys(task_Due, input);
 	}

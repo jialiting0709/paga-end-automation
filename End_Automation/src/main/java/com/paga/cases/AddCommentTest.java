@@ -2,7 +2,10 @@ package com.paga.cases;
 
 import java.io.IOException;
 
+
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -15,13 +18,14 @@ import com.paga.utils.PostGetUtil;
 
 @SpringBootTest
 public class AddCommentTest extends AbstractTestNGSpringContextTests{
+	private static final Logger logger = LoggerFactory.getLogger(AddCommentTest.class);
 	
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 	
 	@Test(dependsOnGroups="newSubTaskuuid", groups="addComment",description = "add comment")	
 	public void addComment() throws Exception { 	
-		System.out.println("add comment url："+configBeanPropUrl.getAddComments());
+		logger.info("add comment url："+configBeanPropUrl.getAddComments());
 		String result = getResult();		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -32,7 +36,7 @@ public class AddCommentTest extends AbstractTestNGSpringContextTests{
 		 jsonObj.put("id", "");
 		 jsonObj.put("message", "234");	 
 		 jsonObj.put("tkUuid",CaseRelevanceData.newReviewSubTaskuuid);
-		 System.out.println(jsonObj.toString());
+		 logger.info(jsonObj.toString());
 		 String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddComments(),jsonObj);
 		 return returnStr;
 	 }
