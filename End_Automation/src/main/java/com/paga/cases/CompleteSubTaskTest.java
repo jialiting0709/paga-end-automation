@@ -29,7 +29,7 @@ public class CompleteSubTaskTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="updateSubTask", groups="completeSubTask",description = "Complete a SubTask")
 	public void completeSubTask() throws Exception { 
-		String url = configBeanPropUrl.getCompleteSubTask();
+		String url = configBeanPropUrl.getUri()+configBeanPropUrl.getCompleteSubTask();
 		logger.info("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("subtaskuuid",CaseRelevanceData.subtaskuuid);

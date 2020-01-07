@@ -30,7 +30,7 @@ public class NewTaskDoneUUidTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="approveTaskReview", groups="newTaskDoneUUid",description = "task Done new uuid")
 	public void newTaskDoneUUid() throws Exception { 
-		logger.info("approve Task review url："+configBeanPropUrl.getApproveTask());
+		logger.info("approve Task review url："+configBeanPropUrl.getUri()+configBeanPropUrl.getApproveTask());
 		String result = getResult();
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -38,7 +38,7 @@ public class NewTaskDoneUUidTest extends AbstractTestNGSpringContextTests{
 	}
 	
 	private String getResult() throws IOException{		 
-		 HttpGet get = new HttpGet(configBeanPropUrl.getNewSubTaskuuid());
+		 HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
 		 get.addHeader("username", TestConfig.username);		 
 		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");

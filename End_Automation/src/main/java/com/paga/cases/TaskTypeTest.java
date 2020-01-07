@@ -22,8 +22,8 @@ public class TaskTypeTest extends AbstractTestNGSpringContextTests{
     
     @Test(dependsOnGroups="loginTrue",groups="taskType",description="TaskType query")
     public void taskType()throws Exception {
-    	logger.info("TaskType url："+configBeanPropUrl.getTaskType());
-        String name= PostGetUtil.getGetMethod(configBeanPropUrl.getTaskType(), "name");
+    	logger.info("TaskType url："+configBeanPropUrl.getUri()+configBeanPropUrl.getTaskType());
+        String name= PostGetUtil.getGetMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getTaskType(), "name");
         Assert.assertEquals(name, "Create");
     }   
 	

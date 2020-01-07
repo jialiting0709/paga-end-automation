@@ -30,7 +30,7 @@ public class NewSubTaskDeployedUUidTest extends AbstractTestNGSpringContextTests
 	
 	@Test(dependsOnGroups="approveSubTask", groups="newSubTaskDeployedUuid",description = "new SubTask uuid")	
 	public void newSubTaskDeployedUuid() throws Exception { 	
-		logger.info("taskFlow task url："+configBeanPropUrl.getNewSubTaskuuid());
+		logger.info("taskFlow task url："+configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
 		String result = getResult();		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -38,7 +38,7 @@ public class NewSubTaskDeployedUUidTest extends AbstractTestNGSpringContextTests
 	
 	 private String getResult() throws IOException{
 		 
-		 HttpGet get = new HttpGet(configBeanPropUrl.getNewSubTaskuuid());
+		 HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
 		 get.addHeader("username", TestConfig.username);		 
 		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
@@ -49,10 +49,8 @@ public class NewSubTaskDeployedUUidTest extends AbstractTestNGSpringContextTests
 	     String newSubTaskDeployedUuid = null;
 	     ArrayNode arr = (ArrayNode)resJson.path("SubtaskDone");
 	     for(int i=0;i<arr.size();i++){
-//	    	 int subTaskId = arr.getJSONObject(i).getJSONObject("pk").getJSONObject("subTask").getInt("id");
 	    	 int subTaskId = arr.get(i).path("pk").path("subTask").path("id").asInt();
 	    	 if(subTaskId==CaseRelevanceData.subtaskid){
-//	    		 newSubTaskDeployedUuid = arr.getJSONObject(i).getJSONObject("df").getString("uuid");
 	    		 newSubTaskDeployedUuid = arr.get(i).path("df").path("uuid").asText();
 	    	 }else{
 	    		 continue;

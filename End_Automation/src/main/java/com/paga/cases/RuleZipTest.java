@@ -32,7 +32,7 @@ public class RuleZipTest extends AbstractTestNGSpringContextTests{
 		
 	}
 	  private String getResult() throws IOException {
-	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getRuleZip());
+	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getRuleZip());
 	        sb.append("/");
 	        sb.append(CaseRelevanceData.pkValue);
 	        sb.append("/");

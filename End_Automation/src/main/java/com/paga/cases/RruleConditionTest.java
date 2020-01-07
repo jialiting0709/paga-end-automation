@@ -28,7 +28,7 @@ public class RruleConditionTest extends AbstractTestNGSpringContextTests{
     
     @Test(dependsOnGroups = "addLinkingCrit", groups = "condition",description = "condition")
     private void test() throws IOException, InterruptedException {
-    	logger.info("condition url："+configBeanPropUrl.getCondition());
+    	logger.info("condition url："+configBeanPropUrl.getUri()+configBeanPropUrl.getCondition());
         String res = run();
         Assert.assertNotNull(res);
         Thread.sleep(3000);
@@ -38,7 +38,7 @@ public class RruleConditionTest extends AbstractTestNGSpringContextTests{
     
     private String run() throws IOException {
 
-        HttpGet get = new HttpGet(configBeanPropUrl.getCondition());
+        HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getCondition());
         get.addHeader("username", TestConfig.username);
 //        get.addHeader("access_token",TestConfig.access_token);
 //        get.addHeader("refresh_token",TestConfig.refresh_token);

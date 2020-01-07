@@ -25,7 +25,7 @@ public class TaskMgrSubtaskUpdateTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="", groups="taskMgrSubtaskUpdate",description = "TaskMgr Subtask Update")
 	public void taskMgrSubtaskUpdate() throws Exception {
-		logger.info("TaskMgr Subtask Update url："+configBeanPropUrl.getUpdateSub());
+		logger.info("TaskMgr Subtask Update url："+configBeanPropUrl.getUri()+configBeanPropUrl.getUpdateSub());
 		String result = getResult();		
 		Assert.assertNotNull(result);						
 	}
@@ -40,7 +40,7 @@ public class TaskMgrSubtaskUpdateTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("status", 2);
 		jsonObj.put("tkId", CaseRelevanceData.pkValue);
 		jsonObj.put("uniqueKeyInFlow",CaseRelevanceData.taskuuid);
-		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getCompleteSubTask(),jsonObj);
+		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getCompleteSubTask(),jsonObj);
 		return returnStr;
 	 }
 	

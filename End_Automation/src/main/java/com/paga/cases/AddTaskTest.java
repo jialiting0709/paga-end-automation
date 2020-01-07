@@ -30,7 +30,7 @@ public class AddTaskTest extends AbstractTestNGSpringContextTests{
     
     @Test(dependsOnGroups="loginTrue", groups="addTask",description = "add a Task")
     public void loginTrue() throws Exception { 
-    	logger.info("add Task url："+configBeanPropUrl.getAddTask());
+    	logger.info("add Task url："+configBeanPropUrl.getUri()+configBeanPropUrl.getAddTask());
     	String result = getResult();
     	Integer.parseInt(result);
     	if(Integer.parseInt(result)>0){
@@ -71,7 +71,7 @@ public class AddTaskTest extends AbstractTestNGSpringContextTests{
     	entityTaskDtl.put("assignUser","wang");
     	json.set("taskDtl",entityTaskDtl);
     	json.set("task",entity);   	   	
-    	String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddTask(), json);	
+    	String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getAddTask(), json);	
     	CaseRelevanceData.pkValue = Integer.parseInt(returnStr);   	
     	return returnStr;
     }

@@ -25,7 +25,7 @@ public class ApproveTaskDoneTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="newTaskDoneUUid", groups="approveTaskDone",description = " approve task done")
 	public void approveSubTask() throws Exception { 
-		logger.info("approve Task review url："+configBeanPropUrl.getApproveTask());
+		logger.info("approve Task review url："+configBeanPropUrl.getUri()+configBeanPropUrl.getApproveTask());
 		String result = getResult();
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);		
@@ -49,9 +49,8 @@ public class ApproveTaskDoneTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("defineKey", "TaskDone");
 		jsonObj.set("selfProps", selfPropsJson);
 		jsonObj.put("uuid",CaseRelevanceData.newDonetaskuuid);
-		logger.info(jsonObj.toString());
 		
-		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getApproveTask(),jsonObj);	
+		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getApproveTask(),jsonObj);	
 		return returnStr;
 		  
 	}

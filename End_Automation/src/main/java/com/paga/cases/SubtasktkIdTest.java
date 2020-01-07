@@ -36,7 +36,7 @@ public class SubtasktkIdTest extends AbstractTestNGSpringContextTests{
 	}
 	  private int getResult() throws IOException {
 	        
-	        String url = configBeanPropUrl.getSubtasktkId()+"/"+CaseRelevanceData.pkValue;
+	        String url = configBeanPropUrl.getUri()+configBeanPropUrl.getSubtasktkId()+"/"+CaseRelevanceData.pkValue;
 	        HttpGet get = new HttpGet(url);	        
 	        logger.info("subtask tkId url: "+url);
 	        get.addHeader("username", TestConfig.username);

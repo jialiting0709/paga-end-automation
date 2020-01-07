@@ -27,7 +27,7 @@ public class RejectSubtaskTest extends AbstractTestNGSpringContextTests {
     @Test(dependsOnGroups = "commentsId",groups = "rejectTask",description = "reject a subtask")
    
     public void rejectTask() throws Exception{
-    	logger.info("reject a subtask url:"+configBeanPropUrl.getRejectSubTask());   	
+    	logger.info("reject a subtask url:"+configBeanPropUrl.getUri()+configBeanPropUrl.getRejectSubTask());   	
     	String result = getResult();
         JsonNode res = new ObjectMapper().readTree(result); 
         Assert.assertNotNull(res);
@@ -51,7 +51,7 @@ public class RejectSubtaskTest extends AbstractTestNGSpringContextTests {
         jsonObject.set("selfProps",sObj);
         jsonObject.put("uuid", CaseRelevanceData.newReviewSubTaskuuid);
         
-        return PostGetUtil.getPosttMethod(configBeanPropUrl.getRejectSubTask(),jsonObject);
+        return PostGetUtil.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getRejectSubTask(),jsonObject);
 
     }
 }

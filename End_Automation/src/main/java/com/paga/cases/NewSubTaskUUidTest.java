@@ -25,7 +25,7 @@ public class NewSubTaskUUidTest extends AbstractTestNGSpringContextTests{
     private ConfigBeanPropUrl configBeanPropUrl;
 	@Test(dependsOnGroups="completeSubTask", groups="newSubTaskuuid",description = "new SubTask uuid")	
 	public void newSubTaskuuid() throws Exception {  
-		String url = configBeanPropUrl.getNewSubTaskuuid();
+		String url = configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid();
 		logger.info("taskFlow task url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("key", "SubtaskReview");

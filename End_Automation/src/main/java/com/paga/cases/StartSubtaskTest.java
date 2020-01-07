@@ -33,7 +33,7 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="startTask", groups="startSubtask",description = "Assign the user to a subTask")
 	public void startTask() throws Exception { 
-		logger.info("start subtask url："+configBeanPropUrl.getStartSubtask());
+		logger.info("start subtask url："+configBeanPropUrl.getUri()+configBeanPropUrl.getStartSubtask());
 		String result = getResult();
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -42,7 +42,7 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 	
 	private String getResult() throws IOException, InterruptedException{
 		Thread.sleep(3000);
-		HttpPost post = new HttpPost(configBeanPropUrl.getStartSubtask());
+		HttpPost post = new HttpPost(configBeanPropUrl.getUri()+configBeanPropUrl.getStartSubtask());
 		post.addHeader("username",TestConfig.username);
 //	    post.addHeader("access_token",TestConfig.access_token);
 //	    post.addHeader("refresh_token",TestConfig.refresh_token);

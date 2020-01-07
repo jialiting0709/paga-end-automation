@@ -26,7 +26,7 @@ public class ApproveSubTaskDoneTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="RulePath", groups="approveSubTaskDone",description = "approve subTask done")
 	public void approveSubTask() throws Exception { 
-		logger.info("approve subTask done url："+configBeanPropUrl.getApproveSubTask());
+		logger.info("approve subTask done url："+configBeanPropUrl.getUri()+configBeanPropUrl.getApproveSubTask());
 		String result = getResult();
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -51,9 +51,8 @@ public class ApproveSubTaskDoneTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("defineKey", "SubtaskDone");
 		jsonObj.set("selfProps", selfPropsJson);
 		jsonObj.put("uuid",CaseRelevanceData.newSubTaskDeployedUuid);
-		logger.info(jsonObj.toString());
 		
-		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getApproveSubTask(),jsonObj);	
+		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getApproveSubTask(),jsonObj);	
 		return returnStr;
 		  
 	}

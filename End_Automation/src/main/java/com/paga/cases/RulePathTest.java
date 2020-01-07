@@ -27,7 +27,7 @@ public class RulePathTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="newSubTaskDeployedUuid", groups="RulePath",description = "rule path")
 	private void RulePath() throws IOException, InterruptedException {
-		logger.info("rule path url:"+configBeanPropUrl.getRulePath());		
+		logger.info("rule path url:"+configBeanPropUrl.getUri()+configBeanPropUrl.getRulePath());		
 		String result = getResult();
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -35,7 +35,7 @@ public class RulePathTest extends AbstractTestNGSpringContextTests{
 	}
 	
 	  private String getResult() throws IOException {
-	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getRulePath());
+	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getRulePath());
 	        sb.append("/");
 	        sb.append(CaseRelevanceData.subtaskid);
 	        sb.append("/");

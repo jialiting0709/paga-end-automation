@@ -32,7 +32,7 @@ public class PreviewTest extends AbstractTestNGSpringContextTests{
 	        Thread.sleep(3000);
 	    }
 	    private String run() throws IOException {
-	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getPreview());
+	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getPreview());
 	        sb.append("/");
 	        sb.append(CaseRelevanceData.addPathId);
 	        HttpGet get = new HttpGet(sb.toString());

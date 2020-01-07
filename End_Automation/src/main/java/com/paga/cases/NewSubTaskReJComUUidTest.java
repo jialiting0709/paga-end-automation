@@ -30,7 +30,7 @@ public class NewSubTaskReJComUUidTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="CompleteSubTaskReJ", groups="NewSubTaskReJComUUid",description = "new SubTaskReJCom uuid")	
 	public void newSubTaskReJComUUid() throws Exception { 	
-		logger.info("taskFlow task url："+configBeanPropUrl.getNewSubTaskuuid());
+		logger.info("taskFlow task url："+configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
 		String result = getResult();		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -38,19 +38,19 @@ public class NewSubTaskReJComUUidTest extends AbstractTestNGSpringContextTests{
 	
 	 private String getResult() throws IOException{
 		 
-		 HttpGet get = new HttpGet(configBeanPropUrl.getNewSubTaskuuid());
+		 HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
 		 get.addHeader("username", TestConfig.username);		 
 		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
-	     JsonNode resJson = new ObjectMapper().readTree(jsonStr); 
+	     JsonNode resJson = new ObjectMapper().readTree(jsonStr);   
 	     String subtaskRejcomuuid = null;	     
-	     ArrayNode arr = (ArrayNode)resJson.path("SubtaskReview");
-	     for(int i=0;i<arr.size();i++){
-	    	 int subTaskId = arr.get(i).path("pk").path("subTask").asInt();
+	     ArrayNode arr = (ArrayNode)resJson.path("SubtaskReview");	     
+	     for(int j=0;j<arr.size();j++){
+	    	 int subTaskId = arr.get(j).path("pk").path("subTask").path("id").asInt();
 	    	 if(subTaskId==CaseRelevanceData.subtaskid){
-	    		 subtaskRejcomuuid = arr.get(i).path("df").path("uuid").asText();
+	    		 subtaskRejcomuuid = arr.get(j).path("df").path("uuid").asText();
 	    	 }else{
 	    		 continue;
 	    	 }

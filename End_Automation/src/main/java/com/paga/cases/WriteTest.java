@@ -32,7 +32,7 @@ public class WriteTest extends AbstractTestNGSpringContextTests {
         Thread.sleep(3000);
     }
     private String run() throws IOException {
-        StringBuilder sb =new StringBuilder(configBeanPropUrl.getWrite());
+        StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getWrite());
         sb.append("/");
         sb.append(CaseRelevanceData.pkValue);
         sb.append("/");

@@ -36,8 +36,6 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
     @BeforeTest(groups = "loginTrue",description = "Test preparation, get httpclient object",alwaysRun=true)
     public void beforeTest(){
         TestConfig.defaultHttpClient = HttpClients.createDefault();
-       
-
     }
 
     @Test(groups = "loginTrue",description = "login")
@@ -47,8 +45,8 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
     }
 
     private String getResult() throws IOException {
-    	logger.info("login url："+configBeanPropUrl.getLogin());
-        HttpPost post = new HttpPost(configBeanPropUrl.getLogin());
+    	logger.info("login url："+configBeanPropUrl.getUri()+configBeanPropUrl.getLogin());
+        HttpPost post = new HttpPost(configBeanPropUrl.getUri()+configBeanPropUrl.getLogin());
         StringEntity entity = new StringEntity("username=wang&password=1111@ssword-7&grant_type=password", ContentType.APPLICATION_JSON);
         post.addHeader("authorization", "123");
         post.setEntity(entity);

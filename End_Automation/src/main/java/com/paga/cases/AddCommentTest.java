@@ -26,7 +26,7 @@ public class AddCommentTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="newSubTaskuuid", groups="addComment",description = "add comment")	
 	public void addComment() throws Exception { 	
-		logger.info("add comment url："+configBeanPropUrl.getAddComments());
+		logger.info("add comment url："+configBeanPropUrl.getUri()+configBeanPropUrl.getAddComments());
 		String result = getResult();		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -37,7 +37,7 @@ public class AddCommentTest extends AbstractTestNGSpringContextTests{
 		 jsonObj.put("id", "");
 		 jsonObj.put("message", "234");	 
 		 jsonObj.put("tkUuid",CaseRelevanceData.newReviewSubTaskuuid);
-		 String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddComments(),jsonObj);
+		 String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getAddComments(),jsonObj);
 		 return returnStr;
 	 }
 

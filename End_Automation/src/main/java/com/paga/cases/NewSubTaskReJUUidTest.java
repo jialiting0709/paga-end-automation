@@ -30,7 +30,7 @@ public class NewSubTaskReJUUidTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="rejectTask", groups="NewSubTaskReJUUid",description = "new SubTaskReJ uuid")	
 	public void newSubTaskuuid() throws Exception { 	
-		logger.info("taskFlow task url："+configBeanPropUrl.getNewSubTaskuuid());
+		logger.info("taskFlow task url："+configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
 		String result = getResult();		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -38,7 +38,7 @@ public class NewSubTaskReJUUidTest extends AbstractTestNGSpringContextTests{
 	
 	 private String getResult() throws IOException{
 		 
-		 HttpGet get = new HttpGet(configBeanPropUrl.getNewSubTaskuuid());
+		 HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
 		 get.addHeader("username", TestConfig.username);		 
 		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");

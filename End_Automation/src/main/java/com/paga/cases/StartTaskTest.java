@@ -30,7 +30,7 @@ public class StartTaskTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="addTask", groups="startTask",description = "start a new task in workbench")
 	public void startTask() throws Exception { 
-		logger.info("start task url："+configBeanPropUrl.getStartTask());
+		logger.info("start task url："+configBeanPropUrl.getUri()+configBeanPropUrl.getStartTask());
 		String result = getResult();
 		JsonNode root = new ObjectMapper().readTree(result); 
 		CaseRelevanceData.taskuuid=root.path("uuid").asText();
@@ -52,7 +52,7 @@ public class StartTaskTest extends AbstractTestNGSpringContextTests{
 		 selfPropsObj.put("pkValue", CaseRelevanceData.pkValue);//taskId	
 		 entity.set("selfProps",selfPropsObj);
 		 		 
-		 String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getStartTask(), entity);	 		 
+		 String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getStartTask(), entity);	 		 
 		 return returnStr;
 	 }
 	

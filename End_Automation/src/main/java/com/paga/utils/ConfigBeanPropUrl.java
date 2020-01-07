@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "test")
 @PropertySource(value = "classpath:configUrl.properties")
 public class ConfigBeanPropUrl {
-
+	
+	private String uri;
     private String login;
     private String taskType;
     private String allHdr;
@@ -33,9 +34,13 @@ public class ConfigBeanPropUrl {
     private String preview;
     private String rulePath;
     
-    
+	public String getUri() {
+		return uri;
+	}
 
-    
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
 
 	public String getRulePath() {
 		return rulePath;

@@ -21,8 +21,8 @@ public class RequestBYTest extends AbstractTestNGSpringContextTests{
     
     @Test(dependsOnGroups="taskType",groups="allHdr",description ="query HQ Header")
     public void allHdr() throws Exception {
-    	logger.info("HQ Header url："+configBeanPropUrl.getAllHdr());
-        String name = PostGetUtil.getGetMethod(configBeanPropUrl.getAllHdr(),"name");
+    	logger.info("HQ Header url："+configBeanPropUrl.getUri()+configBeanPropUrl.getAllHdr());
+        String name = PostGetUtil.getGetMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getAllHdr(),"name");
         Assert.assertEquals(name, "N/A");
     }
     

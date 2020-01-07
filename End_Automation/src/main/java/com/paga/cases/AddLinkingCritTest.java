@@ -30,14 +30,14 @@ public class AddLinkingCritTest extends AbstractTestNGSpringContextTests {
 
     @Test(dependsOnGroups="startSubtask", groups="addLinkingCrit",description = "add a Linking Crit")
     private void addLinkingCrit() throws IOException {
-    	logger.info(configBeanPropUrl.getAddclink());
+    	logger.info(configBeanPropUrl.getUri()+configBeanPropUrl.getAddclink());
         String  uuid = test();
         Assert.assertNotNull(uuid);
     }
 
 
     private String test() throws IOException {
-        HttpPost post = new HttpPost(configBeanPropUrl.getAddclink());
+        HttpPost post = new HttpPost(configBeanPropUrl.getUri()+configBeanPropUrl.getAddclink());
         post.addHeader("username", TestConfig.username);
 //        post.addHeader("access_token",TestConfig.access_token);
 //        post.addHeader("refresh_token",TestConfig.refresh_token);

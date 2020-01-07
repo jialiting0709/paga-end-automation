@@ -34,7 +34,7 @@ public class CommentsTest extends AbstractTestNGSpringContextTests{
         Thread.sleep(3000);
     }
     private String run() throws IOException {
-        StringBuilder sb =new StringBuilder(configBeanPropUrl.getComments());
+        StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getComments());
         sb.append("/");
         sb.append(CaseRelevanceData.pkValue);
         sb.append("/");

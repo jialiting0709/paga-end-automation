@@ -25,7 +25,7 @@ public class CompleteSubTaskReJTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="UpdateSubTaskReJ", groups="CompleteSubTaskReJ",description = "Complete a SubTaskrej")
 	public void completeSubTaskREj() throws Exception { 	
-		String url = configBeanPropUrl.getCompleteSubTask();
+		String url = configBeanPropUrl.getUri()+configBeanPropUrl.getCompleteSubTask();
 		logger.info("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("subtaskuuid",CaseRelevanceData.subtaskRejuuid);
