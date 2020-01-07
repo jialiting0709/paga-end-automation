@@ -11,7 +11,7 @@ public class MyTest {
         List<String> suites = Lists.newArrayList();
         //Get project root path
         String root = System.getProperty("user.dir");
-        suites.add(root+"/config/testng.xml");
+        suites.add(root+"/src/test/resources/testng.xml");
         tng.setTestSuites(suites);
         tng.run();
     }

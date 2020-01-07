@@ -35,8 +35,7 @@ public class StartTaskTest extends AbstractTestNGSpringContextTests{
 		JsonNode root = new ObjectMapper().readTree(result); 
 		CaseRelevanceData.taskuuid=root.path("uuid").asText();
 		Assert.assertEquals("TaskNew", root.path("defineKey").asText());
-		Thread.sleep(5000);
-				
+		Thread.sleep(5000);				
 //		CaseRelevanceData.taskuuid  = jsonRes.getString("uuid");
 //		Assert.assertEquals("TaskNew", jsonRes.getString("defineKey"));
 				

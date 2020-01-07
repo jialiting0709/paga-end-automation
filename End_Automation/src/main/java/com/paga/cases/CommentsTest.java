@@ -58,7 +58,7 @@ public class CommentsTest extends AbstractTestNGSpringContextTests{
         	commentId = an.get(j).path("id").asText();
         }
         CaseRelevanceData.commentId = commentId; 
-        
+        logger.info("commentId:"+commentId);
         return commentId;
 
     }

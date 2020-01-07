@@ -44,6 +44,7 @@ public class AddTaskTest extends AbstractTestNGSpringContextTests{
     	String dueDate = GetDateUtil.getStringDate(432000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     	String effective = GetDateUtil.getStringDate(864000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     	ObjectMapper mapper= new ObjectMapper();
+    	ObjectNode json = mapper.createObjectNode();
     	ObjectNode entity = mapper.createObjectNode();
     	entity.put("clientName", "Manulife Financial");
     	entity.put("dueDate", dueDate);
@@ -68,10 +69,9 @@ public class AddTaskTest extends AbstractTestNGSpringContextTests{
     	entity.put("taskType",1);
     	ObjectNode entityTaskDtl = mapper.createObjectNode();
     	entityTaskDtl.put("assignUser","wang");
-    	entity.set("taskDtl",entityTaskDtl);
-    	
-    	
-    	String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddTask(), entity);	
+    	json.set("taskDtl",entityTaskDtl);
+    	json.set("task",entity);   	   	
+    	String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddTask(), json);	
     	CaseRelevanceData.pkValue = Integer.parseInt(returnStr);   	
     	return returnStr;
     }

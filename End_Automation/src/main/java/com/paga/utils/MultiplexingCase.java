@@ -30,7 +30,6 @@ public class MultiplexingCase {
 	        jsonObject.put("status",Integer.parseInt(map.get("status").toString()));
 	        jsonObject.put("tkId",CaseRelevanceData.pkValue);
 	        jsonObject.put("uniqueKeyInFlow",String.valueOf(map.get("subtaskuuid")));
-	        logger.info(jsonObject.toString());
 	        String result = PostGetUtil.getPosttMethod(url,jsonObject);
 		    return result;
 
@@ -46,7 +45,6 @@ public class MultiplexingCase {
 		 jsonObj.put("dueDate", "");
 		 jsonObj.set("selfProps", selfPropsObj);		 
 		 jsonObj.put("uuid",String.valueOf(map.get("subtaskuuid")));
-		 logger.info(jsonObj.toString());
 		 String returnStr = PostGetUtil.getPosttMethod(url,jsonObj);
 		 
 		 JsonNode jsonRest = mapper.readTree(returnStr); 
@@ -64,7 +62,7 @@ public class MultiplexingCase {
 	     logger.info("Interface response results："+jsonStr);
 	     JsonNode resObj = new ObjectMapper().readTree(jsonStr); 
 	     String subtaskuuid = null;
-	     ArrayNode arr = (ArrayNode)resObj.path("SubtaskDone");
+	     ArrayNode arr = (ArrayNode)resObj.path(String.valueOf(map.get("key")));
 	     for(int i=0;i<arr.size();i++){
 	    	 int subTaskId = arr.get(i).path(String.valueOf(map.get("pk"))).path(String.valueOf(map.get("subTask"))).path(String.valueOf(map.get("id"))).asInt();
 	    	 if(subTaskId==Integer.parseInt(map.get("subtaskid").toString())){

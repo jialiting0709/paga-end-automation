@@ -73,16 +73,15 @@ public class AddLinkingCritTest extends AbstractTestNGSpringContextTests {
         array.add(obj2);
         StringEntity entity = new StringEntity(array.toString(),"utf-8");
         post.setEntity(entity);
+        logger.info("Parameter value："+array.toString());
         HttpResponse response = TestConfig.defaultHttpClient.execute(post);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
         JsonNode arrayNode= new ObjectMapper().readTree(jsonStr);
-//        JSONArray REsA = new JSONArray(jsonStr);
         String brand = null;
         if(arrayNode.isArray()){
         	brand = arrayNode.get(0).path("brand").asText();
         }
-//        JSONObject jsonRest= REsA.getJSONObject(0);
         return brand;
 
 

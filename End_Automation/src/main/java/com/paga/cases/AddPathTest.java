@@ -26,7 +26,7 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 	
 	@Test(dependsOnGroups="condition", groups="addPath",description = "add Path")
 	public void addPath() throws Exception { 
-		System.out.println("add path url："+configBeanPropUrl.getAddPathss());
+		logger.info("add path url："+configBeanPropUrl.getAddPathss());
 		String result = getResult();
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
@@ -61,7 +61,6 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 		jsonSubTaskPathVo.put("statuscode", 1);	
 		jsonObj.put("pathseqnum", 1);	
 		jsonObj.set("subTaskPathVo",jsonSubTaskPathVo);
-		logger.info(jsonObj.toString());
 		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddPathss(), jsonObj);
 		CaseRelevanceData.addPathId = returnStr;
 		return returnStr;

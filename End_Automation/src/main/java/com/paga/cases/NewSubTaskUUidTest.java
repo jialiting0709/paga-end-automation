@@ -23,7 +23,6 @@ public class NewSubTaskUUidTest extends AbstractTestNGSpringContextTests{
 	
 	@Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
-	
 	@Test(dependsOnGroups="completeSubTask", groups="newSubTaskuuid",description = "new SubTask uuid")	
 	public void newSubTaskuuid() throws Exception {  
 		String url = configBeanPropUrl.getNewSubTaskuuid();
@@ -41,29 +40,4 @@ public class NewSubTaskUUidTest extends AbstractTestNGSpringContextTests{
 		Thread.sleep(3000);
 	}
 	
-//	 private String getResult() throws IOException{
-//		 
-//		 HttpGet get = new HttpGet(configBeanPropUrl.getNewSubTaskuuid());
-//		 get.addHeader("username", TestConfig.username);		 
-//		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
-//	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
-//
-//	     System.out.println("Interface response results：："+jsonStr);
-//	     System.out.println("subtaskid==========="+CaseRelevanceData.subtaskid);
-//	     JSONObject resObj = new JSONObject(jsonStr);
-//	     String subtaskuuid = null;
-//	     JSONArray arr = resObj.getJSONArray("SubtaskReview");	     
-//	     for(int i=0;i<arr.length();i++){
-//	    	 int subTaskId = arr.getJSONObject(i).getJSONObject("pk").getJSONObject("subTask").getInt("id");
-//	    	 if(subTaskId==CaseRelevanceData.subtaskid){
-//	    		 subtaskuuid = arr.getJSONObject(i).getJSONObject("df").getString("uuid");
-//	    	 }else{
-//	    		 continue;
-//	    	 }
-//	     }
-//	     CaseRelevanceData.newReviewSubTaskuuid = subtaskuuid;
-//	     System.out.println("subtaskuuid的值为："+subtaskuuid);	     
-//	     return subtaskuuid;
-//
-//	 }
 }

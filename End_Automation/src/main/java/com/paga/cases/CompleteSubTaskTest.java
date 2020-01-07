@@ -37,21 +37,5 @@ public class CompleteSubTaskTest extends AbstractTestNGSpringContextTests{
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
 	}
-			
-//	 private String getResult() throws IOException{
-//		 JSONObject jsonObj = new JSONObject();
-//		 JSONObject selfPropsObj = new JSONObject();
-//		 selfPropsObj.put("pkType", "guidlineSubTask");
-//		 selfPropsObj.put("pkValue",CaseRelevanceData.pkValue);
-//		 jsonObj.put("assignee", "wang");
-//		 jsonObj.put("dueDate", "");
-//		 jsonObj.put("selfProps", selfPropsObj);		 
-//		 jsonObj.put("uuid",CaseRelevanceData.subtaskuuid);
-//		 System.out.println(jsonObj.toString());
-//		 String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getCompleteSubTask(),jsonObj);
-//		 JSONObject jsonRest= new JSONObject(returnStr);
-//		 String uuid = jsonRest.getString("uuid");	 
-//		 return uuid;
-//	 }
 	 	
 }

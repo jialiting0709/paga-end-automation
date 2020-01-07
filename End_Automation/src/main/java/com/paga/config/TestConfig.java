@@ -5,7 +5,7 @@ import org.apache.http.client.HttpClient;
 
 public class TestConfig {
 
-    public static String username="wang";
+    public static String username;
     public static String access_token;
     public static String refresh_token;
     public static String token_type;

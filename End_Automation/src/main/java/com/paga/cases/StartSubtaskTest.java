@@ -9,8 +9,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -69,6 +67,7 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 		
 		StringEntity entity = new StringEntity(jsA.toString(),"utf-8");
 		post.setEntity(entity);
+		logger.info("Parameter value："+jsA.toString());
 		HttpResponse response = TestConfig.defaultHttpClient.execute(post);
 		String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 		logger.info("Interface response results："+jsonStr);
