@@ -1,1 +1,19 @@
-aaa
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>测试入口</title>
+</head>
+<script>
+    function down(){
+        var url = "http://localhost:8000/runFronttest"
+        var request = new XMLHttpRequest();
+        request.open("GET", url);
+        request.send("UI")
+    }
+</script>
+
+<lable>执行测试：</lable>
+<button type="button" onmousedown="down()">UI</button>
+</body>
+</html>
