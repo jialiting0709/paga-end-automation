@@ -14,6 +14,9 @@ rule/**
 # Log file
 *.log
 .idea/
+logs/
+test-output/
+test-outputEXT/
 Front_Automation.iml
 
 # BlueJ files
