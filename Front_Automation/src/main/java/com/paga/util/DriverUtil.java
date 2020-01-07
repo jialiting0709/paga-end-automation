@@ -32,7 +32,8 @@ public class DriverUtil {
 		logger.info("Get system properties integritytech.test.browser，value"+browser);
 		
 		Config config = new Config("application.properties");
-		String driverFile = config.getConfig("driver");
+		String root = System.getProperty("user.dir");
+		String driverFile = root+config.getConfig("driver");
 		String FirefoxBinary = config.getConfig("FirefoxBinary");
 		if(browser.equalsIgnoreCase("firefox")) {
 			service  = new GeckoDriverService.Builder()
