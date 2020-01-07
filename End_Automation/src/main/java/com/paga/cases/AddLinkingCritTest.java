@@ -1,5 +1,9 @@
 package com.paga.cases;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 import com.paga.utils.ConfigBeanPropUrl;
@@ -7,8 +11,6 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +45,9 @@ public class AddLinkingCritTest extends AbstractTestNGSpringContextTests {
 //        post.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //        post.addHeader("jti",TestConfig.jti);
         post.setHeader("Content-Type","application/json");
-
-        JSONArray array = new JSONArray();
-        JSONObject obj1 = new JSONObject();
+        ObjectMapper mapper= new ObjectMapper();
+        ArrayNode array = mapper.createArrayNode();
+        ObjectNode obj1 = mapper.createObjectNode();
         obj1.put("brand","HAEGARDA");
         obj1.put("critexception","{\"Generic\":true,\"Brand\":true,\"GPID\":true,\"STC\":true,\"Route\":true}");
         obj1.put("critseq",1);
@@ -56,8 +58,8 @@ public class AddLinkingCritTest extends AbstractTestNGSpringContextTests {
         obj1.put("paglsubtaskid",CaseRelevanceData.subtaskid);
         obj1.put("route","ORAL");
         obj1.put("stc","N/A");
-        array.put(obj1);
-        JSONObject obj2 = new JSONObject();
+        array.add(obj1);
+        ObjectNode obj2 = mapper.createObjectNode();
         obj2.put("brand","HAEGARDA");
         obj2.put("critexception","{\"Generic\":true,\"Brand\":true,\"GPID\":true,\"STC\":true,\"Route\":true}");
         obj2.put("critseq",2);
@@ -68,15 +70,20 @@ public class AddLinkingCritTest extends AbstractTestNGSpringContextTests {
         obj2.put("paglsubtaskid",CaseRelevanceData.subtaskid);
         obj2.put("route","Intravenous of Subcutaneous");
         obj2.put("stc","N/A");
-        array.put(obj2);
+        array.add(obj2);
         StringEntity entity = new StringEntity(array.toString(),"utf-8");
         post.setEntity(entity);
         HttpResponse response = TestConfig.defaultHttpClient.execute(post);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
-        JSONArray REsA = new JSONArray(jsonStr);
-        JSONObject jsonRest= REsA.getJSONObject(0);
-        return jsonRest.getString("brand");
+        JsonNode arrayNode= new ObjectMapper().readTree(jsonStr);
+//        JSONArray REsA = new JSONArray(jsonStr);
+        String brand = null;
+        if(arrayNode.isArray()){
+        	brand = arrayNode.get(0).path("brand").asText();
+        }
+//        JSONObject jsonRest= REsA.getJSONObject(0);
+        return brand;
 
 
     }

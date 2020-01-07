@@ -1,15 +1,12 @@
 package com.paga.cases;
 
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +17,8 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.paga.config.TestConfig;
 
 import com.paga.utils.ConfigBeanPropUrl;
@@ -56,8 +55,10 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
         HttpResponse response = TestConfig.defaultHttpClient.execute(post);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
-        JSONObject jsonObject = new JSONObject(jsonStr);
-        String username = jsonObject.getString("username");  
+        ObjectMapper mapper = new ObjectMapper();  
+	    JsonNode root = mapper.readTree(jsonStr); 
+	    JsonNode data = root.path("username");
+        String username = data.asText();  
         if(username != null || username.length()!= 0){
               TestConfig.username = username;
 //              TestConfig.access_token = jsonObject.getString("access_token");

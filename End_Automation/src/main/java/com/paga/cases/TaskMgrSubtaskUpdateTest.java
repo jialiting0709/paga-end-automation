@@ -4,13 +4,14 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.utils.ConfigBeanPropUrl;
 import com.paga.utils.PostGetUtil;
@@ -26,13 +27,11 @@ public class TaskMgrSubtaskUpdateTest extends AbstractTestNGSpringContextTests{
 	public void taskMgrSubtaskUpdate() throws Exception {
 		logger.info("TaskMgr Subtask Update url："+configBeanPropUrl.getUpdateSub());
 		String result = getResult();		
-		Assert.assertNotNull(result);
-				
-		
+		Assert.assertNotNull(result);						
 	}
 	
 	 private String getResult() throws IOException{
-		JSONObject jsonObj = new JSONObject();
+		ObjectNode jsonObj = new ObjectMapper().createObjectNode();
 		jsonObj.put("enteredBy", "wang");
 		jsonObj.put("glName", "111");
 		jsonObj.put("glType", 123);

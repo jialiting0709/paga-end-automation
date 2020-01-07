@@ -1,12 +1,14 @@
 package com.paga.cases;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.paga.config.CaseRelevanceData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.paga.utils.ConfigBeanPropUrl;
 import com.paga.utils.PostGetUtil;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -27,25 +29,26 @@ public class RejectSubtaskTest extends AbstractTestNGSpringContextTests {
     public void rejectTask() throws Exception{
     	logger.info("reject a subtask url:"+configBeanPropUrl.getRejectSubTask());   	
     	String result = getResult();
-        JSONObject res = new JSONObject(result);
+        JsonNode res = new ObjectMapper().readTree(result); 
         Assert.assertNotNull(res);
         Thread.sleep(3000);
     }
     private String getResult() throws IOException {
-        JSONObject jsonObject = new JSONObject();
+    	ObjectMapper mapper= new ObjectMapper();
+        ObjectNode jsonObject = mapper.createObjectNode();
         jsonObject.put("assignee","");
         jsonObject.put("defineKey","SubtaskReview");
-        JSONArray array = new JSONArray();
-        JSONObject subObj = new JSONObject();
+        ArrayNode array = mapper.createArrayNode();
+        ObjectNode subObj = mapper.createObjectNode();
         subObj.put("id",CaseRelevanceData.commentId);
         subObj.put("tkUuid",CaseRelevanceData.newReviewSubTaskuuid);
         subObj.put("message","234");
-        array.put(subObj);
-        jsonObject.put("comments",array);
-        JSONObject sObj = new JSONObject();
+        array.add(subObj);
+        jsonObject.set("comments",array);
+        ObjectNode sObj = mapper.createObjectNode();
         sObj.put("pkType","guidlineSubTask");
         sObj.put("pkValue",CaseRelevanceData.pkValue);
-        jsonObject.put("selfProps",sObj);
+        jsonObject.set("selfProps",sObj);
         jsonObject.put("uuid", CaseRelevanceData.newReviewSubTaskuuid);
         
         return PostGetUtil.getPosttMethod(configBeanPropUrl.getRejectSubTask(),jsonObject);

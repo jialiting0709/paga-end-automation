@@ -31,7 +31,7 @@ public class DriverUtil {
 		browser = System.getProperty("integritytech.test.browser", "chrome");
 		logger.info("Get system properties integritytech.test.browser，value"+browser);
 		
-		Config config = new Config("config.properties");
+		Config config = new Config("application.properties");
 		String driverFile = config.getConfig("driver");
 		String FirefoxBinary = config.getConfig("FirefoxBinary");
 		if(browser.equalsIgnoreCase("firefox")) {

@@ -2,8 +2,6 @@ package com.paga.cases;
 
 import java.io.IOException;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +10,9 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.utils.ConfigBeanPropUrl;
 import com.paga.utils.PostGetUtil;
@@ -33,22 +34,23 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 	}
 	
 	private String getResult() throws IOException{
-		JSONObject jsonObj = new JSONObject();		
-		JSONArray criteriaGroupsArr = new JSONArray();
-		JSONObject criteriaJS = new JSONObject();
+		ObjectMapper mapper= new ObjectMapper();
+		ObjectNode jsonObj = mapper.createObjectNode();
+		ArrayNode criteriaGroupsArr = mapper.createArrayNode();
+		ObjectNode criteriaJS = mapper.createObjectNode();
 		criteriaJS.put("group", 0);
 		criteriaJS.put("groupType", "0");
-		JSONArray criteriasArr = new JSONArray();
-		JSONObject criteriasJSO = new JSONObject();
+		ArrayNode criteriasArr = mapper.createArrayNode();
+		ObjectNode criteriasJSO = mapper.createObjectNode();
 		criteriasJSO.put("condition", "is");
 		criteriasJSO.put("value", "12");
 		criteriasJSO.put("criteriaCode", CaseRelevanceData.criteriaCode);//
-		criteriasArr.put(criteriasJSO);
-		criteriaJS.put("criterias", criteriasArr);
-		criteriaGroupsArr.put(criteriaJS);
-		jsonObj.put("criteriaGroups", criteriaGroupsArr);
+		criteriasArr.add(criteriasJSO);
+		criteriaJS.set("criterias", criteriasArr);
+		criteriaGroupsArr.add(criteriaJS);
+		jsonObj.set("criteriaGroups", criteriaGroupsArr);
 		
-		JSONObject jsonSubTaskPathVo = new JSONObject();
+		ObjectNode jsonSubTaskPathVo = mapper.createObjectNode();
 		jsonSubTaskPathVo.put("paglsubtaskid", CaseRelevanceData.subtaskid+"");
 		jsonSubTaskPathVo.put("pathapprovaltext", "approvaltext");
 		jsonSubTaskPathVo.put("pathinitrenewal", 1);
@@ -58,7 +60,7 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 		jsonSubTaskPathVo.put("pathtype", 1);
 		jsonSubTaskPathVo.put("statuscode", 1);	
 		jsonObj.put("pathseqnum", 1);	
-		jsonObj.put("subTaskPathVo",jsonSubTaskPathVo);
+		jsonObj.set("subTaskPathVo",jsonSubTaskPathVo);
 		logger.info(jsonObj.toString());
 		String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddPathss(), jsonObj);
 		CaseRelevanceData.addPathId = returnStr;

@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="my_suite_1">
+<suite name="paga_suite_1">
 	<listeners>
 		<listener class-name="com.paga.util.ExtentTestNGIReporterListener"/>
 	</listeners>
@@ -16,8 +16,6 @@
 			<class name="com.paga.cases.RejectApproveSubTaskDeployedTest"/>				
 			<class name="com.paga.cases.ApproveTaskReviewTest"/>						
 			<class name="com.paga.cases.ApproveTaskDeployedTest"/>		
-		</classes>
-		
+		</classes>		
 	</test>
-
 </suite>

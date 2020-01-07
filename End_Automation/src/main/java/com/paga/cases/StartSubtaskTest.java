@@ -17,6 +17,10 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 import com.paga.utils.ConfigBeanPropUrl;
@@ -48,29 +52,37 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 //	    post.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //	    post.addHeader("jti",TestConfig.jti);
 	    post.setHeader("Content-Type","application/json");
-	    	    	    
-		JSONArray jsA  = new JSONArray();		
-		JSONObject jsonObj = new JSONObject();
+	    
+	    ObjectMapper mapper= new ObjectMapper();
+	    ArrayNode jsA  = mapper.createArrayNode();		
+	    ObjectNode jsonObj = mapper.createObjectNode();
 		jsonObj.put("assignee", "wang");
 		jsonObj.put("dueDate", GetDateUtil.getStringDate(432000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ"));
 		
-		JSONObject jsonSelfProps= new JSONObject();
-		JSONArray jsAComments  = new JSONArray();
-		jsonSelfProps.put("comments",jsAComments);	
+		ObjectNode jsonSelfProps= mapper.createObjectNode();
+		ArrayNode jsAComments  = mapper.createArrayNode();
+		jsonSelfProps.set("comments",jsAComments);	
 		jsonSelfProps.put("pkType","guidlineSubTask");		
 		jsonSelfProps.put("pkValue",CaseRelevanceData.pkValue);
-		jsonObj.put("selfProps",jsonSelfProps);
-		jsA.put(jsonObj);
+		jsonObj.set("selfProps",jsonSelfProps);
+		jsA.add(jsonObj);
 		
 		StringEntity entity = new StringEntity(jsA.toString(),"utf-8");
 		post.setEntity(entity);
 		HttpResponse response = TestConfig.defaultHttpClient.execute(post);
 		String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 		logger.info("Interface response results："+jsonStr);
-	    JSONArray REsA = new JSONArray(jsonStr);	    
-	    JSONObject jsonRest= REsA.getJSONObject(0);
-	    CaseRelevanceData.subtaskuuid = jsonRest.getString("uuid");
-	    return jsonRest.getString("defineKey");	
+		JsonNode arrayNode= new ObjectMapper().readTree(jsonStr);
+		String defineKey = null;
+		if(arrayNode.isArray()){
+			CaseRelevanceData.subtaskuuid = arrayNode.get(0).path("uuid").asText();
+			defineKey = arrayNode.get(0).path("defineKey").asText();
+		}
+//	    JSONArray REsA = new JSONArray(jsonStr);	    
+//	    JSONObject jsonRest= REsA.getJSONObject(0);
+//	    CaseRelevanceData.subtaskuuid = jsonRest.getString("uuid");
+//	    return jsonRest.getString("defineKey");	
+		return defineKey;
 		
 	}
 }

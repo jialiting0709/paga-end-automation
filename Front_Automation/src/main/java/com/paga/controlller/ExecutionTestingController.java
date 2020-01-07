@@ -12,15 +12,15 @@ import com.google.common.collect.Lists;
 @RestController 
 public class ExecutionTestingController {
 	
-	 @RequestMapping(value = "/runEndtest",method = RequestMethod.GET)
+	 @RequestMapping(value = "/runFronttest",method = RequestMethod.GET)
 	  public String runTest(){
 		 TestNG tng = new TestNG();
 	     List<String> suites = Lists.newArrayList();
 	     //Get project root path
 	     String root = System.getProperty("user.dir");
-	     suites.add(root+"/src/test/resources/testng.xml");
+	     suites.add(root+"/src/main/resources/testng.xml");
 	     tng.setTestSuites(suites);
 	     tng.run();
-	     return "完成接口测试";
+	     return "完成UI测试";
 	 }
 }

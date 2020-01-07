@@ -8,14 +8,15 @@ import org.slf4j.LoggerFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 import com.paga.utils.ConfigBeanPropUrl;
@@ -43,13 +44,13 @@ public class NewSubTaskReJComUUidTest extends AbstractTestNGSpringContextTests{
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
-	     JSONObject resObj = new JSONObject(jsonStr);
-	     String subtaskRejcomuuid = null;
-	     JSONArray arr = resObj.getJSONArray("SubtaskReview");	     
-	     for(int i=0;i<arr.length();i++){
-	    	 int subTaskId = arr.getJSONObject(i).getJSONObject("pk").getJSONObject("subTask").getInt("id");
+	     JsonNode resJson = new ObjectMapper().readTree(jsonStr); 
+	     String subtaskRejcomuuid = null;	     
+	     ArrayNode arr = (ArrayNode)resJson.path("SubtaskReview");
+	     for(int i=0;i<arr.size();i++){
+	    	 int subTaskId = arr.get(i).path("pk").path("subTask").asInt();
 	    	 if(subTaskId==CaseRelevanceData.subtaskid){
-	    		 subtaskRejcomuuid = arr.getJSONObject(i).getJSONObject("df").getString("uuid");
+	    		 subtaskRejcomuuid = arr.get(i).path("df").path("uuid").asText();
 	    	 }else{
 	    		 continue;
 	    	 }

@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -49,7 +48,6 @@ public class PreviewTest extends AbstractTestNGSpringContextTests{
 	        HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 	        logger.info("Interface response results："+jsonStr);
-	        JSONArray ar = new JSONArray(jsonStr);
 
 	        return jsonStr;	        
 

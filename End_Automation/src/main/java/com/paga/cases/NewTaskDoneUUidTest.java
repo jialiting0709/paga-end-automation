@@ -7,14 +7,15 @@ import org.slf4j.LoggerFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 import com.paga.utils.ConfigBeanPropUrl;
@@ -43,13 +44,13 @@ public class NewTaskDoneUUidTest extends AbstractTestNGSpringContextTests{
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
-	     JSONObject resObj = new JSONObject(jsonStr);
+	     JsonNode resJson = new ObjectMapper().readTree(jsonStr); 
 	     String newDonetaskuuid = null;
-	     JSONArray arr = resObj.getJSONArray("TaskDone");	     
-	     for(int i=0;i<arr.length();i++){
-	    	 int taskId = arr.getJSONObject(i).getJSONObject("pk").getJSONObject("task").getInt("id");
+	     ArrayNode arr = (ArrayNode)resJson.path("TaskDone");
+	     for(int i=0;i<arr.size();i++){
+	    	 int taskId = arr.get(i).path("pk").path("task").path("id").asInt();
 	    	 if(taskId==CaseRelevanceData.pkValue){
-	    		 newDonetaskuuid = arr.getJSONObject(i).getJSONObject("df").getString("uuid");
+	    		 newDonetaskuuid = arr.get(i).path("df").path("uuid").asText();
 	    	 }else{
 	    		 continue;
 	    	 }

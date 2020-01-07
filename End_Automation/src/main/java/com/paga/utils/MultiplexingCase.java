@@ -8,10 +8,11 @@ import java.util.HashMap;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
 
-
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 
@@ -19,7 +20,7 @@ public class MultiplexingCase {
 	private static final Logger logger = LoggerFactory.getLogger(MultiplexingCase.class);
 	
 	public static String updateSubTask(String url,HashMap<String,Object> map) throws InterruptedException, IOException{
-		 JSONObject jsonObject = new JSONObject();
+		ObjectNode jsonObject = new ObjectMapper().createObjectNode();
 	        jsonObject.put("enteredBy","wang");
 	        jsonObject.put("glName","qqq");
 	        jsonObject.put("glType",1);
@@ -36,18 +37,20 @@ public class MultiplexingCase {
 	}
 	
 	public static String completeSubTask(String url,java.util.HashMap<String, Object> map) throws InterruptedException, IOException{
-		 JSONObject jsonObj = new JSONObject();
-		 JSONObject selfPropsObj = new JSONObject();
+		 ObjectMapper mapper= new ObjectMapper();
+		 ObjectNode jsonObj = mapper.createObjectNode();
+		 ObjectNode selfPropsObj = mapper.createObjectNode();
 		 selfPropsObj.put("pkType", "guidlineSubTask");
 		 selfPropsObj.put("pkValue",CaseRelevanceData.pkValue);
 		 jsonObj.put("assignee", "wang");
 		 jsonObj.put("dueDate", "");
-		 jsonObj.put("selfProps", selfPropsObj);		 
+		 jsonObj.set("selfProps", selfPropsObj);		 
 		 jsonObj.put("uuid",String.valueOf(map.get("subtaskuuid")));
 		 logger.info(jsonObj.toString());
 		 String returnStr = PostGetUtil.getPosttMethod(url,jsonObj);
-		 JSONObject jsonRest= new JSONObject(returnStr);
-		 String uuid = jsonRest.getString("uuid");	 
+		 
+		 JsonNode jsonRest = mapper.readTree(returnStr); 
+		 String uuid = jsonRest.path("uuid").asText();
 		 return uuid;
 
 	}
@@ -59,13 +62,13 @@ public class MultiplexingCase {
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
-	     JSONObject resObj = new JSONObject(jsonStr);
+	     JsonNode resObj = new ObjectMapper().readTree(jsonStr); 
 	     String subtaskuuid = null;
-	     JSONArray arr = resObj.getJSONArray(String.valueOf(map.get("key")));	     
-	     for(int i=0;i<arr.length();i++){
-	    	 int subTaskId = arr.getJSONObject(i).getJSONObject(String.valueOf(map.get("pk"))).getJSONObject(String.valueOf(map.get("subTask"))).getInt(String.valueOf(map.get("id")));
+	     ArrayNode arr = (ArrayNode)resObj.path("SubtaskDone");
+	     for(int i=0;i<arr.size();i++){
+	    	 int subTaskId = arr.get(i).path(String.valueOf(map.get("pk"))).path(String.valueOf(map.get("subTask"))).path(String.valueOf(map.get("id"))).asInt();
 	    	 if(subTaskId==Integer.parseInt(map.get("subtaskid").toString())){
-	    		 subtaskuuid = arr.getJSONObject(i).getJSONObject(String.valueOf(map.get("df"))).getString(String.valueOf(map.get("uuid")));
+	    		 subtaskuuid = arr.get(i).path(String.valueOf(map.get("df"))).path(String.valueOf(map.get("uuid"))).asText();
 	    	 }else{
 	    		 continue;
 	    	 }

@@ -6,7 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.springframework.boot.test.context.SpringBootTest;
 
+
+@SpringBootTest
 public class MyWorkbenchPage extends BasePage{
 
 	public MyWorkbenchPage(WebDriver driver) {

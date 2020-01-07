@@ -2,6 +2,7 @@ package com.paga.cases;
 
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -18,6 +19,7 @@ import com.paga.util.BaseTest;
 import com.paga.util.PublicFunction;
 import com.paga.util.PublicTest;
 
+@SpringBootTest
 public class CreateTaskTest extends BaseTest{
 	
 	private TaskDetailPage taskDetailPage;

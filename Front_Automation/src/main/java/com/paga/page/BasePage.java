@@ -17,7 +17,7 @@ public class BasePage {
     /* Override click method */
     public void click(WebElement element) {
     	new WebDriverWait(driver, timeOut).until(ExpectedConditions.visibilityOf(element));
-        new WebDriverWait(driver, timeOut).until(ExpectedConditions.elementToBeClickable(element));
+//        new WebDriverWait(driver, timeOut).until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
     

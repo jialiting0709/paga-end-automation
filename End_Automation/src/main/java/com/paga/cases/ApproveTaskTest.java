@@ -4,14 +4,15 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.utils.ConfigBeanPropUrl;
 import com.paga.utils.PostGetUtil;
@@ -34,24 +35,25 @@ public class ApproveTaskTest extends AbstractTestNGSpringContextTests{
 	
 	private String getResult() throws IOException{
 		
-		JSONObject jsonObj = new JSONObject();		
-		JSONArray commentsArr = new JSONArray();
-		JSONObject commentsJson = new JSONObject();
+		ObjectMapper mapper= new ObjectMapper();
+		ObjectNode jsonObj = mapper.createObjectNode();
+		ArrayNode commentsArr = mapper.createArrayNode();
+		ObjectNode commentsJson = mapper.createObjectNode();
 		commentsJson.put("id", "");
 		commentsJson.put("tkUuid",CaseRelevanceData.newReviewtaskuuid);
 		commentsJson.put("message", "321");
-		commentsArr.put(commentsJson);
+		commentsArr.add(commentsJson);
 		
-		JSONObject selfPropsJson = new JSONObject();
-		selfPropsJson.put("deadLine", JSONObject.NULL);
-		selfPropsJson.put("owner", JSONObject.NULL);
+		ObjectNode selfPropsJson = mapper.createObjectNode();
+		selfPropsJson.set("deadLine",selfPropsJson.nullNode());
+		selfPropsJson.set("owner", selfPropsJson.nullNode());
 		selfPropsJson.put("pkType", "guidlineTask");
 		selfPropsJson.put("pkValue", CaseRelevanceData.pkValue);
 		jsonObj.put("assignee", "wang");
-		jsonObj.put("comments", commentsArr);
+		jsonObj.set("comments", commentsArr);
 		jsonObj.put("defineKey", "TaskReview");
-		jsonObj.put("dueDate",JSONObject.NULL);
-		jsonObj.put("selfProps", selfPropsJson);
+		jsonObj.set("dueDate",jsonObj.nullNode());
+		jsonObj.set("selfProps", selfPropsJson);
 		jsonObj.put("uuid",CaseRelevanceData.newReviewtaskuuid);
 		logger.info(jsonObj.toString());
 		

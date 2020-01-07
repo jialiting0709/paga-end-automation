@@ -7,13 +7,14 @@ import org.slf4j.LoggerFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 import com.paga.utils.ConfigBeanPropUrl;
@@ -49,8 +50,8 @@ public class SubtasktkIdTest extends AbstractTestNGSpringContextTests{
 	        HttpResponse response = TestConfig.defaultHttpClient.execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 	        logger.info("Interface response results："+jsonStr);
-	        JSONObject jsonRest= new JSONObject(jsonStr);
-	        int subTaskId = jsonRest.getJSONObject("subTask").getInt("id");
+	        JsonNode jsonRest = new ObjectMapper().readTree(jsonStr); 
+	        int subTaskId = jsonRest.path("subTask").path("id").asInt();
 	        CaseRelevanceData.subtaskid = subTaskId;
 	        return subTaskId;
 

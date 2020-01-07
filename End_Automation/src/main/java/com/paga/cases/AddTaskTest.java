@@ -2,8 +2,9 @@ package com.paga.cases;
 
 import java.io.IOException;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,39 +41,37 @@ public class AddTaskTest extends AbstractTestNGSpringContextTests{
           
     private String getResult() throws IOException{
     	
-    	JSONObject jsonObj = new JSONObject();    	
     	String dueDate = GetDateUtil.getStringDate(432000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ");
     	String effective = GetDateUtil.getStringDate(864000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ");
-    	  	
-    	JSONObject jsonTask = new JSONObject();
-    	jsonTask.put("clientName", "Manulife Financial");
-    	jsonTask.put("dueDate", dueDate);
-    	jsonTask.put("effective",effective);
-    	jsonTask.put("entered", "");
-    	jsonTask.put("enteredBy","");
-    	jsonTask.put("glCode","HPH");
-    	jsonTask.put("glName","");
-    	jsonTask.put("glSet", "HPH-COMM");
-    	jsonTask.put("guidelineNum",1);
-    	jsonTask.put("headerCode","HPH");
-    	jsonTask.put("headerId",33000000100L);
-    	jsonTask.put("hqCodes","MDT01");
-    	jsonTask.put("requestBy",0);
-    	jsonTask.put("requestDate","");
-    	jsonTask.put("requestEmail","123@qq.com");
-    	jsonTask.put("requestType","");
-    	jsonTask.put("salesForceCaseNumber","23");
-    	jsonTask.put("statusCode",1);
-    	jsonTask.put("subtaskLob","");
-    	jsonTask.put("taskDesc","test task");
-    	jsonTask.put("taskType",1);
-    	jsonObj.put("task",jsonTask);
+    	ObjectMapper mapper= new ObjectMapper();
+    	ObjectNode entity = mapper.createObjectNode();
+    	entity.put("clientName", "Manulife Financial");
+    	entity.put("dueDate", dueDate);
+    	entity.put("effective",effective);
+    	entity.put("entered", "");
+    	entity.put("enteredBy","");
+    	entity.put("glCode","HPH");
+    	entity.put("glName","");
+    	entity.put("glSet", "HPH-COMM");
+    	entity.put("guidelineNum",1);
+    	entity.put("headerCode","HPH");
+    	entity.put("headerId",33000000100L);
+    	entity.put("hqCodes","MDT01");
+    	entity.put("requestBy",0);
+    	entity.put("requestDate","");
+    	entity.put("requestEmail","123@qq.com");
+    	entity.put("requestType","");
+    	entity.put("salesForceCaseNumber","23");
+    	entity.put("statusCode",1);
+    	entity.put("subtaskLob","");
+    	entity.put("taskDesc","test task");
+    	entity.put("taskType",1);
+    	ObjectNode entityTaskDtl = mapper.createObjectNode();
+    	entityTaskDtl.put("assignUser","wang");
+    	entity.set("taskDtl",entityTaskDtl);
     	
-    	JSONObject jsonTaskDtl = new JSONObject();
-    	jsonTaskDtl.put("assignUser","wang");
-    	jsonObj.put("taskDtl",jsonTaskDtl); 
     	
-    	String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddTask(), jsonObj);	
+    	String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getAddTask(), entity);	
     	CaseRelevanceData.pkValue = Integer.parseInt(returnStr);   	
     	return returnStr;
     }

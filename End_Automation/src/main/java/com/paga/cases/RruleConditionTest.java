@@ -7,13 +7,14 @@ import org.slf4j.LoggerFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 import com.paga.utils.ConfigBeanPropUrl;
@@ -48,8 +49,11 @@ public class RruleConditionTest extends AbstractTestNGSpringContextTests{
         HttpResponse response = TestConfig.defaultHttpClient.execute(get);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
-        JSONArray resJA = new JSONArray(jsonStr);
-        int criteriaCode = resJA.getJSONObject(0).getInt("criteriaCode");
+        JsonNode arrayNode = new ObjectMapper().readTree(jsonStr); 
+        int criteriaCode = 0;
+        if(arrayNode.isArray()){
+        	criteriaCode = arrayNode.get(0).path("criteriaCode").asInt();       	
+        }
         CaseRelevanceData.criteriaCode = criteriaCode;       
         return jsonStr;
 

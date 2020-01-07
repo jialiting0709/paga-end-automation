@@ -24,7 +24,7 @@ public class CompleteSubtasksTest extends BaseTest{
 		PublicTest.login(driver,"wang","1111","My Workbench");		
 	}
 		
-	@Test(dependsOnMethods = "login",description = "添加linkCriteria")
+	@Test(dependsOnMethods = "login",description = "Save linkCriteria")
 	public void linkCriteria() throws InterruptedException{  	
 	    //click subtasks in Process
 		Thread.sleep(2000);
@@ -46,7 +46,7 @@ public class CompleteSubtasksTest extends BaseTest{
   		
 	}
 	
-	@Test(dependsOnMethods = "linkCriteria",description = "添加addPath")
+	@Test(dependsOnMethods = "linkCriteria",description = "save addPath")
 	public void addPath() throws InterruptedException{	    
 	    //click Add Path table
 		TaskProfilePage taskProfilePage = PageFactory.initElements(driver, TaskProfilePage.class);

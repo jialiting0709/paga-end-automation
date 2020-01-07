@@ -12,6 +12,10 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.utils.ConfigBeanPropUrl;
 import com.paga.utils.PostGetUtil;
@@ -28,25 +32,28 @@ public class StartTaskTest extends AbstractTestNGSpringContextTests{
 	public void startTask() throws Exception { 
 		logger.info("start task url："+configBeanPropUrl.getStartTask());
 		String result = getResult();
-		JSONObject jsonRes = new JSONObject(result);
-		CaseRelevanceData.taskuuid  = jsonRes.getString("uuid");
-		Assert.assertEquals("TaskNew", jsonRes.getString("defineKey"));
+		JsonNode root = new ObjectMapper().readTree(result); 
+		CaseRelevanceData.taskuuid=root.path("uuid").asText();
+		Assert.assertEquals("TaskNew", root.path("defineKey").asText());
 		Thread.sleep(5000);
+				
+//		CaseRelevanceData.taskuuid  = jsonRes.getString("uuid");
+//		Assert.assertEquals("TaskNew", jsonRes.getString("defineKey"));
 				
 	}
 	
 	 private String getResult() throws IOException{
-		 JSONObject jsonObj = new JSONObject();
-		 JSONObject selfPropsObj = new JSONObject();
-		 JSONArray jsonArr = new JSONArray();
-		 selfPropsObj.put("comments", jsonArr);
+	     ObjectNode entity = new ObjectMapper().createObjectNode();
+	     ObjectNode selfPropsObj = new ObjectMapper().createObjectNode();
+	     ArrayNode jsonArr = new ObjectMapper().createArrayNode();
+		 selfPropsObj.set("comments", jsonArr);
 		 selfPropsObj.put("deadLine",GetDateUtil.getStringDate(864000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ"));//到期时间
 		 selfPropsObj.put("owner", "wang");
 		 selfPropsObj.put("pkType", "guidlineTask");
 		 selfPropsObj.put("pkValue", CaseRelevanceData.pkValue);//taskId	
-		 jsonObj.put("selfProps",selfPropsObj);
+		 entity.set("selfProps",selfPropsObj);
 		 		 
-		 String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getStartTask(), jsonObj);	 		 
+		 String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getStartTask(), entity);	 		 
 		 return returnStr;
 	 }
 	

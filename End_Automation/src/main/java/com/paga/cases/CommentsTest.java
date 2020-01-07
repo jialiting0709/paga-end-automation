@@ -7,13 +7,15 @@ import org.slf4j.LoggerFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 import com.paga.utils.ConfigBeanPropUrl;
@@ -49,12 +51,11 @@ public class CommentsTest extends AbstractTestNGSpringContextTests{
         HttpResponse response = TestConfig.defaultHttpClient.execute(get);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Results of the interface："+jsonStr);
-        JSONObject resJson = new JSONObject(jsonStr);
+        JsonNode resJson = new ObjectMapper().readTree(jsonStr); 
+        ArrayNode an = (ArrayNode)resJson.path("SubtaskReview");
         String commentId = null;
-        int i = resJson.getJSONArray("SubtaskReview").length();
-        for(int j=0;j<i;j++){
-            JSONObject obj = resJson.getJSONArray("SubtaskReview").getJSONObject(j);
-            commentId = obj.getString("id");
+        for(int j=0;j<an.size();j++){
+        	commentId = an.get(j).path("id").asText();
         }
         CaseRelevanceData.commentId = commentId; 
         

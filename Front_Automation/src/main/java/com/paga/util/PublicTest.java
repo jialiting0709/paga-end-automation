@@ -13,7 +13,7 @@ import com.paga.page.SubTaskReviewPage;
 public class PublicTest {
 	
 	public static void login(WebDriver driver,String userName,String userPassword,String expected){
-		Config config = new Config("config.properties");
+		Config config = new Config("application.properties");
 		String url = config.getConfig("url");
 		driver.get(url);
 		//input User Name
