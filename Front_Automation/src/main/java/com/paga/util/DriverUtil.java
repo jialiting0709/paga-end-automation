@@ -1,7 +1,5 @@
 package com.paga.util;
 
-import java.io.File;
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
@@ -9,66 +7,35 @@ import java.util.concurrent.TimeUnit;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.firefox.FirefoxBinary;
-import org.openqa.selenium.firefox.GeckoDriverService;
+
+
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.service.DriverService;
 
 public class DriverUtil {
-	//The service object is used to save the driverservice of different browsers created according to the system properties set by the user
 //	private static DriverService service;
 	
 	//Used to get and save the value of user settings in system properties
-	private static String browser = System.getProperty("integritytech.test.browser", "chrome");
+	private static String browser;
 	
 	private static WebDriver driver;
 
 	private static final Logger logger = LogManager.getLogger();
 
 	
-	//Static loading
-//	static{
-//		
-//		logger.info("Get system properties integritytech.test.browser，value"+browser);
-//		
-//		Config config = new Config("application.properties");
-//		String root = System.getProperty("user.dir");
-//		String driverFile = root+config.getConfig("driver");
-//		String FirefoxBinary = config.getConfig("FirefoxBinary");
-//		if(browser.equalsIgnoreCase("firefox")) {
-//			service  = new GeckoDriverService.Builder()
-//					.usingFirefoxBinary(new FirefoxBinary(new File(FirefoxBinary)))
-//					.usingDriverExecutable(new File(driverFile))
-//					.build();
-//		}else if(browser.equalsIgnoreCase("chrome")) {
-//			service = new ChromeDriverService.Builder()
-//					.usingDriverExecutable(new File(driverFile))
-//					.build();
-//		}else {
-//			logger.error("Check system properties for supported browser types integritytech.test.browser");
-//			new RuntimeException("No executable browser");	
-//		}
-//		try {
-//			service.start();
-//			logger.info("driver Service started......");
-//			
-//		} catch (IOException e) {
-//			logger.error("The service could not be started successfully because"+e.getMessage());
-//			e.printStackTrace();
-//		}
-//		
-//	}
+
 	/**
 	 * Provide the user with getting the browser driver object and return the corresponding driver object
 	 * @throws MalformedURLException 
 	 */
 	public static WebDriver getDriver() throws MalformedURLException {
+		Config config = new Config("application.properties");
+		String driverUrl = config.getConfig("driverUrl");
+		browser = System.getProperty("integritytech.test.browser", "chrome");
 		if(browser.equalsIgnoreCase("firefox")) {
-			driver = new RemoteWebDriver(new URL(String.format("http://localhost:%d", 9515)),DesiredCapabilities.firefox());
+			driver = new RemoteWebDriver(new URL(String.format(driverUrl, 9515)),DesiredCapabilities.firefox());
 		}else if(browser.equalsIgnoreCase("chrome")) {
-			driver = new RemoteWebDriver(new URL(String.format("http://10.129.0.141:%d", 9515)),DesiredCapabilities.chrome());
+			driver = new RemoteWebDriver(new URL(String.format(driverUrl, 9515)),DesiredCapabilities.chrome());
 		}else {
 			
 		}

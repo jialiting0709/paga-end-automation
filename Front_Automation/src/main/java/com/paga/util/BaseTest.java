@@ -20,7 +20,7 @@ public class BaseTest extends AbstractTestNGSpringContextTests{
 	public static WebDriver driver;
 	
 	/**
-	 * 获取driver
+	 * get driver
 	 * @throws MalformedURLException 
 	 */
 	@BeforeClass
@@ -50,5 +50,5 @@ public class BaseTest extends AbstractTestNGSpringContextTests{
 //	public static void clossService() {
 //		DriverUtil.stopService();
 //	}
-	
+//	
 }

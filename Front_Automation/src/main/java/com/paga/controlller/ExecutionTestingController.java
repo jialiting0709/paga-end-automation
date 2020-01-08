@@ -10,8 +10,7 @@ import com.google.common.collect.Lists;
 
 
 @RestController 
-public class ExecutionTestingController {
-	
+public class ExecutionTestingController {	
 	 @RequestMapping(value = "/runFronttest",method = RequestMethod.GET)
 	  public String runTest(){
 		 TestNG tng = new TestNG();
