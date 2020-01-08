@@ -31,11 +31,12 @@ public class DriverUtil {
 	public static WebDriver getDriver() throws MalformedURLException {
 		Config config = new Config("application.properties");
 		String driverUrl = config.getConfig("driverUrl");
+		int driverPort = Integer.parseInt(config.getConfig("driverPort"));
 		browser = System.getProperty("integritytech.test.browser", "chrome");
 		if(browser.equalsIgnoreCase("firefox")) {
-			driver = new RemoteWebDriver(new URL(String.format(driverUrl, 9515)),DesiredCapabilities.firefox());
+			driver = new RemoteWebDriver(new URL(String.format(driverUrl, driverPort)),DesiredCapabilities.firefox());
 		}else if(browser.equalsIgnoreCase("chrome")) {
-			driver = new RemoteWebDriver(new URL(String.format(driverUrl, 9515)),DesiredCapabilities.chrome());
+			driver = new RemoteWebDriver(new URL(String.format(driverUrl, driverPort)),DesiredCapabilities.chrome());
 		}else {
 			
 		}
