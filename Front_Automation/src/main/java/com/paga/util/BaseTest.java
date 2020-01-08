@@ -3,6 +3,8 @@ package com.paga.util;
 
 
 
+import java.net.MalformedURLException;
+
 import org.openqa.selenium.WebDriver;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
@@ -19,9 +21,10 @@ public class BaseTest extends AbstractTestNGSpringContextTests{
 	
 	/**
 	 * 获取driver
+	 * @throws MalformedURLException 
 	 */
 	@BeforeClass
-	public static WebDriver initDriver() {
+	public static WebDriver initDriver() throws MalformedURLException {
 		Config config = new Config("application.properties");
 		//Set system properties and obtain browser type through configuration
 		System.setProperty("integritytech.test.browser",config.getConfig("integritytech.test.browser"));
@@ -43,9 +46,9 @@ public class BaseTest extends AbstractTestNGSpringContextTests{
 	/**
 	 * Close service after executing Suite
 	 */
-	@AfterSuite
-	public static void clossService() {
-		DriverUtil.stopService();
-	}
+//	@AfterSuite
+//	public static void clossService() {
+//		DriverUtil.stopService();
+//	}
 	
 }
