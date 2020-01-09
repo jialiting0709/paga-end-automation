@@ -6,58 +6,58 @@
     </listeners>
     <test name="Paga test">
         <classes>
-            <class name="com.paga.cases.LoginTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.LoginTest"/>
             <!--
-            <class name="com.paga.cases.TaskTypeTest"/> 
-            <class name="com.paga.cases.RequestBYTest"/> 
+            <class name="com.medimpact.paga.end.automation.cases.TaskTypeTest"/> 
+            <class name="com.medimpact.paga.end.automation.cases.RequestBYTest"/> 
             -->
-            <class name="com.paga.cases.AddTaskTest"/>          
-            <class name="com.paga.cases.StartTaskTest"/>
-            <class name="com.paga.cases.StartSubtaskTest"/>   
-            <class name="com.paga.cases.SubtasktkIdTest"/> 
+            <class name="com.medimpact.paga.end.automation.cases.AddTaskTest"/>          
+            <class name="com.medimpact.paga.end.automation.cases.StartTaskTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.StartSubtaskTest"/>   
+            <class name="com.medimpact.paga.end.automation.cases.SubtasktkIdTest"/> 
             
-            <class name="com.paga.cases.AddLinkingCritTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.AddLinkingCritTest"/>
             
-            <class name="com.paga.cases.RruleConditionTest"/>                       
-            <class name="com.paga.cases.AddPathTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.RruleConditionTest"/>                       
+            <class name="com.medimpact.paga.end.automation.cases.AddPathTest"/>
           	
-            <class name="com.paga.cases.UpdateSubTaskTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.UpdateSubTaskTest"/>
             
-            <class name="com.paga.cases.CompleteSubTaskTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.CompleteSubTaskTest"/>
             
-            <class name="com.paga.cases.NewSubTaskUUidTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.NewSubTaskUUidTest"/>
             
-            <class name="com.paga.cases.AddCommentTest"/> 
+            <class name="com.medimpact.paga.end.automation.cases.AddCommentTest"/> 
             
-            <class name="com.paga.cases.CommentsTest"/> 
+            <class name="com.medimpact.paga.end.automation.cases.CommentsTest"/> 
             
-            <class name="com.paga.cases.RejectSubtaskTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.RejectSubtaskTest"/>
                        
-            <class name="com.paga.cases.NewSubTaskReJUUidTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.NewSubTaskReJUUidTest"/>
             
-            <class name="com.paga.cases.UpdateSubTaskReJTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.UpdateSubTaskReJTest"/>
             
-            <class name="com.paga.cases.CompleteSubTaskReJTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.CompleteSubTaskReJTest"/>
             
-            <class name="com.paga.cases.NewSubTaskReJComUUidTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.NewSubTaskReJComUUidTest"/>
             <!--                                                         
-            <class name="com.paga.cases.WriteTest"/>
+            <class name="com.medimpact.paga.end.automation.cases.WriteTest"/>
             -->
              
-            <class name="com.paga.cases.ApproveSubTaskReviewTest"/>        
-            <class name="com.paga.cases.NewSubTaskDeployedUUidTest"/> 
+            <class name="com.medimpact.paga.end.automation.cases.ApproveSubTaskReviewTest"/>        
+            <class name="com.medimpact.paga.end.automation.cases.NewSubTaskDeployedUUidTest"/> 
             <!--                                          
-          	<class name="com.paga.cases.RuleZipTest"/>
+          	<class name="com.medimpact.paga.end.automation.cases.RuleZipTest"/>
           	-->
           	
-          	<class name="com.paga.cases.RulePathTest"/>
-          	<class name="com.paga.cases.ApproveSubTaskDoneTest"/>
+          	<class name="com.medimpact.paga.end.automation.cases.RulePathTest"/>
+          	<class name="com.medimpact.paga.end.automation.cases.ApproveSubTaskDoneTest"/>
       		
-          	<class name="com.paga.cases.NewTaskReviewUUidTest"/> 
-          	<class name="com.paga.cases.ApproveTaskTest"/>
+          	<class name="com.medimpact.paga.end.automation.cases.NewTaskReviewUUidTest"/> 
+          	<class name="com.medimpact.paga.end.automation.cases.ApproveTaskTest"/>
           	
-          	<class name="com.paga.cases.NewTaskDoneUUidTest"/>
-          	<class name="com.paga.cases.ApproveTaskDoneTest"/>
+          	<class name="com.medimpact.paga.end.automation.cases.NewTaskDoneUUidTest"/>
+          	<class name="com.medimpact.paga.end.automation.cases.ApproveTaskDoneTest"/>
           	<!-- -->    
         </classes>
 

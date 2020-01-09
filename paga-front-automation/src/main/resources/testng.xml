@@ -6,16 +6,16 @@
 
 	<test name="regression_test1">
 		<classes>
-			<class name="com.paga.cases.CreateTaskTest"/>
-			<class name="com.paga.cases.CompleteSubtasksTest"/>
-			<class name="com.paga.cases.ApproveSubTaskReviewTest"/>	
-			<class name="com.paga.cases.ApproveSubTaskDeployedTest"/>
-			<class name="com.paga.cases.RejectTaskOnReviewTest"/>
-			<class name="com.paga.cases.RejectCompleteSubTaskTest"/>
-			<class name="com.paga.cases.RejectApproveSubTaskReviewTest"/>
-			<class name="com.paga.cases.RejectApproveSubTaskDeployedTest"/>				
-			<class name="com.paga.cases.ApproveTaskReviewTest"/>						
-			<class name="com.paga.cases.ApproveTaskDeployedTest"/>		
+			<class name="com.medimpact.paga.front.automation.cases.CreateTaskTest"/>
+			<class name="com.medimpact.paga.front.automation.cases.CompleteSubtasksTest"/>
+			<class name="com.medimpact.paga.front.automation.cases.ApproveSubTaskReviewTest"/>	
+			<class name="com.medimpact.paga.front.automation.cases.ApproveSubTaskDeployedTest"/>
+			<class name="com.medimpact.paga.front.automation.cases.RejectTaskOnReviewTest"/>
+			<class name="com.medimpact.paga.front.automation.cases.RejectCompleteSubTaskTest"/>
+			<class name="com.medimpact.paga.front.automation.cases.RejectApproveSubTaskReviewTest"/>
+			<class name="com.medimpact.paga.front.automation.cases.RejectApproveSubTaskDeployedTest"/>				
+			<class name="com.medimpact.paga.front.automation.cases.ApproveTaskReviewTest"/>						
+			<class name="com.medimpact.paga.front.automation.cases.ApproveTaskDeployedTest"/>		
 		</classes>		
 	</test>
 </suite>
