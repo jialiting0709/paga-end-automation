@@ -36,7 +36,7 @@ public class AddCommentTest extends AbstractTestNGSpringContextTests{
 		 ObjectNode jsonObj = new ObjectMapper().createObjectNode();
 		 jsonObj.put("id", "");
 		 jsonObj.put("message", "234");	 
-		 jsonObj.put("tkUuid",CaseRelevanceData.newReviewSubTaskuuid);
+		 jsonObj.put("tkUuid",new CaseRelevanceData().getNewReviewSubTaskuuid());
 		 String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getAddComments(),jsonObj);
 		 return returnStr;
 	 }

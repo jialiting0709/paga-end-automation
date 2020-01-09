@@ -1,38 +1,34 @@
 package com.medimpact.paga.end.automation.domain;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 @Component
-@ConfigurationProperties(prefix = "test")
-@PropertySource(value = "classpath:configUrl.properties")
 public class ConfigBeanPropUrl {
 	
-	private String uri;
-    private String login;
-    private String taskType;
-    private String allHdr;
-    private String hdr;
-    private String addTask;
-    private String startTask;
-    private String startSubtask;
-    private String addclink;
-    private String condition;
-    private String addPathss;
-    private String updateSub;
-    private String completeSubTask;
-    private String subtasktkId;
-    private String write;
-    private String approveSubTask;
-    private String ruleZip;
-    private String RejectSubTask;
-    private String newSubTaskuuid;
-    private String approveTask;
-    private String comments;
-    private String addComments;
-    private String preview;
-    private String rulePath;
+	private String uri = "http://10.129.0.141:8001";
+    private String login = "/auth/oauth/token";
+    private String taskType = "/metadata/TASK_TYPE";
+    private String allHdr = "/metadata/REQUEST_BY";
+    private String hdr = "/hq/hdr";
+    private String addTask = "/taskMgr/task/add";
+    private String startTask = "/taskFlow/task/start";
+    private String startSubtask = "/taskFlow/subtask/start";
+    private String addclink = "/taskMgr/linkingCrit/add";
+    private String condition = "/rule/condition";
+    private String addPaths = "/taskMgr/path/add";
+    private String updateSub = "/taskMgr/subtask/update";
+    private String completeSubTask = "/taskFlow/subtask/completeSubTask";
+    private String subtasktkId = "/taskMgr/subtask";
+    private String write = "/rule/write";
+    private String approveSubTask = "/taskFlow/subtask/approveSubTask";
+    private String ruleZip = "/rule/write";
+    private String RejectSubTask = "/taskFlow/subtask/rejectSubTask";
+    private String newSubTaskuuid = "/taskFlow/tasks";
+    private String approveTask = "/taskFlow/task/approveTask";
+    private String comments = "/taskFlow/comments";
+    private String addComments = "/taskFlow/addComment";
+    private String preview = "/rule/preview";
+    private String rulePath = "/odm/add/rulePath";
     
 	public String getUri() {
 		return uri;
@@ -149,12 +145,12 @@ public class ConfigBeanPropUrl {
 	}
 
 
-	public String getAddPathss() {
-		return addPathss;
+	public String getAddPaths() {
+		return addPaths;
 	}
 
-	public void setAddPathss(String addPathss) {
-		this.addPathss = addPathss;
+	public void setAddPaths(String addPathss) {
+		this.addPaths = addPathss;
 	}
 
 	public String getAddclink() {
