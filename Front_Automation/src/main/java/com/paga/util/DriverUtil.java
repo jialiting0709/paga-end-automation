@@ -32,7 +32,6 @@ public class DriverUtil {
 	@Value("${driverPort}")
 	private String driverPort;
 	
-
 	/**
 	 * Provide the user with getting the browser driver object and return the corresponding driver object
 	 * @throws MalformedURLException 

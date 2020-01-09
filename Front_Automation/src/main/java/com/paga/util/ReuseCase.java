@@ -13,7 +13,7 @@ import com.paga.page.PushPage;
 import com.paga.page.SubTaskReviewPage;
 
 @Component
-public class MultiplexingCase {
+public class ReuseCase {
 	
 	@Value("${webUrl}")
 	private String webUrl;

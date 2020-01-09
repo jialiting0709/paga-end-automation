@@ -6,12 +6,12 @@ import org.testng.annotations.Test;
 
 import com.paga.util.BaseTest;
 
-import com.paga.util.MultiplexingCase;
+import com.paga.util.ReuseCase;
 @SpringBootTest
 public class ApproveSubTaskReviewTest extends BaseTest{
 	
 	@Autowired
-    private MultiplexingCase publicTest;
+    private ReuseCase publicTest;
 	
 	
 	@Test(description = "login")

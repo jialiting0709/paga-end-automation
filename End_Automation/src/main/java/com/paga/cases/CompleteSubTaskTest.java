@@ -17,7 +17,7 @@ import com.paga.config.CaseRelevanceData;
 
 import com.paga.utils.ConfigBeanPropUrl;
 
-import com.paga.utils.MultiplexingCase;
+import com.paga.utils.ReuseCase;
 
 
 @SpringBootTest
@@ -33,7 +33,7 @@ public class CompleteSubTaskTest extends AbstractTestNGSpringContextTests{
 		logger.info("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("subtaskuuid",CaseRelevanceData.subtaskuuid);
-		String result = MultiplexingCase.completeSubTask(url, map);		
+		String result = ReuseCase.completeSubTask(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
 	}

@@ -16,8 +16,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.paga.config.CaseRelevanceData;
 import com.paga.config.TestConfig;
 
-public class MultiplexingCase {
-	private static final Logger logger = LoggerFactory.getLogger(MultiplexingCase.class);
+public class ReuseCase {
+	private static final Logger logger = LoggerFactory.getLogger(ReuseCase.class);
 	
 	public static String updateSubTask(String url,HashMap<String,Object> map) throws InterruptedException, IOException{
 		ObjectNode jsonObject = new ObjectMapper().createObjectNode();

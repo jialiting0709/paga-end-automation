@@ -11,13 +11,13 @@ import com.paga.page.AddPathPage;
 import com.paga.page.MyWorkbenchPage;
 
 import com.paga.util.BaseTest;
-import com.paga.util.MultiplexingCase;
+import com.paga.util.ReuseCase;
 @SpringBootTest
 public class RejectCompleteSubTaskTest extends BaseTest {
 	private MyWorkbenchPage myWorkbenchPage;
 	
 	@Autowired
-    private MultiplexingCase publicTest;
+    private ReuseCase publicTest;
 	
 	@Test(description = "login")
 	public void login(){

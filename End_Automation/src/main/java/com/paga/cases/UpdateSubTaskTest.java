@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.paga.utils.ConfigBeanPropUrl;
 
-import com.paga.utils.MultiplexingCase;
+import com.paga.utils.ReuseCase;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,7 +31,7 @@ public class UpdateSubTaskTest extends AbstractTestNGSpringContextTests {
     	HashMap<String,Object> map=new HashMap<String,Object>();
     	map.put("subtaskuuid", CaseRelevanceData.subtaskuuid);
     	map.put("status", 3);
-    	String res = MultiplexingCase.updateSubTask(url,map);
+    	String res = ReuseCase.updateSubTask(url,map);
         Assert.assertNotNull(res);
         Thread.sleep(2000);
 
