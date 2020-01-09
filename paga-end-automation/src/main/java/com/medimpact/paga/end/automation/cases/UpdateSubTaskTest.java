@@ -3,7 +3,7 @@ package com.medimpact.paga.end.automation.cases;
 
 import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.utils.ReuseCase;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class UpdateSubTaskTest extends AbstractTestNGSpringContextTests {
     	HashMap<String,Object> map=new HashMap<String,Object>();
     	map.put("subtaskuuid", new CaseRelevanceData().getSubtaskuuid());
     	map.put("status", 3);
-    	String res = ReuseCase.updateSubTask(url,map);
+    	String res = CommonCase.updateSubTask(url,map);
         Assert.assertNotNull(res);
         Thread.sleep(2000);
 

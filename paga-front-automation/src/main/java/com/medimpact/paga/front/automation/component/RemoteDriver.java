@@ -1,4 +1,4 @@
-package com.medimpact.paga.front.automation.utils;
+package com.medimpact.paga.front.automation.component;
 
 import java.net.MalformedURLException;
 import java.net.URL;

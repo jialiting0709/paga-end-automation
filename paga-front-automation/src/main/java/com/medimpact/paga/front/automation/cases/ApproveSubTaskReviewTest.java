@@ -3,14 +3,11 @@ package com.medimpact.paga.front.automation.cases;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.annotations.Test;
-
-import com.medimpact.paga.front.automation.utils.BaseTest;
-import com.medimpact.paga.front.automation.utils.ReuseCase;
 @SpringBootTest
 public class ApproveSubTaskReviewTest extends BaseTest{
 	
 	@Autowired
-    private ReuseCase publicTest;
+    private CommonCase publicTest;
 	
 	
 	@Test(description = "login")

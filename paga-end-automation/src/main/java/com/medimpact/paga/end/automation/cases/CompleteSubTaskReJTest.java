@@ -14,7 +14,6 @@ import org.testng.annotations.Test;
 
 import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.utils.ReuseCase;
 
 
 @SpringBootTest
@@ -30,7 +29,7 @@ public class CompleteSubTaskReJTest extends AbstractTestNGSpringContextTests{
 		logger.info("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("subtaskuuid",new CaseRelevanceData().getSubtaskRejuuid());
-		String result = ReuseCase.completeSubTask(url, map);		
+		String result = CommonCase.completeSubTask(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
 	}

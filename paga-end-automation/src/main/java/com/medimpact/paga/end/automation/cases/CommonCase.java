@@ -1,4 +1,4 @@
-package com.medimpact.paga.end.automation.utils;
+package com.medimpact.paga.end.automation.cases;
 
 import java.io.IOException;
 import org.slf4j.Logger;
@@ -15,8 +15,9 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.UserInfo;
-public class ReuseCase {
-	private static final Logger logger = LoggerFactory.getLogger(ReuseCase.class);
+import com.medimpact.paga.end.automation.utils.HttpUtils;
+public class CommonCase {
+	private static final Logger logger = LoggerFactory.getLogger(CommonCase.class);
 	
 	public static String updateSubTask(String url,HashMap<String,Object> map) throws InterruptedException, IOException{
 		ObjectNode jsonObject = new ObjectMapper().createObjectNode();

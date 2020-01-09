@@ -13,7 +13,6 @@ import org.testng.annotations.Test;
 
 import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.utils.ReuseCase;
 
 
 
@@ -35,7 +34,7 @@ public class NewSubTaskUUidTest extends AbstractTestNGSpringContextTests{
 		map.put("subtaskid", new CaseRelevanceData().getSubtaskid());
 		map.put("df", "df");
 		map.put("uuid", "uuid");
-		String result = ReuseCase.getNewSubandTaskuuid(url, map);		
+		String result = CommonCase.getNewSubandTaskuuid(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
 	}

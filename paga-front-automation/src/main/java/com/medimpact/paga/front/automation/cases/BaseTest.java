@@ -1,4 +1,4 @@
-package com.medimpact.paga.front.automation.utils;
+package com.medimpact.paga.front.automation.cases;
 
 import java.net.MalformedURLException;
 
@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+
+import com.medimpact.paga.front.automation.component.RemoteDriver;
 
 
 

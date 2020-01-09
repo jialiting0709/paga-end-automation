@@ -13,9 +13,7 @@ import com.medimpact.paga.front.automation.page.AssignTheTaskPage;
 import com.medimpact.paga.front.automation.page.ManagementPage;
 import com.medimpact.paga.front.automation.page.SubTasksPage;
 import com.medimpact.paga.front.automation.page.TaskDetailPage;
-import com.medimpact.paga.front.automation.utils.BaseTest;
 import com.medimpact.paga.front.automation.utils.DataUtils;
-import com.medimpact.paga.front.automation.utils.ReuseCase;
 
 @SpringBootTest
 public class CreateTaskTest extends BaseTest{
@@ -25,7 +23,7 @@ public class CreateTaskTest extends BaseTest{
 	private ManagementPage managementPage;
 	
 	@Autowired
-    private ReuseCase publicTest;
+    private CommonCase publicTest;
 		
 	
 	@Test(description = "login")

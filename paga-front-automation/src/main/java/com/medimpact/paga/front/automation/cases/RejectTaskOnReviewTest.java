@@ -8,14 +8,12 @@ import org.testng.annotations.Test;
 
 import com.medimpact.paga.front.automation.page.MyWorkbenchPage;
 import com.medimpact.paga.front.automation.page.TaskReviewPage;
-import com.medimpact.paga.front.automation.utils.BaseTest;
-import com.medimpact.paga.front.automation.utils.ReuseCase;
 @SpringBootTest
 public class RejectTaskOnReviewTest extends BaseTest{
 	private MyWorkbenchPage myWorkbenchPage;
 	
 	@Autowired
-    private ReuseCase publicTest;
+    private CommonCase publicTest;
 	
 	@Test(description = "login")
 	public void login(){

@@ -1,4 +1,4 @@
-package com.medimpact.paga.front.automation.utils;
+package com.medimpact.paga.front.automation.cases;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -11,9 +11,10 @@ import com.medimpact.paga.front.automation.page.LoginPage;
 import com.medimpact.paga.front.automation.page.MyWorkbenchPage;
 import com.medimpact.paga.front.automation.page.PushPage;
 import com.medimpact.paga.front.automation.page.SubTaskReviewPage;
+import com.medimpact.paga.front.automation.utils.DataUtils;
 
 @Component
-public class ReuseCase {
+public class CommonCase {
 	
 	@Value("${webUrl}")
 	private String webUrl;

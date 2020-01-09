@@ -11,15 +11,13 @@ import com.medimpact.paga.front.automation.page.LinkCriteriaPage;
 import com.medimpact.paga.front.automation.page.MyWorkbenchPage;
 import com.medimpact.paga.front.automation.page.SubTasksInProcessPage;
 import com.medimpact.paga.front.automation.page.TaskProfilePage;
-import com.medimpact.paga.front.automation.utils.BaseTest;
-import com.medimpact.paga.front.automation.utils.ReuseCase;
 
 @SpringBootTest
 public class CompleteSubtasksTest extends BaseTest{	
 	private MyWorkbenchPage myWorkbenchPage;
 	
 	@Autowired
-    private ReuseCase publicTest;
+    private CommonCase publicTest;
 	
 	
 	@Test(description = "login")
