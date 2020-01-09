@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="paga_suite_1">
 	<listeners>
-		<listener class-name="com.paga.util.ExtentTestNGIReporterListener"/>
+		<listener class-name="com.medimpact.paga.front.automation.listerner.ExtentTestNGIReporterListener"/>
 	</listeners>
 
 	<test name="regression_test1">

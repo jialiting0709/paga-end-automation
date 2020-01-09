@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="Paga suite">
     <listeners>
-        <listener class-name="com.paga.config.ExtentTestNGIReporterListener"/>
+        <listener class-name="com.medimpact.paga.end.automation.listerner.ExtentTestNGIReporterListener"/>
     </listeners>
     <test name="Paga test">
         <classes>
