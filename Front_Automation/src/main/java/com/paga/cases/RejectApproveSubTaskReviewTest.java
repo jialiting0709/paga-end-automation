@@ -1,20 +1,25 @@
 package com.paga.cases;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.annotations.Test;
 
 import com.paga.util.BaseTest;
 import com.paga.util.PublicTest;
-
+@SpringBootTest
 public class RejectApproveSubTaskReviewTest extends BaseTest{
+	
+	@Autowired
+    private PublicTest publicTest;
 	
 	@Test(description = "login")
 	public void login(){
-		PublicTest.login(driver,"wang","1111","My Workbench");		
+		publicTest.login(driver,"wang","1111","My Workbench");		
 	}
 	
 	@Test(dependsOnMethods = "login",description = "Submit the subprocess for review after return")
 	public void rejectApproveSubTaskReview() throws InterruptedException{
-		PublicTest.approveSubTaskReview(driver, "first comment", "wang", "My Workbench");
+		publicTest.approveSubTaskReview(driver, "first comment", "wang", "My Workbench");
 	
 	}
 }

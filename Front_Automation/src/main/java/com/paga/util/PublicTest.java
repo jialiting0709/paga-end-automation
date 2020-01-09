@@ -3,6 +3,8 @@ package com.paga.util;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.testng.Assert;
 
 import com.paga.page.LoginPage;
@@ -10,12 +12,14 @@ import com.paga.page.MyWorkbenchPage;
 import com.paga.page.PushPage;
 import com.paga.page.SubTaskReviewPage;
 
+@Component
 public class PublicTest {
 	
-	public static void login(WebDriver driver,String userName,String userPassword,String expected){
-		Config config = new Config("application.properties");
-		String url = config.getConfig("url");
-		driver.get(url);
+	@Value("${webUrl}")
+	private String webUrl;
+	
+	public void login(WebDriver driver,String userName,String userPassword,String expected){
+		driver.get(webUrl);
 		//input User Name
 		LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
 		loginPage.input_userName(userName);
@@ -29,7 +33,7 @@ public class PublicTest {
 		Assert.assertEquals(My_Workbench, expected);
 	}
 	
-	public static void approveSubTaskReview(WebDriver driver,String comment,String Assign_to,String expected) throws InterruptedException{
+	public void approveSubTaskReview(WebDriver driver,String comment,String Assign_to,String expected) throws InterruptedException{
 		//Click the first item in the list
 		MyWorkbenchPage myWorkbenchPage = PageFactory.initElements(driver,MyWorkbenchPage.class);
 		myWorkbenchPage.click_SubTasks_on_the_Review_list_one();
@@ -59,7 +63,7 @@ public class PublicTest {
 		Assert.assertEquals(My_Workbench, expected);
 	}
 	
-	public static void approveSubTaskDeployed(WebDriver driver,String comment,String expected) throws InterruptedException{
+	public void approveSubTaskDeployed(WebDriver driver,String comment,String expected) throws InterruptedException{
 		MyWorkbenchPage myWorkbenchPage = PageFactory.initElements(driver,MyWorkbenchPage.class);
 		myWorkbenchPage.click_SubTasks_for_Deployed_list_one();
 		//click comments button 

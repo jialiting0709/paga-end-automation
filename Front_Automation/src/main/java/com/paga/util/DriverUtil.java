@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -11,32 +12,38 @@ import org.openqa.selenium.WebDriver;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DriverUtil {
 //	private static DriverService service;
 	
 	//Used to get and save the value of user settings in system properties
-	private static String browser;
+	private String browser;
 	
-	private static WebDriver driver;
+	private WebDriver driver;
 
-	private static final Logger logger = LogManager.getLogger();
-
+	private final Logger logger = LogManager.getLogger();
+	
+	@Value("${driverUrl}")
+	private String driverUrl;
+	
+	@Value("${driverPort}")
+	private String driverPort;
 	
 
 	/**
 	 * Provide the user with getting the browser driver object and return the corresponding driver object
 	 * @throws MalformedURLException 
 	 */
-	public static WebDriver getDriver() throws MalformedURLException {
-		Config config = new Config("application.properties");
-		String driverUrl = config.getConfig("driverUrl");
+	public WebDriver getDriver() throws MalformedURLException {
 		browser = System.getProperty("integritytech.test.browser", "chrome");
 		if(browser.equalsIgnoreCase("firefox")) {
-			driver = new RemoteWebDriver(new URL(String.format(driverUrl, 9515)),DesiredCapabilities.firefox());
+			driver = new RemoteWebDriver(new URL(String.format(driverUrl, Integer.parseInt(driverPort))),DesiredCapabilities.firefox());
 			logger.info("Get firefox driver successfully");
 		}else if(browser.equalsIgnoreCase("chrome")) {
-			driver = new RemoteWebDriver(new URL(String.format(driverUrl, 9515)),DesiredCapabilities.chrome());
+			driver = new RemoteWebDriver(new URL(String.format(driverUrl, Integer.parseInt(driverPort))),DesiredCapabilities.chrome());
 			logger.info("Get chrome driver successfully");
 		}else {
 			
@@ -48,11 +55,11 @@ public class DriverUtil {
 //		service.stop();
 //	}
 
-	public static void windowMax() {
+	public void windowMax() {
 		driver.manage().window().maximize();
 	}
 
-	public static void waitTime(long time) {
+	public void waitTime(long time) {
 		driver.manage().timeouts().implicitlyWait(time, TimeUnit.SECONDS);
 	}
 	

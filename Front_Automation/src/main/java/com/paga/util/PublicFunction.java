@@ -7,11 +7,6 @@ import java.util.Date;
 
 
 public class PublicFunction {
-	private final static String xls = "xls";  
-	private final static String xlsx = "xlsx"; 
-	
-	private static Long time = 1L;
-	private static String fileName;
 
 	/*
 	 * Get current time；yyyy-MM-dd HH:mm:ss

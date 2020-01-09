@@ -1,6 +1,8 @@
 package com.paga.cases;
 
 import org.openqa.selenium.support.PageFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,13 +10,16 @@ import com.paga.page.MyWorkbenchPage;
 import com.paga.page.TaskReviewPage;
 import com.paga.util.BaseTest;
 import com.paga.util.PublicTest;
-
+@SpringBootTest
 public class RejectTaskOnReviewTest extends BaseTest{
 	private MyWorkbenchPage myWorkbenchPage;
 	
+	@Autowired
+    private PublicTest publicTest;
+	
 	@Test(description = "login")
 	public void login(){
-		PublicTest.login(driver,"wang","1111","My Workbench");			
+		publicTest.login(driver,"wang","1111","My Workbench");			
 	}
 	
 	@Test(dependsOnMethods = "login",description = "退回主任务")
