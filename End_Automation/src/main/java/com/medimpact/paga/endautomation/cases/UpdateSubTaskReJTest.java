@@ -9,9 +9,9 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.medimpact.paga.endautomation.domain.CaseRelevanceData;
-import com.medimpact.paga.endautomation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.endautomation.utils.MultiplexingCase;
+import com.medimpact.paga.endautomation.utils.utils.ConfigBeanPropUrl;
+import com.medimpact.paga.endautomation.utils.utils.ReuseCase;
+import com.paga.config.CaseRelevanceData;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +29,7 @@ public class UpdateSubTaskReJTest extends AbstractTestNGSpringContextTests{
 		HashMap<String,Object> map = new HashMap<String,Object>();
 	    map.put("subtaskuuid",CaseRelevanceData.subtaskRejuuid);
 	    map.put("status", 1);
-	    String res = MultiplexingCase.updateSubTask(url,map);
+	    String res = ReuseCase.updateSubTask(url,map);
 	    Assert.assertNotNull(res);
 	    Thread.sleep(2000);
 

@@ -13,9 +13,9 @@ import org.testng.Assert;
 
 import org.testng.annotations.Test;
 
-import com.medimpact.paga.endautomation.domain.CaseRelevanceData;
-import com.medimpact.paga.endautomation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.endautomation.utils.MultiplexingCase;
+import com.medimpact.paga.endautomation.utils.utils.ConfigBeanPropUrl;
+import com.medimpact.paga.endautomation.utils.utils.ReuseCase;
+import com.paga.config.CaseRelevanceData;
 
 
 @SpringBootTest
@@ -31,7 +31,7 @@ public class CompleteSubTaskTest extends AbstractTestNGSpringContextTests{
 		logger.info("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
 		map.put("subtaskuuid",CaseRelevanceData.subtaskuuid);
-		String result = MultiplexingCase.completeSubTask(url, map);		
+		String result = ReuseCase.completeSubTask(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
 	}

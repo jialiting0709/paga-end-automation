@@ -18,7 +18,7 @@ import com.paga.page.TaskDetailPage;
 import com.paga.util.BaseTest;
 
 import com.paga.util.GetStringData;
-import com.paga.util.MultiplexingCase;
+import com.paga.util.ReuseCase;
 
 @SpringBootTest
 public class CreateTaskTest extends BaseTest{
@@ -28,7 +28,7 @@ public class CreateTaskTest extends BaseTest{
 	private ManagementPage managementPage;
 	
 	@Autowired
-    private MultiplexingCase publicTest;
+    private ReuseCase publicTest;
 		
 	
 	@Test(description = "login")

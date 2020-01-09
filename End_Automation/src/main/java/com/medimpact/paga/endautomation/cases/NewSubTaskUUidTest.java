@@ -11,9 +11,9 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.medimpact.paga.endautomation.domain.CaseRelevanceData;
-import com.medimpact.paga.endautomation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.endautomation.utils.MultiplexingCase;
+import com.medimpact.paga.endautomation.utils.utils.ConfigBeanPropUrl;
+import com.medimpact.paga.endautomation.utils.utils.ReuseCase;
+import com.paga.config.CaseRelevanceData;
 
 
 @SpringBootTest
@@ -34,7 +34,7 @@ public class NewSubTaskUUidTest extends AbstractTestNGSpringContextTests{
 		map.put("subtaskid", CaseRelevanceData.subtaskid);
 		map.put("df", "df");
 		map.put("uuid", "uuid");
-		String result = MultiplexingCase.getNewSubandTaskuuid(url, map);		
+		String result = ReuseCase.getNewSubandTaskuuid(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
 	}
