@@ -37,6 +37,7 @@ public class DriverUtil {
 	 * Provide the user with getting the browser driver object and return the corresponding driver object
 	 * @throws MalformedURLException 
 	 */
+
 	public WebDriver getDriver() throws MalformedURLException {
 		browser = System.getProperty("integritytech.test.browser", "chrome");
 		if(browser.equalsIgnoreCase("firefox")) {
