@@ -9,7 +9,8 @@ import org.testng.TestNG;
 import com.google.common.collect.Lists;
 
 
-@RestController 
+@RestController
+@RequestMapping("/Front_Automation")
 public class ExecutionTestingController {	
 	 @RequestMapping(value = "/runFronttest",method = RequestMethod.GET)
 	  public String runTest(){

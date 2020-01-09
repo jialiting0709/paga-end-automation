@@ -34,8 +34,10 @@ public class DriverUtil {
 		browser = System.getProperty("integritytech.test.browser", "chrome");
 		if(browser.equalsIgnoreCase("firefox")) {
 			driver = new RemoteWebDriver(new URL(String.format(driverUrl, 9515)),DesiredCapabilities.firefox());
+			logger.info("Get firefox driver successfully");
 		}else if(browser.equalsIgnoreCase("chrome")) {
 			driver = new RemoteWebDriver(new URL(String.format(driverUrl, 9515)),DesiredCapabilities.chrome());
+			logger.info("Get chrome driver successfully");
 		}else {
 			
 		}

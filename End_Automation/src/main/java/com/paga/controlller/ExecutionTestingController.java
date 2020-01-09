@@ -10,6 +10,7 @@ import com.google.common.collect.Lists;
 
 
 @RestController 
+@RequestMapping("/End_Automation")
 public class ExecutionTestingController {
 	
 	 @RequestMapping(value = "/runEndtest",method = RequestMethod.GET)
