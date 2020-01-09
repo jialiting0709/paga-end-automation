@@ -34,10 +34,10 @@ public class PreviewTest extends AbstractTestNGSpringContextTests{
 	    private String run() throws IOException {
 	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getPreview());
 	        sb.append("/");
-	        sb.append(CaseRelevanceData.addPathId);
+	        sb.append(new CaseRelevanceData().getAddPathId());
 	        HttpGet get = new HttpGet(sb.toString());
 	        logger.info("rule preview url: "+sb.toString());
-	        get.addHeader("username", UserInfo.username);
+	        get.addHeader("username", new UserInfo().getUsername());
 //	        get.addHeader("username","wang");
 //	        get.addHeader("access_token",TestConfig.access_token);
 //	        get.addHeader("refresh_token",TestConfig.refresh_token);
@@ -45,7 +45,7 @@ public class PreviewTest extends AbstractTestNGSpringContextTests{
 //	        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //	        get.addHeader("jti",TestConfig.jti);
 
-	        HttpResponse response = UserInfo.defaultHttpClient.execute(get);
+	        HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 	        logger.info("Interface response results："+jsonStr);
 

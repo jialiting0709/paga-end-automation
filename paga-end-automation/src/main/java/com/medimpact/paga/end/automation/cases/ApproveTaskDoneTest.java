@@ -37,18 +37,18 @@ public class ApproveTaskDoneTest extends AbstractTestNGSpringContextTests{
 		ArrayNode commentsArr = mapper.createArrayNode();
 		ObjectNode commentsJson = mapper.createObjectNode();
 		commentsJson.put("id", "");
-		commentsJson.put("tkUuid",CaseRelevanceData.newDonetaskuuid);
+		commentsJson.put("tkUuid",new CaseRelevanceData().getNewDonetaskuuid());
 		commentsJson.put("message", "2222");
 		commentsArr.add(commentsJson);
 		
 		ObjectNode selfPropsJson = mapper.createObjectNode();
 		selfPropsJson.put("pkType", "guidlineTask");
-		selfPropsJson.put("pkValue", CaseRelevanceData.pkValue);
+		selfPropsJson.put("pkValue", new CaseRelevanceData().getPkValue());
 		jsonObj.put("assignee", "");
 		jsonObj.set("comments", commentsArr);
 		jsonObj.put("defineKey", "TaskDone");
 		jsonObj.set("selfProps", selfPropsJson);
-		jsonObj.put("uuid",CaseRelevanceData.newDonetaskuuid);
+		jsonObj.put("uuid",new CaseRelevanceData().getNewDonetaskuuid());
 		
 		String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getApproveTask(),jsonObj);	
 		return returnStr;

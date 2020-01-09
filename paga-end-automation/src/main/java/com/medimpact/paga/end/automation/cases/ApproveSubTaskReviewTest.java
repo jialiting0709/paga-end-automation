@@ -40,18 +40,18 @@ public class ApproveSubTaskReviewTest extends AbstractTestNGSpringContextTests{
 		ArrayNode commentsArr = mapper.createArrayNode();
 		ObjectNode commentsJson = mapper.createObjectNode();
 		commentsJson.put("id", "");
-		commentsJson.put("tkUuid",CaseRelevanceData.subtaskid);
+		commentsJson.put("tkUuid",new CaseRelevanceData().getSubtaskid());
 		commentsJson.put("message", "1111");
 		commentsArr.add(commentsJson);
 		
 		ObjectNode selfPropsJson = mapper.createObjectNode();
 		selfPropsJson.put("pkType", "guidlineSubTask");
-		selfPropsJson.put("pkValue", CaseRelevanceData.pkValue);
+		selfPropsJson.put("pkValue", new CaseRelevanceData().getPkValue());
 		jsonObj.put("assignee", "wang");
 		jsonObj.set("comments", commentsArr);
 		jsonObj.put("defineKey", "SubtaskReview");
 		jsonObj.set("selfProps", selfPropsJson);
-		jsonObj.put("uuid",CaseRelevanceData.subtaskRejcomuuid);
+		jsonObj.put("uuid",new CaseRelevanceData().getSubtaskRejcomuuid());
 		
 		String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getApproveSubTask(), jsonObj);	
 		return returnStr;

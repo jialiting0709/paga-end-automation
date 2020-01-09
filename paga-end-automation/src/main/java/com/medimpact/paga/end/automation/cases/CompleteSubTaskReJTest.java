@@ -12,9 +12,10 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
+import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
 import com.medimpact.paga.end.automation.utils.ReuseCase;
-import com.medimpact.paga.end.automation.utils.utils.ConfigBeanPropUrl;
-import com.paga.config.CaseRelevanceData;
+
 
 @SpringBootTest
 public class CompleteSubTaskReJTest extends AbstractTestNGSpringContextTests{
@@ -28,25 +29,10 @@ public class CompleteSubTaskReJTest extends AbstractTestNGSpringContextTests{
 		String url = configBeanPropUrl.getUri()+configBeanPropUrl.getCompleteSubTask();
 		logger.info("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
-		map.put("subtaskuuid",CaseRelevanceData.subtaskRejuuid);
+		map.put("subtaskuuid",new CaseRelevanceData().getSubtaskRejuuid());
 		String result = ReuseCase.completeSubTask(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);
 	}
 			
-//	 private String getResult() throws IOException{
-//		 JSONObject jsonObj = new JSONObject();
-//		 JSONObject selfPropsObj = new JSONObject();
-//		 selfPropsObj.put("pkType", "guidlineSubTask");
-//		 selfPropsObj.put("pkValue",CaseRelevanceData.pkValue);
-//		 jsonObj.put("assignee", "wang");
-//		 jsonObj.put("dueDate", "");
-//		 jsonObj.put("selfProps", selfPropsObj);		 
-//		 jsonObj.put("uuid",CaseRelevanceData.subtaskRejuuid);
-//		 System.out.println(jsonObj.toString());
-//		 String returnStr = PostGetUtil.getPosttMethod(configBeanPropUrl.getCompleteSubTask(),jsonObj);
-//		 JSONObject jsonRest= new JSONObject(returnStr);
-//		 String uuid = jsonRest.getString("uuid");	 
-//		 return uuid;
-//	 }
 }

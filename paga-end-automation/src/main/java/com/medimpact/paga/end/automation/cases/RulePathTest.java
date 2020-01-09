@@ -37,7 +37,7 @@ public class RulePathTest extends AbstractTestNGSpringContextTests{
 	  private String getResult() throws IOException {
 	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getRulePath());
 	        sb.append("/");
-	        sb.append(CaseRelevanceData.subtaskid);
+	        sb.append(new CaseRelevanceData().getSubtaskid());
 	        sb.append("/");
 	        sb.append(DateUtils.getStringDate(0L,"yyyyMMdd"));
 	        HttpGet get = new HttpGet(sb.toString());
@@ -47,8 +47,8 @@ public class RulePathTest extends AbstractTestNGSpringContextTests{
 //	        get.addHeader("token_type",TestConfig.token_type);
 //	        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //	        get.addHeader("jti",TestConfig.jti);
-	        get.addHeader("username",UserInfo.username);
-	        HttpResponse response = UserInfo.defaultHttpClient.execute(get);
+	        get.addHeader("username",new UserInfo().getUsername());
+	        HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 	        return jsonStr;
 

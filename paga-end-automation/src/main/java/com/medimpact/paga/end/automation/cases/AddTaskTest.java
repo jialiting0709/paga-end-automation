@@ -71,7 +71,7 @@ public class AddTaskTest extends AbstractTestNGSpringContextTests{
     	json.set("taskDtl",entityTaskDtl);
     	json.set("task",entity);   	   	
     	String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getAddTask(), json);	
-    	CaseRelevanceData.pkValue = Integer.parseInt(returnStr);   	
+    	new CaseRelevanceData().setPkValue(Integer.parseInt(returnStr));
     	return returnStr;
     }
 }

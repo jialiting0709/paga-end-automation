@@ -34,19 +34,19 @@ public class WriteTest extends AbstractTestNGSpringContextTests {
     private String run() throws IOException {
         StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getWrite());
         sb.append("/");
-        sb.append(CaseRelevanceData.pkValue);
+        sb.append(new CaseRelevanceData().getPkValue());
         sb.append("/");
-        sb.append(CaseRelevanceData.subtaskid);
+        sb.append(new CaseRelevanceData().getSubtaskid());
         HttpGet get = new HttpGet(sb.toString());
         logger.info("Test on url: "+sb.toString());
-        get.addHeader("username", UserInfo.username);
+        get.addHeader("username", new UserInfo().getUsername());
 //        get.addHeader("access_token",TestConfig.access_token);
 //        get.addHeader("refresh_token",TestConfig.refresh_token);
 //        get.addHeader("token_type",TestConfig.token_type);
 //        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //        get.addHeader("jti",TestConfig.jti);
 
-        HttpResponse response = UserInfo.defaultHttpClient.execute(get);
+        HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
         return jsonStr;

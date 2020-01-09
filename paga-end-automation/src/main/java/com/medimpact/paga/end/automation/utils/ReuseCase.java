@@ -13,9 +13,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.paga.config.CaseRelevanceData;
-import com.paga.config.TestConfig;
-
+import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
+import com.medimpact.paga.end.automation.domain.UserInfo;
 public class ReuseCase {
 	private static final Logger logger = LoggerFactory.getLogger(ReuseCase.class);
 	
@@ -28,9 +27,9 @@ public class ReuseCase {
 	        jsonObject.put("name","");
 	        
 	        jsonObject.put("status",Integer.parseInt(map.get("status").toString()));
-	        jsonObject.put("tkId",CaseRelevanceData.pkValue);
+	        jsonObject.put("tkId",new CaseRelevanceData().getPkValue());
 	        jsonObject.put("uniqueKeyInFlow",String.valueOf(map.get("subtaskuuid")));
-	        String result = PostGetUtil.getPosttMethod(url,jsonObject);
+	        String result = HttpUtils.getPosttMethod(url,jsonObject);
 		    return result;
 
 	}
@@ -40,12 +39,12 @@ public class ReuseCase {
 		 ObjectNode jsonObj = mapper.createObjectNode();
 		 ObjectNode selfPropsObj = mapper.createObjectNode();
 		 selfPropsObj.put("pkType", "guidlineSubTask");
-		 selfPropsObj.put("pkValue",CaseRelevanceData.pkValue);
+		 selfPropsObj.put("pkValue",new CaseRelevanceData().getPkValue());
 		 jsonObj.put("assignee", "wang");
 		 jsonObj.put("dueDate", "");
 		 jsonObj.set("selfProps", selfPropsObj);		 
 		 jsonObj.put("uuid",String.valueOf(map.get("subtaskuuid")));
-		 String returnStr = PostGetUtil.getPosttMethod(url,jsonObj);
+		 String returnStr = HttpUtils.getPosttMethod(url,jsonObj);
 		 
 		 JsonNode jsonRest = mapper.readTree(returnStr); 
 		 String uuid = jsonRest.path("uuid").asText();
@@ -55,8 +54,8 @@ public class ReuseCase {
 	
 	public static String getNewSubandTaskuuid(String url,HashMap<String, Object> map) throws InterruptedException, IOException{		
 		 HttpGet get = new HttpGet(url);
-		 get.addHeader("username", TestConfig.username);		 
-		 HttpResponse response = TestConfig.defaultHttpClient.execute(get);
+		 get.addHeader("username", new UserInfo().getUsername());		 
+		 HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
@@ -70,23 +69,10 @@ public class ReuseCase {
 	    	 }else{
 	    		 continue;
 	    	 }
-	     }
-	     CaseRelevanceData.newReviewSubTaskuuid = subtaskuuid;    
+	     } 
+	     new CaseRelevanceData().setNewReviewSubTaskuuid(subtaskuuid);
 	     return subtaskuuid;
 
-	 }
-	
-	public static void main(String[] args) {
-//		HashMap<String,Object> map = new HashMap<String,Object>();
-//	    map.put("subtaskuuid","2323324");
-//	    map.put("status", 1);
-//		int i =Integer.parseInt(map.get("status").toString());
-//		String j = String.valueOf(map.get("subtaskuuid"));
-//		System.out.println(i);
-//		System.out.println(j);
-	}
-	
-	
-	
+	 }	
 
 }

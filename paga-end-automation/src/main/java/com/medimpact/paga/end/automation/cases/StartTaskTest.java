@@ -33,7 +33,7 @@ public class StartTaskTest extends AbstractTestNGSpringContextTests{
 		logger.info("start task url："+configBeanPropUrl.getUri()+configBeanPropUrl.getStartTask());
 		String result = getResult();
 		JsonNode root = new ObjectMapper().readTree(result); 
-		CaseRelevanceData.taskuuid=root.path("uuid").asText();
+		new CaseRelevanceData().setTaskuuid(root.path("uuid").asText());
 		Assert.assertEquals("TaskNew", root.path("defineKey").asText());
 		Thread.sleep(5000);				
 //		CaseRelevanceData.taskuuid  = jsonRes.getString("uuid");
@@ -49,7 +49,7 @@ public class StartTaskTest extends AbstractTestNGSpringContextTests{
 		 selfPropsObj.put("deadLine",DateUtils.getStringDate(864000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ"));//到期时间
 		 selfPropsObj.put("owner", "wang");
 		 selfPropsObj.put("pkType", "guidlineTask");
-		 selfPropsObj.put("pkValue", CaseRelevanceData.pkValue);//taskId	
+		 selfPropsObj.put("pkValue",new CaseRelevanceData().getPkValue());//taskId	
 		 entity.set("selfProps",selfPropsObj);
 		 		 
 		 String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getStartTask(), entity);	 		 

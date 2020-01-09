@@ -1,9 +1,9 @@
 package com.medimpact.paga.end.automation.cases;
 
 
+import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
+import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
 import com.medimpact.paga.end.automation.utils.ReuseCase;
-import com.medimpact.paga.end.automation.utils.utils.ConfigBeanPropUrl;
-import com.paga.config.CaseRelevanceData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +20,14 @@ public class UpdateSubTaskTest extends AbstractTestNGSpringContextTests {
 	private static final Logger logger = LoggerFactory.getLogger(UpdateSubTaskTest.class);
 	
     @Autowired
-    ConfigBeanPropUrl configBeanPropUrl;
+    private ConfigBeanPropUrl configBeanPropUrl;
     @Test(dependsOnGroups="addPath", groups="updateSubTask",description = "update SubTask")
 
     private void updateSubTask() throws IOException, InterruptedException {
     	String url = configBeanPropUrl.getUri()+configBeanPropUrl.getUpdateSub();
     	logger.info("update SubTask url:"+url);
     	HashMap<String,Object> map=new HashMap<String,Object>();
-    	map.put("subtaskuuid", CaseRelevanceData.subtaskuuid);
+    	map.put("subtaskuuid", new CaseRelevanceData().getSubtaskuuid());
     	map.put("status", 3);
     	String res = ReuseCase.updateSubTask(url,map);
         Assert.assertNotNull(res);

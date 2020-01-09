@@ -35,11 +35,11 @@ public class TaskMgrSubtaskUpdateTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("enteredBy", "wang");
 		jsonObj.put("glName", "111");
 		jsonObj.put("glType", 123);
-		jsonObj.put("id",CaseRelevanceData.pkValue);
+		jsonObj.put("id",new CaseRelevanceData().getPkValue());
 		jsonObj.put("name", "0");
 		jsonObj.put("status", 2);
-		jsonObj.put("tkId", CaseRelevanceData.pkValue);
-		jsonObj.put("uniqueKeyInFlow",CaseRelevanceData.taskuuid);
+		jsonObj.put("tkId", new CaseRelevanceData().getPkValue());
+		jsonObj.put("uniqueKeyInFlow",new CaseRelevanceData().getTaskuuid());
 		String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getCompleteSubTask(),jsonObj);
 		return returnStr;
 	 }

@@ -39,8 +39,8 @@ public class NewTaskDoneUUidTest extends AbstractTestNGSpringContextTests{
 	
 	private String getResult() throws IOException{		 
 		 HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
-		 get.addHeader("username", UserInfo.username);		 
-		 HttpResponse response = UserInfo.defaultHttpClient.execute(get);
+		 get.addHeader("username", new UserInfo().getUsername());		 
+		 HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
@@ -49,13 +49,13 @@ public class NewTaskDoneUUidTest extends AbstractTestNGSpringContextTests{
 	     ArrayNode arr = (ArrayNode)resJson.path("TaskDone");
 	     for(int i=0;i<arr.size();i++){
 	    	 int taskId = arr.get(i).path("pk").path("task").path("id").asInt();
-	    	 if(taskId==CaseRelevanceData.pkValue){
+	    	 if(taskId==new CaseRelevanceData().getPkValue()){
 	    		 newDonetaskuuid = arr.get(i).path("df").path("uuid").asText();
 	    	 }else{
 	    		 continue;
 	    	 }
 	     }
-	     CaseRelevanceData.newDonetaskuuid = newDonetaskuuid;     
+	     new CaseRelevanceData().setNewDonetaskuuid(newDonetaskuuid);
 	     return newDonetaskuuid;
 
 	 }

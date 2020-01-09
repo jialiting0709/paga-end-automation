@@ -40,7 +40,7 @@ public class ApproveTaskTest extends AbstractTestNGSpringContextTests{
 		ArrayNode commentsArr = mapper.createArrayNode();
 		ObjectNode commentsJson = mapper.createObjectNode();
 		commentsJson.put("id", "");
-		commentsJson.put("tkUuid",CaseRelevanceData.newReviewtaskuuid);
+		commentsJson.put("tkUuid",new CaseRelevanceData().getNewReviewtaskuuid());
 		commentsJson.put("message", "321");
 		commentsArr.add(commentsJson);
 		
@@ -48,13 +48,13 @@ public class ApproveTaskTest extends AbstractTestNGSpringContextTests{
 		selfPropsJson.set("deadLine",selfPropsJson.nullNode());
 		selfPropsJson.set("owner", selfPropsJson.nullNode());
 		selfPropsJson.put("pkType", "guidlineTask");
-		selfPropsJson.put("pkValue", CaseRelevanceData.pkValue);
+		selfPropsJson.put("pkValue", new CaseRelevanceData().getPkValue());
 		jsonObj.put("assignee", "wang");
 		jsonObj.set("comments", commentsArr);
 		jsonObj.put("defineKey", "TaskReview");
 		jsonObj.set("dueDate",jsonObj.nullNode());
 		jsonObj.set("selfProps", selfPropsJson);
-		jsonObj.put("uuid",CaseRelevanceData.newReviewtaskuuid);
+		jsonObj.put("uuid",new CaseRelevanceData().getNewReviewtaskuuid());
 		
 		String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getApproveTask(),jsonObj);	
 		return returnStr;
