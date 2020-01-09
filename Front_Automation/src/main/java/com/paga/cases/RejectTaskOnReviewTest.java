@@ -9,13 +9,13 @@ import org.testng.annotations.Test;
 import com.paga.page.MyWorkbenchPage;
 import com.paga.page.TaskReviewPage;
 import com.paga.util.BaseTest;
-import com.paga.util.PublicTest;
+import com.paga.util.MultiplexingCase;
 @SpringBootTest
 public class RejectTaskOnReviewTest extends BaseTest{
 	private MyWorkbenchPage myWorkbenchPage;
 	
 	@Autowired
-    private PublicTest publicTest;
+    private MultiplexingCase publicTest;
 	
 	@Test(description = "login")
 	public void login(){

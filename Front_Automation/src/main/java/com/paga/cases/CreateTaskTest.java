@@ -2,6 +2,7 @@ package com.paga.cases;
 
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,8 +17,8 @@ import com.paga.page.SubTasksPage;
 import com.paga.page.TaskDetailPage;
 import com.paga.util.BaseTest;
 
-import com.paga.util.PublicFunction;
-import com.paga.util.PublicTest;
+import com.paga.util.GetStringData;
+import com.paga.util.MultiplexingCase;
 
 @SpringBootTest
 public class CreateTaskTest extends BaseTest{
@@ -26,10 +27,13 @@ public class CreateTaskTest extends BaseTest{
 	private SubTasksPage subTasksPage;
 	private ManagementPage managementPage;
 	
+	@Autowired
+    private MultiplexingCase publicTest;
+		
 	
 	@Test(description = "login")
 	public void login(){
-		PublicTest.login(driver,"wang","1111","My Workbench");		
+		publicTest.login(driver,"wang","1111","My Workbench");		
 	}
 		
 	@Test(dependsOnMethods = {"login"},description = "Create tasks")
@@ -50,8 +54,8 @@ public class CreateTaskTest extends BaseTest{
 		//click create
 		addTaskPage.click_select_create();
 		//Enter task expiration time
-		String dueDate = PublicFunction.getStringDate(432000000L);
-    	String effective = PublicFunction.getStringDate(864000000L);
+		String dueDate = GetStringData.getStringDate(432000000L);
+    	String effective = GetStringData.getStringDate(864000000L);
 		addTaskPage.input_mat("10");
 		//Click requested by drop-down box
 		addTaskPage.click_requested_by();

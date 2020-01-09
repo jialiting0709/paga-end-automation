@@ -6,7 +6,7 @@ import java.util.Date;
 
 
 
-public class PublicFunction {
+public class GetStringData {
 
 	/*
 	 * Get current time；yyyy-MM-dd HH:mm:ss
@@ -27,11 +27,11 @@ public class PublicFunction {
 		return str;
 	}
 
-	public static void main(String[] args) {
-		getStringDate(432000000L);
-		System.out.println(getStringDate(432000000L));		
-		System.out.println(getNowDate());	
-	}
+//	public static void main(String[] args) {
+//		getStringDate(432000000L);
+//		System.out.println(getStringDate(432000000L));		
+//		System.out.println(getNowDate());	
+//	}
    		
 }
 	

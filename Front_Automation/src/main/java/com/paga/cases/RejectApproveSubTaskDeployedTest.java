@@ -5,12 +5,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.testng.annotations.Test;
 
 import com.paga.util.BaseTest;
-import com.paga.util.PublicTest;
+import com.paga.util.MultiplexingCase;
 @SpringBootTest
 public class RejectApproveSubTaskDeployedTest extends BaseTest{
 	
 	@Autowired
-    private PublicTest publicTest;
+    private MultiplexingCase publicTest;
 	
 	@Test(description = "login")
 	public void login(){

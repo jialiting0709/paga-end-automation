@@ -1,15 +1,14 @@
 package com.paga.util;
 
-
-
-
 import java.net.MalformedURLException;
 
 import org.openqa.selenium.WebDriver;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+
 
 
 /**
@@ -17,21 +16,26 @@ import org.testng.annotations.BeforeClass;
  */
 public class BaseTest extends AbstractTestNGSpringContextTests{
 	
-	public static WebDriver driver;
+	public WebDriver driver;
+		
+	@Value("${browser}")
+	private String browser;
+	
+	@Autowired
+    private DriverUtil driverUtil;
 	
 	/**
 	 * get driver
 	 * @throws MalformedURLException 
 	 */
 	@BeforeClass
-	public static WebDriver initDriver() throws MalformedURLException {
-		Config config = new Config("application.properties");
+	public WebDriver initDriver() throws MalformedURLException {
 		//Set system properties and obtain browser type through configuration
-		System.setProperty("integritytech.test.browser",config.getConfig("integritytech.test.browser"));
-		driver = DriverUtil.getDriver();
+		System.setProperty("integritytech.test.browser",browser);
+		driver = driverUtil.getDriver();
 		//window maximizing
-		DriverUtil.windowMax();
-		DriverUtil.waitTime(10);
+		driverUtil.windowMax();
+		driverUtil.waitTime(10);
 		
 		return driver;
 		
@@ -40,7 +44,7 @@ public class BaseTest extends AbstractTestNGSpringContextTests{
 	 * Close browser
 	 */
 	@AfterClass
-	public static void clossDriver() {
+	public void clossDriver() {
 		driver.quit();
 	}
 	/**

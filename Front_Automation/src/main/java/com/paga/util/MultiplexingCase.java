@@ -13,7 +13,7 @@ import com.paga.page.PushPage;
 import com.paga.page.SubTaskReviewPage;
 
 @Component
-public class PublicTest {
+public class MultiplexingCase {
 	
 	@Value("${webUrl}")
 	private String webUrl;
@@ -74,7 +74,7 @@ public class PublicTest {
 		//click Comlete
 		pushPage.click_comment_button();
 		//input date
-		pushPage.input_data_input(PublicFunction.getStringDate(1L));
+		pushPage.input_data_input(GetStringData.getStringDate(1L));
 		//click OK
 		pushPage.click_ok_button();
 		Thread.sleep(3000);
