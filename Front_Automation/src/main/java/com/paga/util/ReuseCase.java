@@ -80,8 +80,6 @@ public class ReuseCase {
 		Thread.sleep(3000);
 		String My_Workbench = myWorkbenchPage.getMy_Workbench();
 		Assert.assertEquals(My_Workbench, expected);	
-	}
-	
-	
+	}	
 	
 }
