@@ -28,7 +28,7 @@ public class AddTaskTest extends AbstractTestNGSpringContextTests{
     private ConfigBeanPropUrl configBeanPropUrl;
     
     @Test(dependsOnGroups="loginTrue", groups="addTask",description = "add a Task")
-    public void loginTrue() throws Exception { 
+    public void addTaskTest() throws Exception { 
     	logger.info("add Task url："+configBeanPropUrl.getUri()+configBeanPropUrl.getAddTask());
     	String result = getResult();
     	Integer.parseInt(result);
