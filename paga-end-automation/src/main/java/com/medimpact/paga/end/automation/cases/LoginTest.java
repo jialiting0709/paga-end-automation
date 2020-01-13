@@ -34,7 +34,7 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
 
     @BeforeTest(groups = "loginTrue",description = "Test preparation, get httpclient object",alwaysRun=true)
     public void beforeTest(){
-        new UserInfo().setDefaultHttpClient(HttpClients.createDefault());
+    	UserInfo.getInstance().setDefaultHttpClient(HttpClients.createDefault());
     }
 
     @Test(groups = "loginTrue",description = "login")
@@ -49,7 +49,7 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
         StringEntity entity = new StringEntity("username=wang&password=1111@ssword-7&grant_type=password", ContentType.APPLICATION_JSON);
         post.addHeader("authorization", "123");
         post.setEntity(entity);
-        HttpResponse response = new UserInfo().getDefaultHttpClient().execute(post);
+        HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(post);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
         ObjectMapper mapper = new ObjectMapper();  
@@ -57,7 +57,7 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
 	    JsonNode data = root.path("username");
         String username = data.asText();  
         if(username != null || username.length()!= 0){
-              new UserInfo().setUsername(username);
+        	UserInfo.getInstance().setUsername(username);
 //              TestConfig.access_token = jsonObject.getString("access_token");
 //              TestConfig.refresh_token = jsonObject.getString("refresh_token");
 //              TestConfig.token_type = jsonObject.getString("token_type");
