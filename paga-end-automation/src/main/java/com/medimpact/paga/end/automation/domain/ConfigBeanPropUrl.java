@@ -1,8 +1,5 @@
 package com.medimpact.paga.end.automation.domain;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class ConfigBeanPropUrl {
 	
 	private String uri = "http://10.129.0.141:8001";
@@ -224,8 +221,5 @@ public class ConfigBeanPropUrl {
 	public void setComments(String comments) {
 		this.comments = comments;
 	} 
-	
-	
-	
     
 }

@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
+import org.springframework.stereotype.Component;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -19,6 +19,7 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
 import com.medimpact.paga.end.automation.domain.UserInfo;
 
@@ -27,14 +28,21 @@ import java.io.IOException;
 
 @SpringBootTest
 public class LoginTest extends AbstractTestNGSpringContextTests {
+	
 	private static final Logger logger = LoggerFactory.getLogger(LoginTest.class);
 
     @Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
 
+    @Autowired
+    private UserInfo userInfo;
+    
+    @Autowired
+    private CaseRelevanceData data;
+    
     @BeforeTest(groups = "loginTrue",description = "Test preparation, get httpclient object",alwaysRun=true)
     public void beforeTest(){
-        new UserInfo().setDefaultHttpClient(HttpClients.createDefault());
+    	
     }
 
     @Test(groups = "loginTrue",description = "login")
@@ -45,11 +53,12 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
 
     private String getResult() throws IOException {
     	logger.info("login url："+configBeanPropUrl.getUri()+configBeanPropUrl.getLogin());
-        HttpPost post = new HttpPost(configBeanPropUrl.getUri()+configBeanPropUrl.getLogin());
+    	userInfo.setDefaultHttpClient(HttpClients.createDefault());
+    	HttpPost post = new HttpPost(configBeanPropUrl.getUri()+configBeanPropUrl.getLogin());
         StringEntity entity = new StringEntity("username=wang&password=1111@ssword-7&grant_type=password", ContentType.APPLICATION_JSON);
         post.addHeader("authorization", "123");
         post.setEntity(entity);
-        HttpResponse response = new UserInfo().getDefaultHttpClient().execute(post);
+        HttpResponse response = userInfo.getDefaultHttpClient().execute(post);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
         ObjectMapper mapper = new ObjectMapper();  
@@ -57,7 +66,7 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
 	    JsonNode data = root.path("username");
         String username = data.asText();  
         if(username != null || username.length()!= 0){
-              new UserInfo().setUsername(username);
+        	userInfo.setUsername(username);
 //              TestConfig.access_token = jsonObject.getString("access_token");
 //              TestConfig.refresh_token = jsonObject.getString("refresh_token");
 //              TestConfig.token_type = jsonObject.getString("token_type");
