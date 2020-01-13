@@ -44,14 +44,14 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 		ObjectNode criteriasJSO = mapper.createObjectNode();
 		criteriasJSO.put("condition", "is");
 		criteriasJSO.put("value", "12");
-		criteriasJSO.put("criteriaCode", new CaseRelevanceData().getCriteriaCode());//
+		criteriasJSO.put("criteriaCode",CaseRelevanceData.getInstance().getCriteriaCode());//
 		criteriasArr.add(criteriasJSO);
 		criteriaJS.set("criterias", criteriasArr);
 		criteriaGroupsArr.add(criteriaJS);
 		jsonObj.set("criteriaGroups", criteriaGroupsArr);
 		
 		ObjectNode jsonSubTaskPathVo = mapper.createObjectNode();
-		jsonSubTaskPathVo.put("paglsubtaskid", new CaseRelevanceData().getSubtaskid()+"");
+		jsonSubTaskPathVo.put("paglsubtaskid",CaseRelevanceData.getInstance().getSubtaskid()+"");
 		jsonSubTaskPathVo.put("pathapprovaltext", "approvaltext");
 		jsonSubTaskPathVo.put("pathinitrenewal", 1);
 		jsonSubTaskPathVo.put("pathinstruction", "instructions");
@@ -62,7 +62,7 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("pathseqnum", 1);	
 		jsonObj.set("subTaskPathVo",jsonSubTaskPathVo);
 		String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getAddPaths(), jsonObj);
-		new CaseRelevanceData().setAddPathId(returnStr);
+		CaseRelevanceData.getInstance().setAddPathId(returnStr);
 		return returnStr;
 		  
 	}

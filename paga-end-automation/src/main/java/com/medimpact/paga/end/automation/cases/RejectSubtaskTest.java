@@ -41,16 +41,16 @@ public class RejectSubtaskTest extends AbstractTestNGSpringContextTests {
         jsonObject.put("defineKey","SubtaskReview");
         ArrayNode array = mapper.createArrayNode();
         ObjectNode subObj = mapper.createObjectNode();
-        subObj.put("id",new CaseRelevanceData().getCommentId());
-        subObj.put("tkUuid",new CaseRelevanceData().getNewReviewSubTaskuuid());
+        subObj.put("id",CaseRelevanceData.getInstance().getCommentId());
+        subObj.put("tkUuid",CaseRelevanceData.getInstance().getNewReviewSubTaskuuid());
         subObj.put("message","234");
         array.add(subObj);
         jsonObject.set("comments",array);
         ObjectNode sObj = mapper.createObjectNode();
         sObj.put("pkType","guidlineSubTask");
-        sObj.put("pkValue",new CaseRelevanceData().getPkValue());
+        sObj.put("pkValue",CaseRelevanceData.getInstance().getPkValue());
         jsonObject.set("selfProps",sObj);
-        jsonObject.put("uuid", new CaseRelevanceData().getNewReviewSubTaskuuid());
+        jsonObject.put("uuid", CaseRelevanceData.getInstance().getNewReviewSubTaskuuid());
         
         return HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getRejectSubTask(),jsonObject);
 

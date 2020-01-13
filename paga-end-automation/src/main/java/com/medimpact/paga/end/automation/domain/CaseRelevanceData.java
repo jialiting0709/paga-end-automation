@@ -1,8 +1,5 @@
 package com.medimpact.paga.end.automation.domain;
 
-import org.apache.http.client.HttpClient;
-
-import com.medimpact.paga.end.automation.domain.UserInfo.UserInfoBuilder;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

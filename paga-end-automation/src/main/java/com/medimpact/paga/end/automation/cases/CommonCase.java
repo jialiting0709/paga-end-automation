@@ -28,7 +28,7 @@ public class CommonCase {
 	        jsonObject.put("name","");
 	        
 	        jsonObject.put("status",Integer.parseInt(map.get("status").toString()));
-	        jsonObject.put("tkId",new CaseRelevanceData().getPkValue());
+	        jsonObject.put("tkId",CaseRelevanceData.getInstance().getPkValue());
 	        jsonObject.put("uniqueKeyInFlow",String.valueOf(map.get("subtaskuuid")));
 	        String result = HttpUtils.getPosttMethod(url,jsonObject);
 		    return result;
@@ -40,7 +40,7 @@ public class CommonCase {
 		 ObjectNode jsonObj = mapper.createObjectNode();
 		 ObjectNode selfPropsObj = mapper.createObjectNode();
 		 selfPropsObj.put("pkType", "guidlineSubTask");
-		 selfPropsObj.put("pkValue",new CaseRelevanceData().getPkValue());
+		 selfPropsObj.put("pkValue",CaseRelevanceData.getInstance().getPkValue());
 		 jsonObj.put("assignee", "wang");
 		 jsonObj.put("dueDate", "");
 		 jsonObj.set("selfProps", selfPropsObj);		 
@@ -55,8 +55,8 @@ public class CommonCase {
 	
 	public static String getNewSubandTaskuuid(String url,HashMap<String, Object> map) throws InterruptedException, IOException{		
 		 HttpGet get = new HttpGet(url);
-		 get.addHeader("username", new UserInfo().getUsername());		 
-		 HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
+		 get.addHeader("username", UserInfo.getInstance().getUsername());		 
+		 HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
@@ -71,7 +71,7 @@ public class CommonCase {
 	    		 continue;
 	    	 }
 	     } 
-	     new CaseRelevanceData().setNewReviewSubTaskuuid(subtaskuuid);
+	     CaseRelevanceData.getInstance().setNewReviewSubTaskuuid(subtaskuuid);
 	     return subtaskuuid;
 
 	 }	

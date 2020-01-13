@@ -43,7 +43,7 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 	private String getResult() throws IOException, InterruptedException{
 		Thread.sleep(3000);
 		HttpPost post = new HttpPost(configBeanPropUrl.getUri()+configBeanPropUrl.getStartSubtask());
-		post.addHeader("username",new UserInfo().getUsername());
+		post.addHeader("username",UserInfo.getInstance().getUsername());
 //	    post.addHeader("access_token",TestConfig.access_token);
 //	    post.addHeader("refresh_token",TestConfig.refresh_token);
 //	    post.addHeader("token_type",TestConfig.token_type);
@@ -61,20 +61,20 @@ public class StartSubtaskTest extends AbstractTestNGSpringContextTests{
 		ArrayNode jsAComments  = mapper.createArrayNode();
 		jsonSelfProps.set("comments",jsAComments);	
 		jsonSelfProps.put("pkType","guidlineSubTask");		
-		jsonSelfProps.put("pkValue",new CaseRelevanceData().getPkValue());
+		jsonSelfProps.put("pkValue",CaseRelevanceData.getInstance().getPkValue());
 		jsonObj.set("selfProps",jsonSelfProps);
 		jsA.add(jsonObj);
 		
 		StringEntity entity = new StringEntity(jsA.toString(),"utf-8");
 		post.setEntity(entity);
 		logger.info("Parameter value："+jsA.toString());
-		HttpResponse response = new UserInfo().getDefaultHttpClient().execute(post);
+		HttpResponse response =UserInfo.getInstance().getDefaultHttpClient().execute(post);
 		String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 		logger.info("Interface response results："+jsonStr);
 		JsonNode arrayNode= new ObjectMapper().readTree(jsonStr);
 		String defineKey = null;
 		if(arrayNode.isArray()){
-			new CaseRelevanceData().setSubtaskuuid(arrayNode.get(0).path("uuid").asText());
+			CaseRelevanceData.getInstance().setSubtaskuuid(arrayNode.get(0).path("uuid").asText());
 			defineKey = arrayNode.get(0).path("defineKey").asText();
 		}
 		return defineKey;

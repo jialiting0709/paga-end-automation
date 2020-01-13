@@ -39,8 +39,8 @@ public class NewSubTaskReJUUidTest extends AbstractTestNGSpringContextTests{
 	 private String getResult() throws IOException{
 		 
 		 HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
-		 get.addHeader("username", new UserInfo().getUsername());		 
-		 HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
+		 get.addHeader("username",UserInfo.getInstance().getUsername());		 
+		 HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
@@ -49,13 +49,13 @@ public class NewSubTaskReJUUidTest extends AbstractTestNGSpringContextTests{
 	     ArrayNode arr = (ArrayNode)resJson.path("SubtaskHarvesting");
 	     for(int i=0;i<arr.size();i++){
 	    	 int subTaskId = arr.get(i).path("pk").path("subTask").path("id").asInt();
-	    	 if(subTaskId==new CaseRelevanceData().getSubtaskid()){
+	    	 if(subTaskId==CaseRelevanceData.getInstance().getSubtaskid()){
 	    		 subtaskRejuuid = arr.get(i).path("df").path("uuid").asText();
 	    	 }else{
 	    		 continue;
 	    	 }
 	     } 
-	     new CaseRelevanceData().setSubtaskRejuuid(subtaskRejuuid);
+	     CaseRelevanceData.getInstance().setSubtaskRejuuid(subtaskRejuuid);
 	     return subtaskRejuuid;
 
 	 }

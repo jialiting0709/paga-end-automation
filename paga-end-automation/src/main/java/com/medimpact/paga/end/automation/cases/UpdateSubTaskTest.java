@@ -21,13 +21,14 @@ public class UpdateSubTaskTest extends AbstractTestNGSpringContextTests {
 	
     @Autowired
     private ConfigBeanPropUrl configBeanPropUrl;
+    
     @Test(dependsOnGroups="addPath", groups="updateSubTask",description = "update SubTask")
 
     private void updateSubTask() throws IOException, InterruptedException {
     	String url = configBeanPropUrl.getUri()+configBeanPropUrl.getUpdateSub();
     	logger.info("update SubTask url:"+url);
     	HashMap<String,Object> map=new HashMap<String,Object>();
-    	map.put("subtaskuuid", new CaseRelevanceData().getSubtaskuuid());
+    	map.put("subtaskuuid",CaseRelevanceData.getInstance().getSubtaskuuid());
     	map.put("status", 3);
     	String res = CommonCase.updateSubTask(url,map);
         Assert.assertNotNull(res);

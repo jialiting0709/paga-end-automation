@@ -26,7 +26,7 @@ public class UpdateSubTaskReJTest extends AbstractTestNGSpringContextTests{
 		String url = configBeanPropUrl.getUri()+configBeanPropUrl.getUpdateSub();
 		logger.info("update SubTask url:"+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
-	    map.put("subtaskuuid",new CaseRelevanceData().getSubtaskRejuuid());
+	    map.put("subtaskuuid",CaseRelevanceData.getInstance().getSubtaskRejuuid());
 	    map.put("status", 1);
 	    String res = CommonCase.updateSubTask(url,map);
 	    Assert.assertNotNull(res);

@@ -4,8 +4,6 @@ import java.io.IOException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
@@ -49,7 +47,7 @@ public class StartTaskTest extends AbstractTestNGSpringContextTests{
 		 selfPropsObj.put("deadLine",DateUtils.getStringDate(864000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ"));//到期时间
 		 selfPropsObj.put("owner", "wang");
 		 selfPropsObj.put("pkType", "guidlineTask");
-		 selfPropsObj.put("pkValue",new CaseRelevanceData().getPkValue());//taskId	
+		 selfPropsObj.put("pkValue",CaseRelevanceData.getInstance().getPkValue());//taskId	
 		 entity.set("selfProps",selfPropsObj);
 		 		 
 		 String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getStartTask(), entity);	 		 

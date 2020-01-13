@@ -11,16 +11,19 @@
             <class name="com.medimpact.paga.end.automation.cases.TaskTypeTest"/> 
             <class name="com.medimpact.paga.end.automation.cases.RequestBYTest"/> 
             -->
-            <class name="com.medimpact.paga.end.automation.cases.AddTaskTest"/>          
+            
+            <class name="com.medimpact.paga.end.automation.cases.AddTaskTest"/>        
             <class name="com.medimpact.paga.end.automation.cases.StartTaskTest"/>
-            <class name="com.medimpact.paga.end.automation.cases.StartSubtaskTest"/>   
+            <class name="com.medimpact.paga.end.automation.cases.StartSubtaskTest"/> 
+            
             <class name="com.medimpact.paga.end.automation.cases.SubtasktkIdTest"/> 
             
             <class name="com.medimpact.paga.end.automation.cases.AddLinkingCritTest"/>
             
-            <class name="com.medimpact.paga.end.automation.cases.RruleConditionTest"/>                       
+            <class name="com.medimpact.paga.end.automation.cases.RruleConditionTest"/> 
+                                
             <class name="com.medimpact.paga.end.automation.cases.AddPathTest"/>
-          	
+          	 
             <class name="com.medimpact.paga.end.automation.cases.UpdateSubTaskTest"/>
             
             <class name="com.medimpact.paga.end.automation.cases.CompleteSubTaskTest"/>
@@ -32,7 +35,7 @@
             <class name="com.medimpact.paga.end.automation.cases.CommentsTest"/> 
             
             <class name="com.medimpact.paga.end.automation.cases.RejectSubtaskTest"/>
-                       
+                      
             <class name="com.medimpact.paga.end.automation.cases.NewSubTaskReJUUidTest"/>
             
             <class name="com.medimpact.paga.end.automation.cases.UpdateSubTaskReJTest"/>
@@ -40,15 +43,9 @@
             <class name="com.medimpact.paga.end.automation.cases.CompleteSubTaskReJTest"/>
             
             <class name="com.medimpact.paga.end.automation.cases.NewSubTaskReJComUUidTest"/>
-            <!--                                                         
-            <class name="com.medimpact.paga.end.automation.cases.WriteTest"/>
-            -->
-             
+            
             <class name="com.medimpact.paga.end.automation.cases.ApproveSubTaskReviewTest"/>        
             <class name="com.medimpact.paga.end.automation.cases.NewSubTaskDeployedUUidTest"/> 
-            <!--                                          
-          	<class name="com.medimpact.paga.end.automation.cases.RuleZipTest"/>
-          	-->
           	
           	<class name="com.medimpact.paga.end.automation.cases.RulePathTest"/>
           	<class name="com.medimpact.paga.end.automation.cases.ApproveSubTaskDoneTest"/>
@@ -58,7 +55,7 @@
           	
           	<class name="com.medimpact.paga.end.automation.cases.NewTaskDoneUUidTest"/>
           	<class name="com.medimpact.paga.end.automation.cases.ApproveTaskDoneTest"/>
-          	<!-- -->    
+          	<!---->    
         </classes>
 
     </test>

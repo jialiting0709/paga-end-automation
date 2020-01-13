@@ -28,7 +28,7 @@ public class CompleteSubTaskReJTest extends AbstractTestNGSpringContextTests{
 		String url = configBeanPropUrl.getUri()+configBeanPropUrl.getCompleteSubTask();
 		logger.info("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
-		map.put("subtaskuuid",new CaseRelevanceData().getSubtaskRejuuid());
+		map.put("subtaskuuid",CaseRelevanceData.getInstance().getSubtaskRejuuid());
 		String result = CommonCase.completeSubTask(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);

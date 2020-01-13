@@ -39,14 +39,14 @@ public class RruleConditionTest extends AbstractTestNGSpringContextTests{
     private String run() throws IOException {
 
         HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getCondition());
-        get.addHeader("username", new UserInfo().getUsername());
+        get.addHeader("username",UserInfo.getInstance().getUsername());
 //        get.addHeader("access_token",TestConfig.access_token);
 //        get.addHeader("refresh_token",TestConfig.refresh_token);
 //        get.addHeader("token_type",TestConfig.token_type);
 //        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //        get.addHeader("jti",TestConfig.jti);
 
-        HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
+        HttpResponse response =UserInfo.getInstance().getDefaultHttpClient().execute(get);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
         JsonNode arrayNode = new ObjectMapper().readTree(jsonStr); 
@@ -55,7 +55,7 @@ public class RruleConditionTest extends AbstractTestNGSpringContextTests{
         	criteriaCode = arrayNode.get(0).path("criteriaCode").asInt();       	
         }
 
-        new CaseRelevanceData().setCriteriaCode(criteriaCode);
+        CaseRelevanceData.getInstance().setCriteriaCode(criteriaCode);
         return jsonStr;
 
     }

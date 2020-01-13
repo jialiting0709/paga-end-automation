@@ -36,10 +36,10 @@ public class SubtasktkIdTest extends AbstractTestNGSpringContextTests{
 	}
 	  private int getResult() throws IOException {
 	        
-	        String url = configBeanPropUrl.getUri()+configBeanPropUrl.getSubtasktkId()+"/"+new CaseRelevanceData().getPkValue();
+	        String url = configBeanPropUrl.getUri()+configBeanPropUrl.getSubtasktkId()+"/"+CaseRelevanceData.getInstance().getPkValue();
 	        HttpGet get = new HttpGet(url);	        
 	        logger.info("subtask tkId url: "+url);
-	        get.addHeader("username", new UserInfo().getUsername());
+	        get.addHeader("username", UserInfo.getInstance().getUsername());
 	        
 //	        get.addHeader("access_token",TestConfig.access_token);
 //	        get.addHeader("refresh_token",TestConfig.refresh_token);
@@ -47,12 +47,12 @@ public class SubtasktkIdTest extends AbstractTestNGSpringContextTests{
 //	        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //	        get.addHeader("jti",TestConfig.jti);
 	        
-	        HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
+	        HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 	        logger.info("Interface response results："+jsonStr);
 	        JsonNode jsonRest = new ObjectMapper().readTree(jsonStr); 
 	        int subTaskId = jsonRest.path("subTask").path("id").asInt();
-	        new CaseRelevanceData().setSubtaskid(subTaskId);
+	        CaseRelevanceData.getInstance().setSubtaskid(subTaskId);
 	        return subTaskId;
 
 	    }	

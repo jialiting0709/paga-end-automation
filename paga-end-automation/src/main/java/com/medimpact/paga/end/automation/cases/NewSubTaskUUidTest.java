@@ -31,7 +31,7 @@ public class NewSubTaskUUidTest extends AbstractTestNGSpringContextTests{
 		map.put("pk", "pk");
 		map.put("subTask", "subTask");
 		map.put("id", "id");
-		map.put("subtaskid", new CaseRelevanceData().getSubtaskid());
+		map.put("subtaskid",CaseRelevanceData.getInstance().getSubtaskid());
 		map.put("df", "df");
 		map.put("uuid", "uuid");
 		String result = CommonCase.getNewSubandTaskuuid(url, map);		

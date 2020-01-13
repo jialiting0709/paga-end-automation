@@ -36,19 +36,19 @@ public class CommentsTest extends AbstractTestNGSpringContextTests{
     private String run() throws IOException {
         StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getComments());
         sb.append("/");
-        sb.append(new CaseRelevanceData().getPkValue());
+        sb.append(CaseRelevanceData.getInstance().getPkValue());
         sb.append("/");
-        sb.append(new CaseRelevanceData().getSubtaskid());
+        sb.append(CaseRelevanceData.getInstance().getSubtaskid());
         HttpGet get = new HttpGet(sb.toString());
         logger.info("query comments id: "+sb.toString());
-        get.addHeader("username", new UserInfo().getUsername());
+        get.addHeader("username", UserInfo.getInstance().getUsername());
 //        get.addHeader("access_token",TestConfig.access_token);
 //        get.addHeader("refresh_token",TestConfig.refresh_token);
 //        get.addHeader("token_type",TestConfig.token_type);
 //        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //        get.addHeader("jti",TestConfig.jti);
 
-        HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
+        HttpResponse response =UserInfo.getInstance().getDefaultHttpClient().execute(get);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Results of the interface："+jsonStr);
         JsonNode resJson = new ObjectMapper().readTree(jsonStr); 
@@ -57,7 +57,7 @@ public class CommentsTest extends AbstractTestNGSpringContextTests{
         for(int j=0;j<an.size();j++){
         	commentId = an.get(j).path("id").asText();
         }
-        new CaseRelevanceData().setCommentId(commentId);
+        CaseRelevanceData.getInstance().setCommentId(commentId);
         logger.info("commentId:"+commentId);
         return commentId;
 

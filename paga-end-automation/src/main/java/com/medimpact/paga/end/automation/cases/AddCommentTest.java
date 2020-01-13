@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Component;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -37,7 +36,7 @@ public class AddCommentTest extends AbstractTestNGSpringContextTests{
 		 ObjectNode jsonObj = new ObjectMapper().createObjectNode();
 		 jsonObj.put("id", "");
 		 jsonObj.put("message", "234");	 
-		 jsonObj.put("tkUuid",new CaseRelevanceData().getNewReviewSubTaskuuid());
+		 jsonObj.put("tkUuid",CaseRelevanceData.getInstance().getNewReviewSubTaskuuid());
 		 String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getAddComments(),jsonObj);
 		 return returnStr;
 	 }
