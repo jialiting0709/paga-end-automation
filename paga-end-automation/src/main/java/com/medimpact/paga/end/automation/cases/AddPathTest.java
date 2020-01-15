@@ -13,8 +13,8 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.utils.HttpUtils;
 
 @SpringBootTest
@@ -44,14 +44,14 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 		ObjectNode criteriasJSO = mapper.createObjectNode();
 		criteriasJSO.put("condition", "is");
 		criteriasJSO.put("value", "12");
-		criteriasJSO.put("criteriaCode",CaseRelevanceData.getInstance().getCriteriaCode());//
+		criteriasJSO.put("criteriaCode",MemoryData.getCaseRelevanceData().getCriteriaCode());//
 		criteriasArr.add(criteriasJSO);
 		criteriaJS.set("criterias", criteriasArr);
 		criteriaGroupsArr.add(criteriaJS);
 		jsonObj.set("criteriaGroups", criteriaGroupsArr);
 		
 		ObjectNode jsonSubTaskPathVo = mapper.createObjectNode();
-		jsonSubTaskPathVo.put("paglsubtaskid",CaseRelevanceData.getInstance().getSubtaskid()+"");
+		jsonSubTaskPathVo.put("paglsubtaskid",MemoryData.getCaseRelevanceData().getSubtaskid()+"");
 		jsonSubTaskPathVo.put("pathapprovaltext", "approvaltext");
 		jsonSubTaskPathVo.put("pathinitrenewal", 1);
 		jsonSubTaskPathVo.put("pathinstruction", "instructions");
@@ -62,7 +62,7 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("pathseqnum", 1);	
 		jsonObj.set("subTaskPathVo",jsonSubTaskPathVo);
 		String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getAddPaths(), jsonObj);
-		CaseRelevanceData.getInstance().setAddPathId(returnStr);
+		MemoryData.getCaseRelevanceData().setAddPathId(returnStr);
 		return returnStr;
 		  
 	}

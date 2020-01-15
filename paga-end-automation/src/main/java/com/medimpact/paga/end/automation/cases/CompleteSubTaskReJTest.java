@@ -12,8 +12,8 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 
 
 @SpringBootTest
@@ -28,7 +28,7 @@ public class CompleteSubTaskReJTest extends AbstractTestNGSpringContextTests{
 		String url = configBeanPropUrl.getUri()+configBeanPropUrl.getCompleteSubTask();
 		logger.info("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
-		map.put("subtaskuuid",CaseRelevanceData.getInstance().getSubtaskRejuuid());
+		map.put("subtaskuuid",MemoryData.getCaseRelevanceData().getSubtaskRejuuid());
 		String result = CommonCase.completeSubTask(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);

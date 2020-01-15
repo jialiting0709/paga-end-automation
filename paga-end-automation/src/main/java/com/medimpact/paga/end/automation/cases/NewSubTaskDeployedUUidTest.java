@@ -17,9 +17,10 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
+
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.domain.UserInfo;
+import com.medimpact.paga.end.automation.domain.MemoryData;
+
 
 @SpringBootTest
 public class NewSubTaskDeployedUUidTest extends AbstractTestNGSpringContextTests{
@@ -39,8 +40,8 @@ public class NewSubTaskDeployedUUidTest extends AbstractTestNGSpringContextTests
 	 private String getResult() throws IOException{
 		 
 		 HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
-		 get.addHeader("username",UserInfo.getInstance().getUsername());		 
-		 HttpResponse response =UserInfo.getInstance().getDefaultHttpClient().execute(get);
+		 get.addHeader("username",MemoryData.getUserInfo().getUsername());		 
+		 HttpResponse response =MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
@@ -50,13 +51,13 @@ public class NewSubTaskDeployedUUidTest extends AbstractTestNGSpringContextTests
 	     ArrayNode arr = (ArrayNode)resJson.path("SubtaskDone");
 	     for(int i=0;i<arr.size();i++){
 	    	 int subTaskId = arr.get(i).path("pk").path("subTask").path("id").asInt();
-	    	 if(subTaskId==CaseRelevanceData.getInstance().getSubtaskid()){
+	    	 if(subTaskId==MemoryData.getCaseRelevanceData().getSubtaskid()){
 	    		 newSubTaskDeployedUuid = arr.get(i).path("df").path("uuid").asText();
 	    	 }else{
 	    		 continue;
 	    	 }
 	     }
-	     CaseRelevanceData.getInstance().setNewSubTaskDeployedUuid(newSubTaskDeployedUuid);
+	     MemoryData.getCaseRelevanceData().setNewSubTaskDeployedUuid(newSubTaskDeployedUuid);
 	     return newSubTaskDeployedUuid;
 
 	 }

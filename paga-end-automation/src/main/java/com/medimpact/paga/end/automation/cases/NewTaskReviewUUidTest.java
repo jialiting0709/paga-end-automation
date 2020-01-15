@@ -16,9 +16,8 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.domain.UserInfo;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 
 @SpringBootTest
 public class NewTaskReviewUUidTest extends AbstractTestNGSpringContextTests{
@@ -38,8 +37,8 @@ public class NewTaskReviewUUidTest extends AbstractTestNGSpringContextTests{
 	 private String getResult() throws IOException{
 		 
 		 HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
-		 get.addHeader("username",UserInfo.getInstance().getUsername());		 
-		 HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(get);
+		 get.addHeader("username",MemoryData.getUserInfo().getUsername());		 
+		 HttpResponse response = MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
@@ -48,13 +47,13 @@ public class NewTaskReviewUUidTest extends AbstractTestNGSpringContextTests{
 	     ArrayNode arr = (ArrayNode)resJson.path("TaskReview");
 	     for(int i=0;i<arr.size();i++){
 	    	 int taskId = arr.get(i).path("pk").path("task").path("id").asInt();
-	    	 if(taskId==CaseRelevanceData.getInstance().getPkValue()){
+	    	 if(taskId==MemoryData.getCaseRelevanceData().getPkValue()){
 	    		 newReviewtaskuuid = arr.get(i).path("df").path("uuid").asText();
 	    	 }else{
 	    		 continue;
 	    	 }
 	     }
-	     CaseRelevanceData.getInstance().setNewReviewtaskuuid(newReviewtaskuuid);
+	     MemoryData.getCaseRelevanceData().setNewReviewtaskuuid(newReviewtaskuuid);
 	     return newReviewtaskuuid;
 
 	 }

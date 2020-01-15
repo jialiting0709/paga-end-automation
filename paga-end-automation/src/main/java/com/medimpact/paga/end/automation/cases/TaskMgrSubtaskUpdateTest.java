@@ -12,8 +12,8 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.utils.HttpUtils;
 
 @SpringBootTest
@@ -35,11 +35,11 @@ public class TaskMgrSubtaskUpdateTest extends AbstractTestNGSpringContextTests{
 		jsonObj.put("enteredBy", "wang");
 		jsonObj.put("glName", "111");
 		jsonObj.put("glType", 123);
-		jsonObj.put("id",new CaseRelevanceData().getPkValue());
+		jsonObj.put("id",MemoryData.getCaseRelevanceData().getPkValue());
 		jsonObj.put("name", "0");
 		jsonObj.put("status", 2);
-		jsonObj.put("tkId", new CaseRelevanceData().getPkValue());
-		jsonObj.put("uniqueKeyInFlow",new CaseRelevanceData().getTaskuuid());
+		jsonObj.put("tkId", MemoryData.getCaseRelevanceData().getPkValue());
+		jsonObj.put("uniqueKeyInFlow",MemoryData.getCaseRelevanceData().getTaskuuid());
 		String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getCompleteSubTask(),jsonObj);
 		return returnStr;
 	 }

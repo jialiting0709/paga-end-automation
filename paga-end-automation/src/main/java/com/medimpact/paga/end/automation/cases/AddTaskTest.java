@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.utils.DateUtils;
 import com.medimpact.paga.end.automation.utils.HttpUtils;
 
@@ -71,7 +71,7 @@ public class AddTaskTest extends AbstractTestNGSpringContextTests{
     	json.set("taskDtl",entityTaskDtl);
     	json.set("task",entity);   	   	
     	String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getAddTask(), json);	
-    	CaseRelevanceData.getInstance().setPkValue(Integer.parseInt(returnStr));
+    	MemoryData.getCaseRelevanceData().setPkValue(Integer.parseInt(returnStr));
     	return returnStr;
     }
 }

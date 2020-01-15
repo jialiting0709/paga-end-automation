@@ -4,8 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.utils.HttpUtils;
 
 import org.slf4j.Logger;
@@ -41,16 +41,16 @@ public class RejectSubtaskTest extends AbstractTestNGSpringContextTests {
         jsonObject.put("defineKey","SubtaskReview");
         ArrayNode array = mapper.createArrayNode();
         ObjectNode subObj = mapper.createObjectNode();
-        subObj.put("id",CaseRelevanceData.getInstance().getCommentId());
-        subObj.put("tkUuid",CaseRelevanceData.getInstance().getNewReviewSubTaskuuid());
+        subObj.put("id",MemoryData.getCaseRelevanceData().getCommentId());
+        subObj.put("tkUuid",MemoryData.getCaseRelevanceData().getNewReviewSubTaskuuid());
         subObj.put("message","234");
         array.add(subObj);
         jsonObject.set("comments",array);
         ObjectNode sObj = mapper.createObjectNode();
         sObj.put("pkType","guidlineSubTask");
-        sObj.put("pkValue",CaseRelevanceData.getInstance().getPkValue());
+        sObj.put("pkValue",MemoryData.getCaseRelevanceData().getPkValue());
         jsonObject.set("selfProps",sObj);
-        jsonObject.put("uuid", CaseRelevanceData.getInstance().getNewReviewSubTaskuuid());
+        jsonObject.put("uuid",MemoryData.getCaseRelevanceData().getNewReviewSubTaskuuid());
         
         return HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getRejectSubTask(),jsonObject);
 

@@ -1,8 +1,8 @@
 package com.medimpact.paga.end.automation.cases;
 
 
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,7 +28,7 @@ public class UpdateSubTaskTest extends AbstractTestNGSpringContextTests {
     	String url = configBeanPropUrl.getUri()+configBeanPropUrl.getUpdateSub();
     	logger.info("update SubTask url:"+url);
     	HashMap<String,Object> map=new HashMap<String,Object>();
-    	map.put("subtaskuuid",CaseRelevanceData.getInstance().getSubtaskuuid());
+    	map.put("subtaskuuid",MemoryData.getCaseRelevanceData().getSubtaskuuid());
     	map.put("status", 3);
     	String res = CommonCase.updateSubTask(url,map);
         Assert.assertNotNull(res);

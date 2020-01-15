@@ -11,8 +11,8 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 
 
 
@@ -31,7 +31,7 @@ public class NewSubTaskUUidTest extends AbstractTestNGSpringContextTests{
 		map.put("pk", "pk");
 		map.put("subTask", "subTask");
 		map.put("id", "id");
-		map.put("subtaskid",CaseRelevanceData.getInstance().getSubtaskid());
+		map.put("subtaskid",MemoryData.getCaseRelevanceData().getSubtaskid());
 		map.put("df", "df");
 		map.put("uuid", "uuid");
 		String result = CommonCase.getNewSubandTaskuuid(url, map);		

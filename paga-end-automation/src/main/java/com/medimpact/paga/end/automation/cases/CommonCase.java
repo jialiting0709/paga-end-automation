@@ -13,8 +13,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
-import com.medimpact.paga.end.automation.domain.UserInfo;
+
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.utils.HttpUtils;
 public class CommonCase {
 	private static final Logger logger = LoggerFactory.getLogger(CommonCase.class);
@@ -28,7 +28,7 @@ public class CommonCase {
 	        jsonObject.put("name","");
 	        
 	        jsonObject.put("status",Integer.parseInt(map.get("status").toString()));
-	        jsonObject.put("tkId",CaseRelevanceData.getInstance().getPkValue());
+	        jsonObject.put("tkId",MemoryData.getCaseRelevanceData().getPkValue());
 	        jsonObject.put("uniqueKeyInFlow",String.valueOf(map.get("subtaskuuid")));
 	        String result = HttpUtils.getPosttMethod(url,jsonObject);
 		    return result;
@@ -40,7 +40,7 @@ public class CommonCase {
 		 ObjectNode jsonObj = mapper.createObjectNode();
 		 ObjectNode selfPropsObj = mapper.createObjectNode();
 		 selfPropsObj.put("pkType", "guidlineSubTask");
-		 selfPropsObj.put("pkValue",CaseRelevanceData.getInstance().getPkValue());
+		 selfPropsObj.put("pkValue",MemoryData.getCaseRelevanceData().getPkValue());
 		 jsonObj.put("assignee", "wang");
 		 jsonObj.put("dueDate", "");
 		 jsonObj.set("selfProps", selfPropsObj);		 
@@ -55,8 +55,8 @@ public class CommonCase {
 	
 	public static String getNewSubandTaskuuid(String url,HashMap<String, Object> map) throws InterruptedException, IOException{		
 		 HttpGet get = new HttpGet(url);
-		 get.addHeader("username", UserInfo.getInstance().getUsername());		 
-		 HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(get);
+		 get.addHeader("username", MemoryData.getUserInfo().getUsername());	
+		 HttpResponse response = MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
@@ -71,7 +71,7 @@ public class CommonCase {
 	    		 continue;
 	    	 }
 	     } 
-	     CaseRelevanceData.getInstance().setNewReviewSubTaskuuid(subtaskuuid);
+	     MemoryData.getCaseRelevanceData().setNewReviewSubTaskuuid(subtaskuuid);
 	     return subtaskuuid;
 
 	 }	

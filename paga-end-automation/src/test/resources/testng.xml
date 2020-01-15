@@ -12,7 +12,8 @@
             <class name="com.medimpact.paga.end.automation.cases.RequestBYTest"/> 
             -->
             
-            <class name="com.medimpact.paga.end.automation.cases.AddTaskTest"/>        
+            <class name="com.medimpact.paga.end.automation.cases.AddTaskTest"/>  
+                 
             <class name="com.medimpact.paga.end.automation.cases.StartTaskTest"/>
             <class name="com.medimpact.paga.end.automation.cases.StartSubtaskTest"/> 
             

@@ -15,9 +15,8 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.domain.UserInfo;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 
 
 @SpringBootTest
@@ -36,10 +35,10 @@ public class SubtasktkIdTest extends AbstractTestNGSpringContextTests{
 	}
 	  private int getResult() throws IOException {
 	        
-	        String url = configBeanPropUrl.getUri()+configBeanPropUrl.getSubtasktkId()+"/"+CaseRelevanceData.getInstance().getPkValue();
+	        String url = configBeanPropUrl.getUri()+configBeanPropUrl.getSubtasktkId()+"/"+MemoryData.getCaseRelevanceData().getPkValue();
 	        HttpGet get = new HttpGet(url);	        
 	        logger.info("subtask tkId url: "+url);
-	        get.addHeader("username", UserInfo.getInstance().getUsername());
+	        get.addHeader("username", MemoryData.getUserInfo().getUsername());
 	        
 //	        get.addHeader("access_token",TestConfig.access_token);
 //	        get.addHeader("refresh_token",TestConfig.refresh_token);
@@ -47,12 +46,12 @@ public class SubtasktkIdTest extends AbstractTestNGSpringContextTests{
 //	        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //	        get.addHeader("jti",TestConfig.jti);
 	        
-	        HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(get);
+	        HttpResponse response = MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 	        logger.info("Interface response results："+jsonStr);
 	        JsonNode jsonRest = new ObjectMapper().readTree(jsonStr); 
 	        int subTaskId = jsonRest.path("subTask").path("id").asInt();
-	        CaseRelevanceData.getInstance().setSubtaskid(subTaskId);
+	        MemoryData.getCaseRelevanceData().setSubtaskid(subTaskId);
 	        return subTaskId;
 
 	    }	

@@ -9,8 +9,8 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ public class UpdateSubTaskReJTest extends AbstractTestNGSpringContextTests{
 		String url = configBeanPropUrl.getUri()+configBeanPropUrl.getUpdateSub();
 		logger.info("update SubTask url:"+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
-	    map.put("subtaskuuid",CaseRelevanceData.getInstance().getSubtaskRejuuid());
+	    map.put("subtaskuuid",MemoryData.getCaseRelevanceData().getSubtaskRejuuid());
 	    map.put("status", 1);
 	    String res = CommonCase.updateSubTask(url,map);
 	    Assert.assertNotNull(res);

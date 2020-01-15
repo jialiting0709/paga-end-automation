@@ -14,8 +14,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.utils.DateUtils;
 import com.medimpact.paga.end.automation.utils.HttpUtils;
 
@@ -31,7 +31,7 @@ public class StartTaskTest extends AbstractTestNGSpringContextTests{
 		logger.info("start task url："+configBeanPropUrl.getUri()+configBeanPropUrl.getStartTask());
 		String result = getResult();
 		JsonNode root = new ObjectMapper().readTree(result); 
-		new CaseRelevanceData().setTaskuuid(root.path("uuid").asText());
+		MemoryData.getCaseRelevanceData().setTaskuuid(root.path("uuid").asText());
 		Assert.assertEquals("TaskNew", root.path("defineKey").asText());
 		Thread.sleep(5000);				
 //		CaseRelevanceData.taskuuid  = jsonRes.getString("uuid");
@@ -47,7 +47,7 @@ public class StartTaskTest extends AbstractTestNGSpringContextTests{
 		 selfPropsObj.put("deadLine",DateUtils.getStringDate(864000000L,"yyyy-MM-dd'T'HH:mm:ss.SSSZ"));//到期时间
 		 selfPropsObj.put("owner", "wang");
 		 selfPropsObj.put("pkType", "guidlineTask");
-		 selfPropsObj.put("pkValue",CaseRelevanceData.getInstance().getPkValue());//taskId	
+		 selfPropsObj.put("pkValue",MemoryData.getCaseRelevanceData().getPkValue());//taskId	
 		 entity.set("selfProps",selfPropsObj);
 		 		 
 		 String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getStartTask(), entity);	 		 

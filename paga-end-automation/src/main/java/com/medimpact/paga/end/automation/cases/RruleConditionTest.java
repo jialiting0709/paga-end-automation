@@ -15,9 +15,10 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
+
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.domain.UserInfo;
+import com.medimpact.paga.end.automation.domain.MemoryData;
+
 
 @SpringBootTest
 public class RruleConditionTest extends AbstractTestNGSpringContextTests{
@@ -39,14 +40,14 @@ public class RruleConditionTest extends AbstractTestNGSpringContextTests{
     private String run() throws IOException {
 
         HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getCondition());
-        get.addHeader("username",UserInfo.getInstance().getUsername());
+        get.addHeader("username",MemoryData.getUserInfo().getUsername());
 //        get.addHeader("access_token",TestConfig.access_token);
 //        get.addHeader("refresh_token",TestConfig.refresh_token);
 //        get.addHeader("token_type",TestConfig.token_type);
 //        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //        get.addHeader("jti",TestConfig.jti);
 
-        HttpResponse response =UserInfo.getInstance().getDefaultHttpClient().execute(get);
+        HttpResponse response =MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
         JsonNode arrayNode = new ObjectMapper().readTree(jsonStr); 
@@ -55,7 +56,7 @@ public class RruleConditionTest extends AbstractTestNGSpringContextTests{
         	criteriaCode = arrayNode.get(0).path("criteriaCode").asInt();       	
         }
 
-        CaseRelevanceData.getInstance().setCriteriaCode(criteriaCode);
+        MemoryData.getCaseRelevanceData().setCriteriaCode(criteriaCode);
         return jsonStr;
 
     }

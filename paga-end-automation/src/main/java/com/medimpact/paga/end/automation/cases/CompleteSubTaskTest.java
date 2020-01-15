@@ -13,8 +13,8 @@ import org.testng.Assert;
 
 import org.testng.annotations.Test;
 
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 
 @SpringBootTest
 public class CompleteSubTaskTest extends AbstractTestNGSpringContextTests{
@@ -28,7 +28,7 @@ public class CompleteSubTaskTest extends AbstractTestNGSpringContextTests{
 		String url = configBeanPropUrl.getUri()+configBeanPropUrl.getCompleteSubTask();
 		logger.info("complete subTask url："+url);
 		HashMap<String,Object> map = new HashMap<String,Object>();
-		map.put("subtaskuuid",CaseRelevanceData.getInstance().getSubtaskuuid());
+		map.put("subtaskuuid",MemoryData.getCaseRelevanceData().getSubtaskuuid());
 		String result = CommonCase.completeSubTask(url, map);		
 		Assert.assertNotNull(result);
 		Thread.sleep(3000);

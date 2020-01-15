@@ -13,8 +13,8 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.utils.HttpUtils;
 
 @SpringBootTest
@@ -36,7 +36,7 @@ public class AddCommentTest extends AbstractTestNGSpringContextTests{
 		 ObjectNode jsonObj = new ObjectMapper().createObjectNode();
 		 jsonObj.put("id", "");
 		 jsonObj.put("message", "234");	 
-		 jsonObj.put("tkUuid",CaseRelevanceData.getInstance().getNewReviewSubTaskuuid());
+		 jsonObj.put("tkUuid",MemoryData.getCaseRelevanceData().getNewReviewSubTaskuuid());
 		 String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getAddComments(),jsonObj);
 		 return returnStr;
 	 }

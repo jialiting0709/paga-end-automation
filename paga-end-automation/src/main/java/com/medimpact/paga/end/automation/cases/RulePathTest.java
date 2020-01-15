@@ -13,9 +13,10 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
+
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.domain.UserInfo;
+import com.medimpact.paga.end.automation.domain.MemoryData;
+
 import com.medimpact.paga.end.automation.utils.DateUtils;
 
 @SpringBootTest
@@ -37,7 +38,7 @@ public class RulePathTest extends AbstractTestNGSpringContextTests{
 	  private String getResult() throws IOException {
 	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getRulePath());
 	        sb.append("/");
-	        sb.append(CaseRelevanceData.getInstance().getSubtaskid());
+	        sb.append(MemoryData.getCaseRelevanceData().getSubtaskid());
 	        sb.append("/");
 	        sb.append(DateUtils.getStringDate(0L,"yyyyMMdd"));
 	        HttpGet get = new HttpGet(sb.toString());
@@ -47,8 +48,8 @@ public class RulePathTest extends AbstractTestNGSpringContextTests{
 //	        get.addHeader("token_type",TestConfig.token_type);
 //	        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //	        get.addHeader("jti",TestConfig.jti);
-	        get.addHeader("username",UserInfo.getInstance().getUsername());
-	        HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(get);
+	        get.addHeader("username",MemoryData.getUserInfo().getUsername());
+	        HttpResponse response = MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 	        return jsonStr;
 

@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.domain.UserInfo;
 
 public class HttpUtils {
@@ -23,14 +24,14 @@ public class HttpUtils {
 	
 	  public static String getGetMethod(String url,String key) throws IOException {	    	
 	    	HttpGet get = new HttpGet(url);
-	    	get.addHeader("username",UserInfo.getInstance().getUsername());
+	    	get.addHeader("username",MemoryData.getUserInfo().getUsername());
 //	    	get.addHeader("access_token",TestConfig.access_token);
 //	    	get.addHeader("refresh_token",TestConfig.refresh_token);
 //	    	get.addHeader("token_type",TestConfig.token_type);
 //	    	get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //	    	get.addHeader("jti",TestConfig.jti);
 	    	
-	    	HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(get);
+	    	HttpResponse response = MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
 	    	
 	    	String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 	    	logger.info("Interface response results："+jsonStr);
@@ -44,7 +45,7 @@ public class HttpUtils {
 	  
 	  public static String getPosttMethod(String url,ObjectNode param) throws IOException {
 		  HttpPost post = new HttpPost(url);
-		  post.addHeader("username",UserInfo.getInstance().getUsername());
+		  post.addHeader("username",MemoryData.getUserInfo().getUsername());
 //	      post.addHeader("access_token",TestConfig.access_token);
 //	      post.addHeader("refresh_token",TestConfig.refresh_token);
 //	      post.addHeader("token_type",TestConfig.token_type);
@@ -54,7 +55,7 @@ public class HttpUtils {
 	      StringEntity entity = new StringEntity(param.toString(),"utf-8");
 	      logger.info("Parameter value："+param.toString());
 	      post.setEntity(entity);
-	      HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(post);
+	      HttpResponse response = MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(post);
 	      String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 	      logger.info("Interface response results："+jsonStr);
 		  return jsonStr;

@@ -11,8 +11,8 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.utils.HttpUtils;
 
 import org.slf4j.Logger;
@@ -40,18 +40,18 @@ public class ApproveSubTaskReviewTest extends AbstractTestNGSpringContextTests{
 		ArrayNode commentsArr = mapper.createArrayNode();
 		ObjectNode commentsJson = mapper.createObjectNode();
 		commentsJson.put("id", "");
-		commentsJson.put("tkUuid",CaseRelevanceData.getInstance().getSubtaskid());
+		commentsJson.put("tkUuid",MemoryData.getCaseRelevanceData().getSubtaskid());
 		commentsJson.put("message", "1111");
 		commentsArr.add(commentsJson);
 		
 		ObjectNode selfPropsJson = mapper.createObjectNode();
 		selfPropsJson.put("pkType", "guidlineSubTask");
-		selfPropsJson.put("pkValue", CaseRelevanceData.getInstance().getPkValue());
+		selfPropsJson.put("pkValue", MemoryData.getCaseRelevanceData().getPkValue());
 		jsonObj.put("assignee", "wang");
 		jsonObj.set("comments", commentsArr);
 		jsonObj.put("defineKey", "SubtaskReview");
 		jsonObj.set("selfProps", selfPropsJson);
-		jsonObj.put("uuid",CaseRelevanceData.getInstance().getSubtaskRejcomuuid());
+		jsonObj.put("uuid",MemoryData.getCaseRelevanceData().getSubtaskRejcomuuid());
 		
 		String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getApproveSubTask(), jsonObj);	
 		return returnStr;

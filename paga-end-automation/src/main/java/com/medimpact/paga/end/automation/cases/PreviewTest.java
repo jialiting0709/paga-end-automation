@@ -14,8 +14,8 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.domain.UserInfo;
 
 @SpringBootTest
@@ -34,7 +34,7 @@ public class PreviewTest extends AbstractTestNGSpringContextTests{
 	    private String run() throws IOException {
 	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getPreview());
 	        sb.append("/");
-	        sb.append(new CaseRelevanceData().getAddPathId());
+	        sb.append(MemoryData.getCaseRelevanceData().getAddPathId());
 	        HttpGet get = new HttpGet(sb.toString());
 	        logger.info("rule preview url: "+sb.toString());
 	        get.addHeader("username", new UserInfo().getUsername());
@@ -45,7 +45,7 @@ public class PreviewTest extends AbstractTestNGSpringContextTests{
 //	        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //	        get.addHeader("jti",TestConfig.jti);
 
-	        HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
+	        HttpResponse response = MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
 	        String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 	        logger.info("Interface response results："+jsonStr);
 

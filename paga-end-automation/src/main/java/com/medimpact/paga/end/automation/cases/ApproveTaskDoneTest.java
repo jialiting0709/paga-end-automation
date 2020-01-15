@@ -12,8 +12,8 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 import com.medimpact.paga.end.automation.utils.HttpUtils;
 
 @SpringBootTest
@@ -37,18 +37,18 @@ public class ApproveTaskDoneTest extends AbstractTestNGSpringContextTests{
 		ArrayNode commentsArr = mapper.createArrayNode();
 		ObjectNode commentsJson = mapper.createObjectNode();
 		commentsJson.put("id", "");
-		commentsJson.put("tkUuid",CaseRelevanceData.getInstance().getNewDonetaskuuid());
+		commentsJson.put("tkUuid",MemoryData.getCaseRelevanceData().getNewDonetaskuuid());
 		commentsJson.put("message", "2222");
 		commentsArr.add(commentsJson);
 		
 		ObjectNode selfPropsJson = mapper.createObjectNode();
 		selfPropsJson.put("pkType", "guidlineTask");
-		selfPropsJson.put("pkValue", CaseRelevanceData.getInstance().getPkValue());
+		selfPropsJson.put("pkValue", MemoryData.getCaseRelevanceData().getPkValue());
 		jsonObj.put("assignee", "");
 		jsonObj.set("comments", commentsArr);
 		jsonObj.put("defineKey", "TaskDone");
 		jsonObj.set("selfProps", selfPropsJson);
-		jsonObj.put("uuid",CaseRelevanceData.getInstance().getNewDonetaskuuid());
+		jsonObj.put("uuid",MemoryData.getCaseRelevanceData().getNewDonetaskuuid());
 		
 		String returnStr = HttpUtils.getPosttMethod(configBeanPropUrl.getUri()+configBeanPropUrl.getApproveTask(),jsonObj);	
 		return returnStr;

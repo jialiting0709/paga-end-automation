@@ -11,9 +11,9 @@ import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.domain.UserInfo;
+import com.medimpact.paga.end.automation.domain.MemoryData;
+
 
 import java.io.IOException;
 
@@ -34,19 +34,19 @@ public class WriteTest extends AbstractTestNGSpringContextTests {
     private String run() throws IOException {
         StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getWrite());
         sb.append("/");
-        sb.append(new CaseRelevanceData().getPkValue());
+        sb.append(MemoryData.getCaseRelevanceData().getPkValue());
         sb.append("/");
-        sb.append(new CaseRelevanceData().getSubtaskid());
+        sb.append(MemoryData.getCaseRelevanceData().getSubtaskid());
         HttpGet get = new HttpGet(sb.toString());
         logger.info("Test on url: "+sb.toString());
-        get.addHeader("username", new UserInfo().getUsername());
+        get.addHeader("username",MemoryData.getUserInfo().getUsername());
 //        get.addHeader("access_token",TestConfig.access_token);
 //        get.addHeader("refresh_token",TestConfig.refresh_token);
 //        get.addHeader("token_type",TestConfig.token_type);
 //        get.addHeader("refreshToken_lifeSpan",TestConfig.refreshToken_lifeSpan);
 //        get.addHeader("jti",TestConfig.jti);
 
-        HttpResponse response = new UserInfo().getDefaultHttpClient().execute(get);
+        HttpResponse response = MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
         return jsonStr;

@@ -17,9 +17,10 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
+
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.domain.UserInfo;
+import com.medimpact.paga.end.automation.domain.MemoryData;
+
 
 @SpringBootTest
 public class NewSubTaskReJComUUidTest extends AbstractTestNGSpringContextTests{
@@ -39,8 +40,8 @@ public class NewSubTaskReJComUUidTest extends AbstractTestNGSpringContextTests{
 	 private String getResult() throws IOException{
 		 
 		 HttpGet get = new HttpGet(configBeanPropUrl.getUri()+configBeanPropUrl.getNewSubTaskuuid());
-		 get.addHeader("username",UserInfo.getInstance().getUsername());		 
-		 HttpResponse response =UserInfo.getInstance().getDefaultHttpClient().execute(get);
+		 get.addHeader("username",MemoryData.getUserInfo().getUsername());		 
+		 HttpResponse response =MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 
 	     logger.info("Interface response results："+jsonStr);
@@ -49,13 +50,13 @@ public class NewSubTaskReJComUUidTest extends AbstractTestNGSpringContextTests{
 	     ArrayNode arr = (ArrayNode)resJson.path("SubtaskReview");	     
 	     for(int j=0;j<arr.size();j++){
 	    	 int subTaskId = arr.get(j).path("pk").path("subTask").path("id").asInt();
-	    	 if(subTaskId==CaseRelevanceData.getInstance().getSubtaskid()){
+	    	 if(subTaskId==MemoryData.getCaseRelevanceData().getSubtaskid()){
 	    		 subtaskRejcomuuid = arr.get(j).path("df").path("uuid").asText();
 	    	 }else{
 	    		 continue;
 	    	 }
 	     }
-	     CaseRelevanceData.getInstance().setSubtaskRejcomuuid(subtaskRejcomuuid);
+	     MemoryData.getCaseRelevanceData().setSubtaskRejcomuuid(subtaskRejcomuuid);
 	     return subtaskRejcomuuid;
 
 	 }

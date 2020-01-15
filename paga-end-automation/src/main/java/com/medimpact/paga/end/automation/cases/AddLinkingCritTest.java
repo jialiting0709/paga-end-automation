@@ -4,9 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.medimpact.paga.end.automation.domain.CaseRelevanceData;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.domain.UserInfo;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -39,7 +38,7 @@ public class AddLinkingCritTest extends AbstractTestNGSpringContextTests {
 
     private String test() throws IOException {
         HttpPost post = new HttpPost(configBeanPropUrl.getUri()+configBeanPropUrl.getAddclink());
-        post.addHeader("username",UserInfo.getInstance().getUsername());
+        post.addHeader("username",MemoryData.getUserInfo().getUsername());
 //        post.addHeader("access_token",TestConfig.access_token);
 //        post.addHeader("refresh_token",TestConfig.refresh_token);
 //        post.addHeader("token_type",TestConfig.token_type);
@@ -56,7 +55,7 @@ public class AddLinkingCritTest extends AbstractTestNGSpringContextTests {
         obj1.put("gpid","N/A");
         obj1.put("hicl","18568");
         obj1.put("ndccode",57894006002L);
-        obj1.put("paglsubtaskid",CaseRelevanceData.getInstance().getSubtaskid());
+        obj1.put("paglsubtaskid",MemoryData.getCaseRelevanceData().getSubtaskid());
         obj1.put("route","ORAL");
         obj1.put("stc","N/A");
         array.add(obj1);
@@ -68,14 +67,14 @@ public class AddLinkingCritTest extends AbstractTestNGSpringContextTests {
         obj2.put("gpid","N/A");
         obj2.put("hicl","18568");
         obj2.put("ndccode",57894006003L);
-        obj2.put("paglsubtaskid",CaseRelevanceData.getInstance().getSubtaskid());
+        obj2.put("paglsubtaskid",MemoryData.getCaseRelevanceData().getSubtaskid());
         obj2.put("route","Intravenous of Subcutaneous");
         obj2.put("stc","N/A");
         array.add(obj2);
         StringEntity entity = new StringEntity(array.toString(),"utf-8");
         post.setEntity(entity);
         logger.info("Parameter value："+array.toString());
-        HttpResponse response =UserInfo.getInstance().getDefaultHttpClient().execute(post);
+        HttpResponse response =MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(post);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
         JsonNode arrayNode= new ObjectMapper().readTree(jsonStr);

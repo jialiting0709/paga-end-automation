@@ -19,7 +19,7 @@ import org.testng.annotations.Test;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.medimpact.paga.end.automation.domain.ConfigBeanPropUrl;
-import com.medimpact.paga.end.automation.domain.UserInfo;
+import com.medimpact.paga.end.automation.domain.MemoryData;
 
 import java.io.IOException;
 
@@ -34,7 +34,7 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
     
     @BeforeTest(groups = "loginTrue",description = "Test preparation, get httpclient object",alwaysRun=true)
     public void beforeTest(){
-    	UserInfo.getInstance().setDefaultHttpClient(HttpClients.createDefault());
+    	MemoryData.getCaseRelevanceData().setDefaultHttpClient(HttpClients.createDefault());
 
     }
 
@@ -46,12 +46,11 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
 
     private String getResult() throws IOException {
     	logger.info("login url："+configBeanPropUrl.getUri()+configBeanPropUrl.getLogin());
-    	UserInfo.getInstance().setDefaultHttpClient(HttpClients.createDefault());
     	HttpPost post = new HttpPost(configBeanPropUrl.getUri()+configBeanPropUrl.getLogin());
         StringEntity entity = new StringEntity("username=wang&password=1111@ssword-7&grant_type=password", ContentType.APPLICATION_JSON);
         post.addHeader("authorization", "123");
         post.setEntity(entity);
-        HttpResponse response = UserInfo.getInstance().getDefaultHttpClient().execute(post);
+        HttpResponse response = MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(post);
         String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
         logger.info("Interface response results："+jsonStr);
         ObjectMapper mapper = new ObjectMapper();  
@@ -59,8 +58,7 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
 	    JsonNode data = root.path("username");
         String username = data.asText();  
         if(username != null || username.length()!= 0){
-        	UserInfo.getInstance().setUsername(username);
-
+        	MemoryData.getUserInfo().setUsername(username);
 //              TestConfig.access_token = jsonObject.getString("access_token");
 //              TestConfig.refresh_token = jsonObject.getString("refresh_token");
 //              TestConfig.token_type = jsonObject.getString("token_type");
