@@ -31,13 +31,14 @@ public class PreviewTest extends AbstractTestNGSpringContextTests{
 	        Assert.assertNotNull(res);
 	        Thread.sleep(3000);
 	    }
+	    
 	    private String run() throws IOException {
 	        StringBuilder sb =new StringBuilder(configBeanPropUrl.getUri()+configBeanPropUrl.getPreview());
 	        sb.append("/");
 	        sb.append(MemoryData.getCaseRelevanceData().getAddPathId());
 	        HttpGet get = new HttpGet(sb.toString());
 	        logger.info("rule preview url: "+sb.toString());
-	        get.addHeader("username", new UserInfo().getUsername());
+	        get.addHeader("username", MemoryData.getUserInfo().getUsername());
 //	        get.addHeader("username","wang");
 //	        get.addHeader("access_token",TestConfig.access_token);
 //	        get.addHeader("refresh_token",TestConfig.refresh_token);

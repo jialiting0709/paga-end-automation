@@ -14,13 +14,13 @@ public class SubTasksPage extends BasePage{
 	@FindBy(xpath="//tbody/tr/td[9]/button/span/mat-icon")
 	private  WebElement sub_mat_icon;
 	
-	@FindBy(xpath="/html/body/div/div[2]/div[1]/div[1]/div[1]/button[2]")
+	@FindBy(xpath="/html/body/div/div[2]/div[1]/div[1]/div[1]/button[3]")
 	private  WebElement sub_edit;
 	
 	@FindBy(xpath="//mat-form-field/div/div[1]/div[1]/input")
 	private  WebElement sub_input;
 	
-	@FindBy(xpath="/html/body/div/div[2]/div[1]/div[1]/div[1]/button[3]")
+	@FindBy(xpath="/html/body/div/div[2]/div[1]/div[1]/div[1]/button[4]")
 	private  WebElement sub_save;
 	
 	@FindBy(xpath="//app-sub-tasks/table/tbody/tr[1]/td[2]")

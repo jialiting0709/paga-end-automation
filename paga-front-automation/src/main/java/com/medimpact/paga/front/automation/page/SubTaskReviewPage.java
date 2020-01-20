@@ -18,7 +18,7 @@ public class SubTaskReviewPage extends BasePage {
 	@FindBy(xpath="//app-path-list/div/table/tbody/tr/td[4]/button")
 	private WebElement more_vert;
 
-	@FindBy(xpath="//*[contains(text(),'View')]")
+	@FindBy(xpath="//body/div[2]/div[2]/div/div/div/button")
 	private WebElement View;
 	
 	@FindBy(xpath="//app-comments/div/mat-form-field/div/div/div[2]")

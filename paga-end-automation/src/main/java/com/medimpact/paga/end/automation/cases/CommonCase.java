@@ -55,7 +55,7 @@ public class CommonCase {
 	
 	public static String getNewSubandTaskuuid(String url,HashMap<String, Object> map) throws InterruptedException, IOException{		
 		 HttpGet get = new HttpGet(url);
-		 get.addHeader("username", MemoryData.getUserInfo().getUsername());	
+		 get.addHeader("username",MemoryData.getUserInfo().getUsername());
 		 HttpResponse response = MemoryData.getCaseRelevanceData().getDefaultHttpClient().execute(get);
 	     String jsonStr = EntityUtils.toString(response.getEntity(),"utf-8");
 

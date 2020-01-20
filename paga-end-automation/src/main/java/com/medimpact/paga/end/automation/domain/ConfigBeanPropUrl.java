@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConfigBeanPropUrl {
 	
-	private String uri = "http://10.129.0.141:8001";
+	private String uri = "http://10.129.0.35:8001";
     private String login = "/auth/oauth/token";
     private String taskType = "/metadata/TASK_TYPE";
     private String allHdr = "/metadata/REQUEST_BY";

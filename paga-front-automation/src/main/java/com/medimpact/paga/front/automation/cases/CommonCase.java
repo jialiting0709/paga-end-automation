@@ -43,6 +43,7 @@ public class CommonCase {
 		subTaskReviewPage.click_Path_List();
 		//Click the operation button
 		subTaskReviewPage.click_more_vert();
+		Thread.sleep(2000);
 		//click Preview
 		subTaskReviewPage.click_Preview();
 		//Click blank

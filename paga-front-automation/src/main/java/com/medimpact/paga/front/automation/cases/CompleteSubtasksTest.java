@@ -37,7 +37,7 @@ public class CompleteSubtasksTest extends BaseTest{
 	    LinkCriteriaPage linkCriteriaPage = PageFactory.initElements(driver, LinkCriteriaPage.class);
 	    linkCriteriaPage.click_Add_DRUG();
 	    //input HICLcode
-	    linkCriteriaPage.input_HICL("18");
+	    linkCriteriaPage.input_HICL("01");
 	    Thread.sleep(1000);
 	    //Select first
 	    linkCriteriaPage.click_HICL_list();

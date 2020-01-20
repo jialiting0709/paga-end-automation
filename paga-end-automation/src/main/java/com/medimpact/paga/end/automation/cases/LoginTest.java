@@ -58,7 +58,7 @@ public class LoginTest extends AbstractTestNGSpringContextTests {
 	    JsonNode data = root.path("username");
         String username = data.asText();  
         if(username != null || username.length()!= 0){
-        	MemoryData.getUserInfo().setUsername(username);
+        	MemoryData.getUserInfo().setUsername("wang");
 //              TestConfig.access_token = jsonObject.getString("access_token");
 //              TestConfig.refresh_token = jsonObject.getString("refresh_token");
 //              TestConfig.token_type = jsonObject.getString("token_type");

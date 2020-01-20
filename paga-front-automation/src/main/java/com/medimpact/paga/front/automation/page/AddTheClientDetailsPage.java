@@ -29,11 +29,11 @@ public class AddTheClientDetailsPage extends BasePage{
 	@FindBy(xpath="/html/body/div[2]/div[2]/div/div/div/mat-option")
 	private WebElement Guideline_Set_mat_option;
 	
-	@FindBy(xpath="//form/p[3]/mat-form-field[2]/div/div/div[3]/mat-select/div/div[2]")
-	private WebElement Guideline_Code;
+	@FindBy(xpath="//form/p[3]/mat-form-field/div/div/div[3]/mat-select/div/div[2]/div")
+	private WebElement Line_of_Business;//Line of Business
 	
-	@FindBy(xpath="//body/div[2]/div[2]/div/div/div/mat-option/span")
-	private WebElement Guideline_Code_mat_option;
+	@FindBy(xpath="//body/div/div[2]/div/div/div/mat-option")
+	private WebElement click_Line_of_Business_mat_option;
 	
 	@FindBy(xpath="//*[@ng-reflect-name='numberOfGuidelines']")
 	private WebElement number_Of_Guidelines;
@@ -57,12 +57,12 @@ public class AddTheClientDetailsPage extends BasePage{
 		this.sendkeys(number_Of_Guidelines, s);
 	}
 	
-	public void click_Guideline_Code_mat_option(){
-		this.click(Guideline_Code_mat_option);
+	public void click_click_Line_of_Business_mat_option(){
+		this.click(click_Line_of_Business_mat_option);
 	}
 	
-	public void click_Guideline_Code(){
-		this.click(Guideline_Code);
+	public void click_Line_of_Business(){
+		this.click(Line_of_Business);
 	}
 
 	public void click_Guideline_Set_mat_option(){

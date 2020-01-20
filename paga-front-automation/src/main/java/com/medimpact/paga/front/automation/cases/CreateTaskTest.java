@@ -11,6 +11,7 @@ import com.medimpact.paga.front.automation.page.AddTaskPage;
 import com.medimpact.paga.front.automation.page.AddTheClientDetailsPage;
 import com.medimpact.paga.front.automation.page.AssignTheTaskPage;
 import com.medimpact.paga.front.automation.page.ManagementPage;
+import com.medimpact.paga.front.automation.page.MyWorkbenchPage;
 import com.medimpact.paga.front.automation.page.SubTasksPage;
 import com.medimpact.paga.front.automation.page.TaskDetailPage;
 import com.medimpact.paga.front.automation.utils.DataUtils;
@@ -50,7 +51,6 @@ public class CreateTaskTest extends BaseTest{
 		addTaskPage.click_select_create();
 		//Enter task expiration time
 		String dueDate = DataUtils.getStringDate(432000000L);
-    	String effective = DataUtils.getStringDate(864000000L);
 		addTaskPage.input_mat("10");
 		//Click requested by drop-down box
 		addTaskPage.click_requested_by();
@@ -63,7 +63,11 @@ public class CreateTaskTest extends BaseTest{
 		addTaskPage.input_Requested_Email("123@qq.com");
 		//inputtask Due
 		addTaskPage.input_task_Due(dueDate);
-		//click 
+		//click Guideline Code select
+		addTaskPage.click_select_Guideline_Code();
+		//Select first
+		addTaskPage.click_select_Guideline_Code_one();
+		
 		//inputtask Description
 		addTaskPage.input_task_Description("test a task_jia");
 		//click Next
@@ -74,35 +78,37 @@ public class CreateTaskTest extends BaseTest{
 		//input
 		addTheClientDetailsPage.input_HQ_header("H");
 		//Select first
-		addTheClientDetailsPage.clisk_MDT();
-		
+		addTheClientDetailsPage.clisk_MDT();	
 		//Click the HQ code search box
 		addTheClientDetailsPage.click_HQ_code();
 		//Select first
-		addTheClientDetailsPage.click_mat_option_code();
-		
+		addTheClientDetailsPage.click_mat_option_code();	
 		Actions actions = new Actions(driver);
 	    actions.moveByOffset(0, 0).click().build().perform();
 	    Thread.sleep(2000);
-	    
-		//Click guide set drop-down list
-		addTheClientDetailsPage.click_Guideline_Set();
-		Thread.sleep(1000);
-		//Select first
-		addTheClientDetailsPage.click_Guideline_Set_mat_option();
 		//Click guideline code drop-down list
-		addTheClientDetailsPage.click_Guideline_Code();
+		addTheClientDetailsPage.click_Line_of_Business();
 		//Select first
-		addTheClientDetailsPage.click_Guideline_Code_mat_option();
+		addTheClientDetailsPage.click_click_Line_of_Business_mat_option();
+	
+//		//Click guide set drop-down list
+//		addTheClientDetailsPage.click_Guideline_Set();
+//		Thread.sleep(1000);
+//		//Select first
+//		addTheClientDetailsPage.click_Guideline_Set_mat_option();
+//
 		//input number Of Guidelines
 		addTheClientDetailsPage.send_number_Of_Guidelines("1");
-		//input effectiveDate
-		addTheClientDetailsPage.send_effective_Date(effective);
+		
+//		//input effectiveDate
+//		addTheClientDetailsPage.send_effective_Date(effective);
 		//click NEXT
 		addTaskPage.click_next_button();
 		//Design输入wang
 		AssignTheTaskPage assignTheTaskPage = PageFactory.initElements(driver, AssignTheTaskPage.class);	
 		assignTheTaskPage.input_Design("wang");
+		//input task due
+		assignTheTaskPage.input_task_due(DataUtils.getStringDate(1L));
 		Thread.sleep(2000);
 		//Click Next
 		assignTheTaskPage.click_Design_next();
@@ -126,17 +132,18 @@ public class CreateTaskTest extends BaseTest{
 		
 	}
 	
-	//@Test(dependsOnMethods = {"editTask"},description = "Edit subtask")
+	@Test(dependsOnMethods = {"editTask"},description = "Edit subtask")
 	public void editSubTasks() throws InterruptedException{
 		//Pull down scroll bar
 		subTasksPage = PageFactory.initElements(driver, SubTasksPage.class);		
 		subTasksPage.scroll();
 		//Click the operation button
 		subTasksPage.click_sub_mat_icon();
+		Thread.sleep(2000);
 		//Click Edit
 		subTasksPage.click_sub_edit();
 		//Input for editing
-		subTasksPage.input_sub_name("321");
+		subTasksPage.input_sub_name("1");
 		//Click the operation button
 		subTasksPage.click_sub_mat_icon();
 		//Click save
@@ -144,7 +151,7 @@ public class CreateTaskTest extends BaseTest{
 		Thread.sleep(2000);
 		//Get the edited input
 		String sub_name = subTasksPage.get_sub_name();
-		Assert.assertEquals(sub_name, "321");		
+		Assert.assertEquals(sub_name, "1");		
 	}
 		
 	@Test(dependsOnMethods = {"editTask"},description = "Submit subtasks")
@@ -157,10 +164,10 @@ public class CreateTaskTest extends BaseTest{
 	
 	@Test(dependsOnMethods = {"submitTask"},description = "Distribution sub process")
 	public void assign_to() throws InterruptedException{	
-		subTasksPage = PageFactory.initElements(driver, SubTasksPage.class);
-		
+		subTasksPage = PageFactory.initElements(driver, SubTasksPage.class);		
 		//Click the operation button
 		subTasksPage.click_caozuo();
+		Thread.sleep(1000);
 		//click Assign to
 		subTasksPage.click_Assign_to();
 		Thread.sleep(1000);
@@ -169,17 +176,18 @@ public class CreateTaskTest extends BaseTest{
 		Thread.sleep(1000);
 		//click Assign
 		subTasksPage.click_Assign_button();	
-//		Thread.sleep(1000);
-//		//Click the back button
-//		taskDetailPage.click_arrow_back();		
-//		//Click menu menu
-//		managementPage.click_Task_menu();
-//		//click My Workbench
-//		managementPage.click_My_Workbench();
-//		//click subtasks in Process
-//		MyWorkbenchPage myWorkbenchPage = PageFactory.initElements(driver, MyWorkbenchPage.class);
-//		myWorkbenchPage.click_SubTasks_in_Process();
-//		String result = myWorkbenchPage.subtask_names("321");
+		Thread.sleep(1000);
+		//Click the back button
+		taskDetailPage.click_arrow_back();		
+		//Click menu menu
+		managementPage.click_Task_menu();
+		Thread.sleep(1000);
+		//click My Workbench		
+		managementPage.click_My_Workbench();
+		//click subtasks in Process
+		MyWorkbenchPage myWorkbenchPage = PageFactory.initElements(driver, MyWorkbenchPage.class);
+		myWorkbenchPage.click_SubTasks_in_Process();
+		String result = myWorkbenchPage.subtask_names("1");
 //		Assert.assertEquals(result, "1");
 	}
 	

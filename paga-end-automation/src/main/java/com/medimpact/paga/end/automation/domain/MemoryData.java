@@ -15,7 +15,5 @@ public class MemoryData {
 	public static CaseRelevanceData getCaseRelevanceData(){
 		return data;
 	}	
-	
-	
 
 }

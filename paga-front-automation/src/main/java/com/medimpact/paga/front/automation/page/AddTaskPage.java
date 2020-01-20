@@ -44,6 +44,22 @@ public class AddTaskPage extends BasePage{
 	@FindBy(xpath="")
 	private WebElement sales_Force_Case_Number;
 	
+	
+	@FindBy(xpath="//form/p[3]/mat-form-field[2]/div/div/div[3]/mat-select/div/div[2]")
+	private WebElement select_Guideline_Code;
+	
+	
+	@FindBy(xpath="//body/div/div[2]/div/div/div/mat-option")
+	private WebElement select_Guideline_Code_one;
+	
+	public void click_select_Guideline_Code_one(){
+		this.click(select_Guideline_Code_one);
+	}
+	
+	public void click_select_Guideline_Code(){
+		this.click(select_Guideline_Code);
+	}
+	
 	public void input_task_Due(String input){
 		this.sendkeys(task_Due, input);
 	}

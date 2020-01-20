@@ -18,7 +18,6 @@ public class ApproveSubTaskReviewTest extends BaseTest{
 	@Test(dependsOnMethods = "login",description = "Submission Review")
 	public void approveSubTaskReview() throws InterruptedException{
 		publicTest.approveSubTaskReview(driver, "first comment", "wang", "My Workbench");
-
 		
 	}
 }

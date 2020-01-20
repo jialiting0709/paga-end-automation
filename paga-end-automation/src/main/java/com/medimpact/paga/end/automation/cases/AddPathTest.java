@@ -43,7 +43,7 @@ public class AddPathTest extends AbstractTestNGSpringContextTests{
 		ArrayNode criteriasArr = mapper.createArrayNode();
 		ObjectNode criteriasJSO = mapper.createObjectNode();
 		criteriasJSO.put("condition", "is");
-		criteriasJSO.put("value", "12");
+		criteriasJSO.put("value", "value");
 		criteriasJSO.put("criteriaCode",MemoryData.getCaseRelevanceData().getCriteriaCode());//
 		criteriasArr.add(criteriasJSO);
 		criteriaJS.set("criterias", criteriasArr);

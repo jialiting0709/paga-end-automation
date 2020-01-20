@@ -20,6 +20,13 @@ public class AssignTheTaskPage extends BasePage{
 	@FindBy(xpath="//app-add-task-step/mat-toolbar/button[2]")
 	private WebElement Design_button;
 	
+	@FindBy(xpath="//*[@ng-reflect-name='taskDue']")
+	private WebElement task_due;
+	
+	public void input_task_due(String s){
+		this.sendkeys(task_due, s);
+	}	
+	
 	public void click_Design_next(){
 		this.click(Design_button);
 	}
